@@ -1,0 +1,80 @@
+[
+  {
+    "id": "alevel-english-2565-01",
+    "source": "alevel",
+    "subject": "english",
+    "topics": ["grammar"],
+    "year": 2565,
+    "number": 1,
+    "type": "choice",
+    "question": "She ______ to school by bus every day.",
+    "image": null,
+    "choices": ["go", "goes", "going", "is go"],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-english-2565-05",
+    "source": "alevel",
+    "subject": "english",
+    "topics": ["vocabulary"],
+    "year": 2565,
+    "number": 5,
+    "type": "choice",
+    "question": "The word \"abundant\" is closest in meaning to ______.",
+    "image": null,
+    "choices": ["scarce", "plentiful", "expensive", "hidden"],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-english-2566-03",
+    "source": "alevel",
+    "subject": "english",
+    "topics": ["conversation"],
+    "year": 2566,
+    "number": 3,
+    "type": "choice",
+    "question": "A: Thank you so much for helping me with my homework.\nB: ______",
+    "image": null,
+    "choices": ["Don't mention it.", "Yes, I do.", "That's too bad.", "Never mind me."],
+    "answer": "1"
+  },
+  {
+    "id": "alevel-english-2566-10",
+    "source": "alevel",
+    "subject": "english",
+    "topics": ["grammar"],
+    "year": 2566,
+    "number": 10,
+    "type": "choice",
+    "question": "If I ______ you, I would apologize to her right away.",
+    "image": null,
+    "choices": ["am", "was being", "were", "had been"],
+    "answer": "3"
+  },
+  {
+    "id": "alevel-english-2567-04",
+    "source": "alevel",
+    "subject": "english",
+    "topics": ["reading"],
+    "year": 2567,
+    "number": 4,
+    "type": "choice",
+    "question": "Bangkok is famous for its street food. Vendors line the sidewalks from early morning until late at night, selling everything from grilled pork to mango sticky rice. For many visitors, eating at these stalls is the highlight of their trip.\n\nWhat is the passage mainly about?",
+    "image": null,
+    "choices": ["The history of Thai cooking", "Street food in Bangkok", "How to cook mango sticky rice", "Traffic on Bangkok's sidewalks"],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-english-2567-08",
+    "source": "alevel",
+    "subject": "english",
+    "topics": ["vocabulary"],
+    "year": 2567,
+    "number": 8,
+    "type": "written",
+    "question": "Write ONE word that means the same as \"reluctant\" and begins with the letter \"u\".",
+    "image": null,
+    "choices": null,
+    "answer": "unwilling"
+  }
+]

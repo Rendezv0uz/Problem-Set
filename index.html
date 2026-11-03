@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>คลังข้อสอบ | ข้อสอบ A-Level แยกตามวิชาและปี</title>
+  <meta name="description" content="รวมข้อสอบ A-Level เก่า แยกตามวิชาและปี สร้างชุดข้อสอบเป็น PDF และดูสัดส่วนคะแนนมหาวิทยาลัยในฝัน">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">A-Level · TCAS</p>
+          <h1>คลังข้อสอบสำหรับเตรียมสอบ</h1>
+          <p class="lead">รวมข้อสอบเก่า แยกตามวิชาและปี เพื่อให้ค้นหาและฝึกทำได้ง่ายขึ้น</p>
+          <div class="hero-actions">
+            <a class="btn btn-light" href="create.html">สร้างชุดข้อสอบ</a>
+            <a class="btn btn-outline-light" href="#dream">ดูสัดส่วนคะแนนมหาวิทยาลัย</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 340 250" fill="none">
+            <ellipse cx="160" cy="222" rx="140" ry="16" fill="#ffffff" opacity=".07"/>
+            <rect x="40" y="168" width="190" height="34" rx="7" fill="#8f7cf7"/>
+            <rect x="52" y="174" width="172" height="8" rx="2" fill="#ffffff" opacity=".9"/>
+            <rect x="52" y="186" width="172" height="8" rx="2" fill="#ffffff" opacity=".55"/>
+            <rect x="58" y="132" width="168" height="34" rx="7" fill="#4f6fe0"/>
+            <rect x="70" y="138" width="150" height="8" rx="2" fill="#ffffff" opacity=".9"/>
+            <rect x="70" y="150" width="150" height="8" rx="2" fill="#ffffff" opacity=".55"/>
+            <rect x="48" y="98" width="176" height="32" rx="7" fill="#b9a8ff"/>
+            <rect x="60" y="104" width="158" height="7" rx="2" fill="#ffffff" opacity=".9"/>
+            <rect x="60" y="115" width="158" height="7" rx="2" fill="#ffffff" opacity=".55"/>
+            <rect x="196" y="98" width="10" height="32" fill="#f2a65a"/>
+            <g transform="rotate(9 270 110)">
+              <rect x="214" y="22" width="112" height="160" rx="12" fill="#ffffff"/>
+              <rect x="232" y="44" width="62" height="8" rx="4" fill="#c9c1f5"/>
+              <path d="M234 76l6 6 11-12" stroke="#5b3fd1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="258" y="73" width="50" height="7" rx="3.5" fill="#dcd6fa"/>
+              <path d="M234 104l6 6 11-12" stroke="#5b3fd1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="258" y="101" width="44" height="7" rx="3.5" fill="#dcd6fa"/>
+              <path d="M234 132l6 6 11-12" stroke="#5b3fd1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="258" y="129" width="50" height="7" rx="3.5" fill="#dcd6fa"/>
+              <rect x="232" y="156" width="40" height="7" rx="3.5" fill="#dcd6fa"/>
+            </g>
+            <path d="M42 46l3.5 9.5L55 59l-9.5 3.5L42 72l-3.5-9.5L29 59l9.5-3.5z" fill="#ffffff" opacity=".55"/>
+            <path d="M170 30l2.5 6.5L179 39l-6.5 2.5L170 48l-2.5-6.5L161 39l6.5-2.5z" fill="#ffffff" opacity=".4"/>
+            <path d="M320 200l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffffff" opacity=".45"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="subjects-title">
+      <h2 class="section-title" id="subjects-title">เลือกหมวดหมู่ข้อสอบ</h2>
+      <div class="subject-grid" id="subject-grid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+    </section>
+
+    <section class="section container" id="dream" aria-labelledby="dream-title">
+      <h2 class="section-title" id="dream-title">มหาวิทยาลัยในฝัน</h2>
+      <p class="section-sub">เลือกมหาวิทยาลัยและคณะเพื่อดูสัดส่วนคะแนนที่ใช้ยื่น เว็บจะจำตัวเลือกไว้ในเบราว์เซอร์นี้</p>
+      <div class="dream-card">
+        <div class="dream-controls">
+          <label class="field">
+            <span class="field-label">มหาวิทยาลัย</span>
+            <select id="uni-select"></select>
+          </label>
+          <label class="field">
+            <span class="field-label">คณะ / สาขา</span>
+            <select id="faculty-select" disabled></select>
+          </label>
+        </div>
+        <div class="dream-result" id="dream-result" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

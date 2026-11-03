@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ข้อสอบรายวิชา | คลังข้อสอบ</title>
+  <meta name="description" content="ข้อสอบ A-Level ฉบับเต็ม แยกตามปี เปิดดูและดาวน์โหลด PDF ได้">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="crumbs" aria-label="เส้นทาง">
+          <a href="index.html">หน้าแรก</a>
+          <span aria-hidden="true">/</span>
+          <span id="crumb-name">วิชา</span>
+        </nav>
+        <div class="page-hero-row">
+          <span class="page-hero-icon" id="subject-icon"></span>
+          <div>
+            <h1 id="subject-name">กำลังโหลด…</h1>
+            <p class="lead" id="subject-desc"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <nav class="tabs" id="subject-tabs" aria-label="เลือกวิชา"></nav>
+    </div>
+
+    <section class="section container" aria-labelledby="exam-title">
+      <div class="section-head">
+        <h2 class="section-title" id="exam-title">ข้อสอบฉบับเต็ม</h2>
+        <a class="btn btn-soft" id="create-link" href="create.html">สร้างชุดข้อสอบวิชานี้</a>
+      </div>
+      <ul class="exam-list" id="exam-list">
+        <li class="skeleton-row"></li>
+        <li class="skeleton-row"></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/subject.js"></script>
+</body>
+</html>

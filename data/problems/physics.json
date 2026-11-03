@@ -1,0 +1,80 @@
+[
+  {
+    "id": "alevel-physics-2565-01",
+    "source": "alevel",
+    "subject": "physics",
+    "topics": ["mechanics"],
+    "year": 2565,
+    "number": 1,
+    "type": "choice",
+    "question": "วัตถุมวล $2\\ \\text{kg}$ ถูกแรงลัพธ์ขนาด $10\\ \\text{N}$ กระทำ ความเร่งของวัตถุมีขนาดเท่าใด",
+    "image": null,
+    "choices": ["$0.2\\ \\text{m/s}^2$", "$2\\ \\text{m/s}^2$", "$5\\ \\text{m/s}^2$", "$12\\ \\text{m/s}^2$", "$20\\ \\text{m/s}^2$"],
+    "answer": "3"
+  },
+  {
+    "id": "alevel-physics-2565-06",
+    "source": "alevel",
+    "subject": "physics",
+    "topics": ["mechanics"],
+    "year": 2565,
+    "number": 6,
+    "type": "choice",
+    "question": "กล่องมวล $m$ วางนิ่งอยู่บนพื้นเอียงที่ทำมุม $30^\\circ$ กับแนวระดับ ดังรูป ขนาดของแรงเสียดทานสถิตที่กระทำต่อกล่องเท่ากับข้อใด",
+    "image": "images/alevel/physics-2565-06.svg",
+    "choices": ["$mg$", "$mg\\sin 30^\\circ$", "$mg\\cos 30^\\circ$", "$mg\\tan 30^\\circ$", "$0$"],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-physics-2566-04",
+    "source": "alevel",
+    "subject": "physics",
+    "topics": ["waves"],
+    "year": 2566,
+    "number": 4,
+    "type": "written",
+    "question": "คลื่นขบวนหนึ่งมีความถี่ $50\\ \\text{Hz}$ และความยาวคลื่น $2\\ \\text{m}$ อัตราเร็วของคลื่นนี้เป็นกี่เมตรต่อวินาที",
+    "image": null,
+    "choices": null,
+    "answer": "100"
+  },
+  {
+    "id": "alevel-physics-2566-09",
+    "source": "alevel",
+    "subject": "physics",
+    "topics": ["electricity"],
+    "year": 2566,
+    "number": 9,
+    "type": "choice",
+    "question": "จากวงจรในรูป ตัวต้านทาน $4\\,\\Omega$ และ $6\\,\\Omega$ ต่ออนุกรมกับแบตเตอรี่ $20\\ \\text{V}$ กระแสไฟฟ้าในวงจรมีค่าเท่าใด",
+    "image": "images/alevel/physics-2566-09.svg",
+    "choices": ["$1\\ \\text{A}$", "$2\\ \\text{A}$", "$3\\ \\text{A}$", "$5\\ \\text{A}$", "$10\\ \\text{A}$"],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-physics-2567-03",
+    "source": "alevel",
+    "subject": "physics",
+    "topics": ["thermal"],
+    "year": 2567,
+    "number": 3,
+    "type": "written",
+    "question": "ต้องใช้ความร้อนกี่จูลเพื่อทำให้น้ำมวล $0.5\\ \\text{kg}$ มีอุณหภูมิเพิ่มขึ้น $10^\\circ\\text{C}$ (กำหนดความร้อนจำเพาะของน้ำ $4200\\ \\text{J}/(\\text{kg}\\cdot\\text{K})$)",
+    "image": null,
+    "choices": null,
+    "answer": "21000"
+  },
+  {
+    "id": "alevel-physics-2567-08",
+    "source": "alevel",
+    "subject": "physics",
+    "topics": ["modern"],
+    "year": 2567,
+    "number": 8,
+    "type": "choice",
+    "question": "แสงความถี่ $5 \\times 10^{14}\\ \\text{Hz}$ มีพลังงานต่อโฟตอนเท่าใด (กำหนด $h = 6.6 \\times 10^{-34}\\ \\text{J}\\cdot\\text{s}$)",
+    "image": null,
+    "choices": ["$1.3 \\times 10^{-48}\\ \\text{J}$", "$3.3 \\times 10^{-20}\\ \\text{J}$", "$3.3 \\times 10^{-19}\\ \\text{J}$", "$6.6 \\times 10^{-19}\\ \\text{J}$", "$3.3 \\times 10^{-18}\\ \\text{J}$"],
+    "answer": "3"
+  }
+]

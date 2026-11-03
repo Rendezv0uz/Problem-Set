@@ -1,0 +1,80 @@
+[
+  {
+    "id": "alevel-biology-2565-03",
+    "source": "alevel",
+    "subject": "biology",
+    "topics": ["cell"],
+    "year": 2565,
+    "number": 3,
+    "type": "choice",
+    "question": "ออร์แกเนลล์ในข้อใดทำหน้าที่สร้าง ATP ผ่านกระบวนการหายใจระดับเซลล์เป็นหลัก",
+    "image": null,
+    "choices": ["ไรโบโซม", "ไมโทคอนเดรีย", "กอลจิคอมเพล็กซ์", "ไลโซโซม", "นิวคลีโอลัส"],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-biology-2565-12",
+    "source": "alevel",
+    "subject": "biology",
+    "topics": ["genetics"],
+    "year": 2565,
+    "number": 12,
+    "type": "choice",
+    "question": "ผสมพันธุ์ระหว่างพ่อแม่ที่มีจีโนไทป์ $Aa \\times Aa$ ลูกที่มีจีโนไทป์ $aa$ จะมีสัดส่วนเท่าใด",
+    "image": null,
+    "choices": ["$0$", "$\\frac{1}{4}$", "$\\frac{1}{2}$", "$\\frac{3}{4}$", "$1$"],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-biology-2566-06",
+    "source": "alevel",
+    "subject": "biology",
+    "topics": ["cell"],
+    "year": 2566,
+    "number": 6,
+    "type": "choice",
+    "question": "จากภาพเซลล์สัตว์ โครงสร้างที่ชี้ด้วยลูกศร X คือข้อใด",
+    "image": "images/alevel/biology-2566-06.svg",
+    "choices": ["นิวเคลียส", "ไมโทคอนเดรีย", "เยื่อหุ้มเซลล์", "แวคิวโอล", "คลอโรพลาสต์"],
+    "answer": "1"
+  },
+  {
+    "id": "alevel-biology-2566-15",
+    "source": "alevel",
+    "subject": "biology",
+    "topics": ["ecology"],
+    "year": 2566,
+    "number": 15,
+    "type": "choice",
+    "question": "สิ่งมีชีวิตในข้อใดทำหน้าที่เป็นผู้ผลิตในระบบนิเวศ",
+    "image": null,
+    "choices": ["เห็ด", "ตั๊กแตน", "สาหร่ายสีเขียว", "แบคทีเรียย่อยสลาย", "กบ"],
+    "answer": "3"
+  },
+  {
+    "id": "alevel-biology-2567-02",
+    "source": "alevel",
+    "subject": "biology",
+    "topics": ["plant"],
+    "year": 2567,
+    "number": 2,
+    "type": "written",
+    "question": "แก๊สใดถูกปล่อยออกมาจากปฏิกิริยาแสง (light reaction) ของการสังเคราะห์ด้วยแสง",
+    "image": null,
+    "choices": null,
+    "answer": "แก๊สออกซิเจน ($\\text{O}_2$)"
+  },
+  {
+    "id": "alevel-biology-2567-20",
+    "source": "alevel",
+    "subject": "biology",
+    "topics": ["human"],
+    "year": 2567,
+    "number": 20,
+    "type": "choice",
+    "question": "ฮอร์โมนในข้อใดทำหน้าที่ลดระดับน้ำตาลในเลือด",
+    "image": null,
+    "choices": ["กลูคากอน", "อินซูลิน", "อะดรีนาลีน", "ไทรอกซิน", "คอร์ติซอล"],
+    "answer": "2"
+  }
+]

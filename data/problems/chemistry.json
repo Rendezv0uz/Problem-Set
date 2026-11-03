@@ -1,0 +1,80 @@
+[
+  {
+    "id": "alevel-chemistry-2565-02",
+    "source": "alevel",
+    "subject": "chemistry",
+    "topics": ["atom"],
+    "year": 2565,
+    "number": 2,
+    "type": "written",
+    "question": "ธาตุ $^{23}_{11}\\text{Na}$ มีจำนวนนิวตรอนเท่าใด",
+    "image": null,
+    "choices": null,
+    "answer": "12"
+  },
+  {
+    "id": "alevel-chemistry-2565-07",
+    "source": "alevel",
+    "subject": "chemistry",
+    "topics": ["stoichiometry"],
+    "year": 2565,
+    "number": 7,
+    "type": "choice",
+    "question": "แก๊ส $\\text{CO}_2$ มวล $44\\ \\text{g}$ มีจำนวนกี่โมล (กำหนดมวลอะตอม C = 12, O = 16)",
+    "image": null,
+    "choices": ["$0.5$", "$1$", "$2$", "$22.4$", "$44$"],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-chemistry-2566-05",
+    "source": "alevel",
+    "subject": "chemistry",
+    "topics": ["acid-base"],
+    "year": 2566,
+    "number": 5,
+    "type": "written",
+    "question": "สารละลาย $\\text{HCl}$ เข้มข้น $0.01\\ \\text{mol/dm}^3$ มี pH เท่าใด",
+    "image": null,
+    "choices": null,
+    "answer": "2"
+  },
+  {
+    "id": "alevel-chemistry-2566-10",
+    "source": "alevel",
+    "subject": "chemistry",
+    "topics": ["bonding"],
+    "year": 2566,
+    "number": 10,
+    "type": "choice",
+    "question": "โมเลกุลในข้อใดมีรูปร่างเป็นมุมงอ",
+    "image": null,
+    "choices": ["$\\text{CO}_2$", "$\\text{H}_2\\text{O}$", "$\\text{CH}_4$", "$\\text{BF}_3$", "$\\text{BeCl}_2$"],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-chemistry-2567-04",
+    "source": "alevel",
+    "subject": "chemistry",
+    "topics": ["organic"],
+    "year": 2567,
+    "number": 4,
+    "type": "choice",
+    "question": "สารประกอบที่มีสูตรโครงสร้างดังรูป จัดเป็นสารอินทรีย์ประเภทใด",
+    "image": "images/alevel/chemistry-2567-04.svg",
+    "choices": ["แอลเคน", "แอลกอฮอล์", "กรดคาร์บอกซิลิก", "เอสเทอร์", "แอลดีไฮด์"],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-chemistry-2567-09",
+    "source": "alevel",
+    "subject": "chemistry",
+    "topics": ["gas"],
+    "year": 2567,
+    "number": 9,
+    "type": "written",
+    "question": "แก๊สอุดมคติปริมาตร $2\\ \\text{dm}^3$ ที่ความดัน $1\\ \\text{atm}$ ถ้าอุณหภูมิคงที่และเพิ่มความดันเป็น $4\\ \\text{atm}$ ปริมาตรใหม่เป็นกี่ลูกบาศก์เดซิเมตร",
+    "image": null,
+    "choices": null,
+    "answer": "0.5"
+  }
+]

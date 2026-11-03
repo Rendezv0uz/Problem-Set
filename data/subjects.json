@@ -1,0 +1,88 @@
+{
+  "sources": [
+    { "id": "alevel", "name": "A-Level" }
+  ],
+  "subjects": [
+    {
+      "id": "math1",
+      "name": "คณิตศาสตร์ประยุกต์ 1",
+      "description": "ข้อสอบคณิตศาสตร์ประยุกต์ 1 (คณิตศาสตร์พื้นฐาน + เพิ่มเติม)",
+      "icon": "calculator",
+      "topics": [
+        { "id": "set", "name": "เซต" },
+        { "id": "logic", "name": "ตรรกศาสตร์" },
+        { "id": "function", "name": "ฟังก์ชัน" },
+        { "id": "exponent", "name": "เลขยกกำลัง" },
+        { "id": "sequence", "name": "ลำดับและอนุกรม" },
+        { "id": "probability", "name": "ความน่าจะเป็น" },
+        { "id": "statistics", "name": "สถิติ" }
+      ]
+    },
+    {
+      "id": "math2",
+      "name": "คณิตศาสตร์ประยุกต์ 2",
+      "description": "ข้อสอบคณิตศาสตร์ประยุกต์ 2 (คณิตศาสตร์พื้นฐาน)",
+      "icon": "sigma",
+      "topics": [
+        { "id": "matrix", "name": "เมทริกซ์" },
+        { "id": "limit", "name": "ลิมิต" },
+        { "id": "derivative", "name": "อนุพันธ์" },
+        { "id": "integral", "name": "ปริพันธ์" },
+        { "id": "vector", "name": "เวกเตอร์" },
+        { "id": "complex", "name": "จำนวนเชิงซ้อน" }
+      ]
+    },
+    {
+      "id": "physics",
+      "name": "ฟิสิกส์",
+      "description": "ข้อสอบฟิสิกส์ครบทุกบท พร้อมเฉลย",
+      "icon": "atom",
+      "topics": [
+        { "id": "mechanics", "name": "กลศาสตร์" },
+        { "id": "waves", "name": "คลื่น" },
+        { "id": "electricity", "name": "ไฟฟ้า" },
+        { "id": "thermal", "name": "ความร้อน" },
+        { "id": "modern", "name": "ฟิสิกส์ยุคใหม่" }
+      ]
+    },
+    {
+      "id": "chemistry",
+      "name": "เคมี",
+      "description": "ข้อสอบเคมีครบทุกหัวข้อ",
+      "icon": "flask",
+      "topics": [
+        { "id": "atom", "name": "อะตอมและตารางธาตุ" },
+        { "id": "stoichiometry", "name": "ปริมาณสารสัมพันธ์" },
+        { "id": "bonding", "name": "พันธะเคมี" },
+        { "id": "gas", "name": "แก๊ส" },
+        { "id": "acid-base", "name": "กรด-เบส" },
+        { "id": "organic", "name": "เคมีอินทรีย์" }
+      ]
+    },
+    {
+      "id": "biology",
+      "name": "ชีววิทยา",
+      "description": "ข้อสอบชีววิทยาและแนวข้อสอบ",
+      "icon": "dna",
+      "topics": [
+        { "id": "cell", "name": "เซลล์" },
+        { "id": "genetics", "name": "พันธุศาสตร์" },
+        { "id": "ecology", "name": "นิเวศวิทยา" },
+        { "id": "plant", "name": "พืช" },
+        { "id": "human", "name": "ร่างกายมนุษย์" }
+      ]
+    },
+    {
+      "id": "english",
+      "name": "ภาษาอังกฤษ",
+      "description": "ข้อสอบภาษาอังกฤษทุกพาร์ต",
+      "icon": "language",
+      "topics": [
+        { "id": "grammar", "name": "Grammar" },
+        { "id": "vocabulary", "name": "Vocabulary" },
+        { "id": "conversation", "name": "Conversation" },
+        { "id": "reading", "name": "Reading" }
+      ]
+    }
+  ]
+}

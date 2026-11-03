@@ -1,0 +1,80 @@
+[
+  {
+    "id": "alevel-math2-2565-03",
+    "source": "alevel",
+    "subject": "math2",
+    "topics": ["matrix"],
+    "year": 2565,
+    "number": 3,
+    "type": "written",
+    "question": "กำหนดให้ $A = \\begin{bmatrix} 2 & 1 \\\\ 3 & 4 \\end{bmatrix}$ จงหาค่าของ $\\det(A)$",
+    "image": null,
+    "choices": null,
+    "answer": "5"
+  },
+  {
+    "id": "alevel-math2-2565-08",
+    "source": "alevel",
+    "subject": "math2",
+    "topics": ["limit"],
+    "year": 2565,
+    "number": 8,
+    "type": "choice",
+    "question": "ค่าของ $$\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$$ เท่ากับข้อใด",
+    "image": null,
+    "choices": ["$0$", "$2$", "$4$", "$8$", "หาค่าไม่ได้"],
+    "answer": "3"
+  },
+  {
+    "id": "alevel-math2-2566-05",
+    "source": "alevel",
+    "subject": "math2",
+    "topics": ["derivative"],
+    "year": 2566,
+    "number": 5,
+    "type": "written",
+    "question": "ถ้า $f(x) = x^3 - 3x^2 + 5$ แล้ว $f'(2)$ มีค่าเท่าใด",
+    "image": null,
+    "choices": null,
+    "answer": "0"
+  },
+  {
+    "id": "alevel-math2-2566-11",
+    "source": "alevel",
+    "subject": "math2",
+    "topics": ["vector"],
+    "year": 2566,
+    "number": 11,
+    "type": "choice",
+    "question": "จากรูป เวกเตอร์ $\\vec{u}$ และ $\\vec{v}$ วาดบนตารางที่แต่ละช่องยาว 1 หน่วย ขนาดของ $\\vec{u} + \\vec{v}$ เท่ากับข้อใด",
+    "image": "images/alevel/math2-2566-11.svg",
+    "choices": ["$1$", "$5$", "$7$", "$12$", "$25$"],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-math2-2567-02",
+    "source": "alevel",
+    "subject": "math2",
+    "topics": ["integral"],
+    "year": 2567,
+    "number": 2,
+    "type": "written",
+    "question": "จงหาค่าของ $$\\int_{0}^{2} (3x^2 + 1)\\,dx$$",
+    "image": null,
+    "choices": null,
+    "answer": "10"
+  },
+  {
+    "id": "alevel-math2-2567-07",
+    "source": "alevel",
+    "subject": "math2",
+    "topics": ["complex"],
+    "year": 2567,
+    "number": 7,
+    "type": "choice",
+    "question": "ถ้า $z = 3 + 4i$ แล้ว $|z|$ เท่ากับข้อใด",
+    "image": null,
+    "choices": ["$3$", "$4$", "$5$", "$7$", "$25$"],
+    "answer": "3"
+  }
+]

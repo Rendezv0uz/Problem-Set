@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>สร้างชุดข้อสอบ | คลังข้อสอบ</title>
+  <meta name="description" content="เลือกวิชา หัวข้อ และช่วงปี แล้วดาวน์โหลดชุดข้อสอบเป็น PDF พร้อมเฉลย">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="crumbs" aria-label="เส้นทาง">
+          <a href="index.html">หน้าแรก</a>
+          <span aria-hidden="true">/</span>
+          <span>สร้างชุดข้อสอบ</span>
+        </nav>
+        <div class="page-hero-row">
+          <span class="page-hero-icon">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>
+          </span>
+          <div>
+            <h1>สร้างชุดข้อสอบ</h1>
+            <p class="lead">เลือกวิชา หัวข้อ และช่วงปี แล้วดาวน์โหลดเป็น PDF พร้อมเฉลยในหน้าสุดท้าย</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container builder">
+      <form class="builder-panel" id="builder-form" onsubmit="return false">
+        <div class="field">
+          <span class="field-label">แหล่งข้อสอบ</span>
+          <div class="chip-group" id="source-group"></div>
+        </div>
+
+        <label class="field">
+          <span class="field-label">วิชา</span>
+          <select id="subject-select"></select>
+        </label>
+
+        <div class="field">
+          <div class="field-label-row">
+            <span class="field-label">หัวข้อ</span>
+            <button type="button" class="link-btn" id="topic-all">เลือกทั้งหมด</button>
+          </div>
+          <div class="chip-group" id="topic-group"></div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">ช่วงปี</span>
+          <div class="range-row">
+            <select id="year-from" aria-label="ตั้งแต่ปี"></select>
+            <span>ถึง</span>
+            <select id="year-to" aria-label="ถึงปี"></select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="switch">
+            <input type="checkbox" id="limit-toggle">
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span>กำหนดจำนวนข้อ (สุ่มเลือก)</span>
+          </label>
+          <div class="limit-row" id="limit-row" hidden>
+            <input type="number" id="limit-input" min="1" value="10" inputmode="numeric" aria-label="จำนวนข้อ">
+            <span class="muted" id="limit-max"></span>
+            <button type="button" class="btn btn-soft btn-sm" id="reshuffle">
+              <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h4v4M4 20L20 4M20 16v4h-4M15 15l5 5M4 4l5 5"/></svg>
+              สุ่มใหม่
+            </button>
+          </div>
+        </div>
+
+        <label class="field">
+          <span class="field-label">ชื่อชุดข้อสอบ <span class="muted">(ไม่บังคับ)</span></span>
+          <input type="text" id="set-title" maxlength="80" placeholder="เช่น ชุดฝึกเซต ก่อนสอบ">
+        </label>
+      </form>
+
+      <div class="builder-preview">
+        <div class="preview-head">
+          <div>
+            <h2>ตัวอย่างชุดข้อสอบ</h2>
+            <p class="muted" id="match-count" aria-live="polite">กำลังโหลด…</p>
+          </div>
+          <button type="button" class="btn btn-primary" id="download-btn" disabled>
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 19.5h14"/></svg>
+            ดาวน์โหลด PDF
+          </button>
+        </div>
+        <div class="preview-list" id="preview-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script defer src="js/data.js"></script>
+  <script defer src="js/common.js"></script>
+  <script defer src="js/create.js"></script>
+</body>
+</html>

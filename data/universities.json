@@ -1,0 +1,178 @@
+{
+  "exams": {
+    "gpax": "GPAX",
+    "tgat": "TGAT ความถนัดทั่วไป",
+    "tpat2": "TPAT2 ความถนัดศิลปกรรมศาสตร์",
+    "tpat3": "TPAT3 ความถนัดวิทยาศาสตร์ เทคโนโลยี วิศวกรรมศาสตร์",
+    "tpat5": "TPAT5 ความถนัดครุศาสตร์-ศึกษาศาสตร์",
+    "math1": "A-Level คณิตศาสตร์ประยุกต์ 1",
+    "math2": "A-Level คณิตศาสตร์ประยุกต์ 2",
+    "physics": "A-Level ฟิสิกส์",
+    "chemistry": "A-Level เคมี",
+    "biology": "A-Level ชีววิทยา",
+    "english": "A-Level ภาษาอังกฤษ",
+    "thai": "A-Level ภาษาไทย",
+    "social": "A-Level สังคมศึกษา"
+  },
+  "universities": [
+    {
+      "id": "chula",
+      "name": "จุฬาลงกรณ์มหาวิทยาลัย",
+      "faculties": [
+        {
+          "id": "eng",
+          "name": "คณะวิศวกรรมศาสตร์",
+          "program": "วิศวกรรมศาสตร์ (ไม่ระบุสาขา)",
+          "year": 2568,
+          "verified": false,
+          "source": "ข้อมูลตัวอย่างสำหรับทดสอบระบบ",
+          "weights": [
+            { "exam": "tgat", "percent": 20 },
+            { "exam": "tpat3", "percent": 30 },
+            { "exam": "math1", "percent": 25 },
+            { "exam": "physics", "percent": 25 }
+          ]
+        },
+        {
+          "id": "sci",
+          "name": "คณะวิทยาศาสตร์",
+          "program": "วิทยาศาสตร์ (ไม่ระบุสาขา)",
+          "year": 2568,
+          "verified": false,
+          "source": "ข้อมูลตัวอย่างสำหรับทดสอบระบบ",
+          "weights": [
+            { "exam": "tgat", "percent": 10 },
+            { "exam": "math1", "percent": 30 },
+            { "exam": "physics", "percent": 20 },
+            { "exam": "chemistry", "percent": 20 },
+            { "exam": "biology", "percent": 20 }
+          ]
+        },
+        {
+          "id": "econ",
+          "name": "คณะเศรษฐศาสตร์",
+          "program": "เศรษฐศาสตร์ (ภาคภาษาไทย)",
+          "year": 2568,
+          "verified": false,
+          "source": "ข้อมูลตัวอย่างสำหรับทดสอบระบบ",
+          "weights": [
+            { "exam": "tgat", "percent": 30 },
+            { "exam": "math1", "percent": 40 },
+            { "exam": "english", "percent": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mahidol",
+      "name": "มหาวิทยาลัยมหิดล",
+      "faculties": [
+        {
+          "id": "pharm",
+          "name": "คณะเภสัชศาสตร์",
+          "program": "เภสัชศาสตร์",
+          "year": 2568,
+          "verified": false,
+          "source": "ข้อมูลตัวอย่างสำหรับทดสอบระบบ",
+          "weights": [
+            { "exam": "tgat", "percent": 15 },
+            { "exam": "math1", "percent": 15 },
+            { "exam": "physics", "percent": 15 },
+            { "exam": "chemistry", "percent": 30 },
+            { "exam": "biology", "percent": 25 }
+          ]
+        },
+        {
+          "id": "ict",
+          "name": "คณะเทคโนโลยีสารสนเทศและการสื่อสาร",
+          "program": "เทคโนโลยีสารสนเทศ",
+          "year": 2568,
+          "verified": false,
+          "source": "ข้อมูลตัวอย่างสำหรับทดสอบระบบ",
+          "weights": [
+            { "exam": "gpax", "percent": 20 },
+            { "exam": "tgat", "percent": 30 },
+            { "exam": "tpat3", "percent": 20 },
+            { "exam": "math1", "percent": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ku",
+      "name": "มหาวิทยาลัยเกษตรศาสตร์",
+      "faculties": [
+        {
+          "id": "eng",
+          "name": "คณะวิศวกรรมศาสตร์",
+          "program": "วิศวกรรมคอมพิวเตอร์",
+          "year": 2568,
+          "verified": false,
+          "source": "ข้อมูลตัวอย่างสำหรับทดสอบระบบ",
+          "weights": [
+            { "exam": "gpax", "percent": 10 },
+            { "exam": "tpat3", "percent": 30 },
+            { "exam": "math1", "percent": 30 },
+            { "exam": "physics", "percent": 20 },
+            { "exam": "english", "percent": 10 }
+          ]
+        },
+        {
+          "id": "agro",
+          "name": "คณะอุตสาหกรรมเกษตร",
+          "program": "วิทยาศาสตร์และเทคโนโลยีการอาหาร",
+          "year": 2568,
+          "verified": false,
+          "source": "ข้อมูลตัวอย่างสำหรับทดสอบระบบ",
+          "weights": [
+            { "exam": "gpax", "percent": 20 },
+            { "exam": "math2", "percent": 20 },
+            { "exam": "chemistry", "percent": 30 },
+            { "exam": "biology", "percent": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tu",
+      "name": "มหาวิทยาลัยธรรมศาสตร์",
+      "faculties": [
+        {
+          "id": "account",
+          "name": "คณะพาณิชยศาสตร์และการบัญชี",
+          "program": "การบัญชี",
+          "year": 2568,
+          "verified": false,
+          "source": "ข้อมูลตัวอย่างสำหรับทดสอบระบบ",
+          "weights": [
+            { "exam": "tgat", "percent": 30 },
+            { "exam": "math1", "percent": 30 },
+            { "exam": "english", "percent": 25 },
+            { "exam": "thai", "percent": 15 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmu",
+      "name": "มหาวิทยาลัยเชียงใหม่",
+      "faculties": [
+        {
+          "id": "med-tech",
+          "name": "คณะเทคนิคการแพทย์",
+          "program": "เทคนิคการแพทย์",
+          "year": 2568,
+          "verified": false,
+          "source": "ข้อมูลตัวอย่างสำหรับทดสอบระบบ",
+          "weights": [
+            { "exam": "tgat", "percent": 20 },
+            { "exam": "math2", "percent": 15 },
+            { "exam": "physics", "percent": 15 },
+            { "exam": "chemistry", "percent": 25 },
+            { "exam": "biology", "percent": 25 }
+          ]
+        }
+      ]
+    }
+  ]
+}
