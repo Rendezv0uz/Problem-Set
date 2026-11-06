@@ -1,6 +1,8 @@
 const SOLVED_KEY = 'problemweb.solved';
 const FILTER_KEY = 'problemweb.practice.';
 
+const setupView = document.getElementById('setup-view');
+const solveView = document.getElementById('solve-view');
 const stage = document.getElementById('practice-stage');
 const statsBar = document.getElementById('practice-stats');
 const els = {
@@ -11,6 +13,7 @@ const els = {
   yearTo: document.getElementById('year-to'),
   hideSolved: document.getElementById('hide-solved'),
   count: document.getElementById('match-count'),
+  start: document.getElementById('start-btn'),
 };
 
 let subject = null;
@@ -21,7 +24,8 @@ let solved = new Set();
 
 let queue = [];
 let current = null;
-let answered = false;
+let attempts = 0;
+let finished = false; // current problem solved or given up
 let showingSummary = false;
 let history = [];
 let streak = 0;
@@ -37,10 +41,6 @@ function shuffle(list) {
 
 function sourceName(id) {
   return sources.find((s) => s.id === id)?.name || id;
-}
-
-function topicName(id) {
-  return subject.topics.find((t) => t.id === id)?.name || id;
 }
 
 function normalize(value) {
@@ -66,7 +66,7 @@ function isWrittenCorrect(problem, input) {
   return [problem.answer, ...(problem.accept || [])].some((a) => normalize(a) === target);
 }
 
-/* ---------- filters ---------- */
+/* ---------- step 1: choose topics ---------- */
 
 function availableYears() {
   return [...new Set(allProblems.map((p) => p.year))].sort((a, b) => a - b);
@@ -143,6 +143,7 @@ function renderFilters() {
 
   els.hideSolved.checked = state.hideSolved;
   renderTopics();
+  renderMatchCount();
 }
 
 function renderTopics() {
@@ -161,6 +162,7 @@ function renderMatchCount() {
   if (!state.sources.length) els.count.textContent = 'เลือกแหล่งข้อสอบอย่างน้อย 1 แหล่ง';
   else if (!state.topics.length) els.count.textContent = 'เลือกหัวข้ออย่างน้อย 1 หัวข้อ';
   else els.count.textContent = `มี ${n} ข้อที่ตรงเงื่อนไข`;
+  els.start.disabled = n === 0;
 }
 
 function checkedValues(container) {
@@ -181,10 +183,28 @@ function onFilterChange() {
   state.hideSolved = els.hideSolved.checked;
   saveState();
   renderTopics();
-  restartPool();
+  renderMatchCount();
 }
 
-/* ---------- practice flow ---------- */
+function showSetup() {
+  current = null;
+  solveView.hidden = true;
+  setupView.hidden = false;
+  renderFilters();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function startPractice() {
+  const list = pool();
+  if (!list.length) return;
+  queue = shuffle(list);
+  setupView.hidden = true;
+  solveView.hidden = false;
+  nextQuestion();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ---------- step 2: solve ---------- */
 
 function renderStats() {
   const done = history.length;
@@ -194,47 +214,36 @@ function renderStats() {
     <div class="stat"><strong>${done}</strong><span>ทำแล้ว</span></div>
     <div class="stat"><strong>${correct}</strong><span>ถูก${done ? ` (${pct}%)` : ''}</span></div>
     <div class="stat"><strong>${streak}</strong><span>ถูกติดกัน</span></div>
-    ${done ? '<button type="button" class="btn btn-soft btn-sm" id="summary-btn">ดูสรุป</button>' : ''}`;
+    <div class="stats-actions">
+      ${done ? '<button type="button" class="btn btn-soft btn-sm" id="summary-btn">ดูสรุป</button>' : ''}
+      <button type="button" class="btn btn-ghost-dark btn-sm" id="change-btn">เปลี่ยนหัวข้อ</button>
+    </div>`;
   const summaryBtn = document.getElementById('summary-btn');
   if (summaryBtn) summaryBtn.addEventListener('click', renderSummary);
-}
-
-function restartPool() {
-  renderMatchCount();
-  queue = shuffle(pool());
-  nextQuestion();
+  document.getElementById('change-btn').addEventListener('click', showSetup);
 }
 
 function nextQuestion() {
   showingSummary = false;
   const total = pool().length;
 
-  if (!state.sources.length || !state.topics.length || total === 0) {
-    current = null;
-    const reason = !state.sources.length
-      ? 'เลือกแหล่งข้อสอบอย่างน้อย 1 แหล่ง'
-      : !state.topics.length
-        ? 'เลือกหัวข้ออย่างน้อย 1 หัวข้อ'
-        : state.hideSolved
-          ? 'คุณทำถูกครบทุกข้อที่ตรงเงื่อนไขแล้ว ลองปิดตัวเลือก "ซ่อนข้อที่ทำถูกแล้ว" หรือเปลี่ยนตัวกรอง'
-          : 'ไม่พบข้อสอบที่ตรงเงื่อนไข ลองเปลี่ยนตัวกรองทางซ้าย';
-    stage.innerHTML = `<div class="empty-state"><p>${reason}</p></div>`;
-    renderStats();
-    return;
-  }
-
   if (!queue.length) {
     current = null;
     stage.innerHTML = `
       <div class="empty-state">
-        <p><strong>ทำครบทุกข้อที่ตรงเงื่อนไขแล้ว (${total} ข้อ)</strong></p>
-        <p class="muted">เปลี่ยนตัวกรองเพื่อฝึกเรื่องอื่น หรือสุ่มวนทำใหม่อีกรอบ</p>
-        <button type="button" class="btn btn-primary" id="again-btn">${icon('shuffle', 'icon-sm')} สุ่มวนใหม่</button>
+        <p><strong>ทำครบทุกข้อในหัวข้อที่เลือกแล้ว (${total} ข้อ)</strong></p>
+        <p class="muted">เปลี่ยนหัวข้อเพื่อฝึกเรื่องอื่น หรือสุ่มวนทำใหม่อีกรอบ</p>
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="again-btn">${icon('shuffle', 'icon-sm')} สุ่มวนใหม่</button>
+          <button type="button" class="btn btn-soft" id="topics-btn">เปลี่ยนหัวข้อ</button>
+        </div>
       </div>`;
     document.getElementById('again-btn').addEventListener('click', () => {
       queue = shuffle(pool());
-      nextQuestion();
+      if (queue.length) nextQuestion();
+      else showSetup();
     });
+    document.getElementById('topics-btn').addEventListener('click', showSetup);
     renderStats();
     return;
   }
@@ -269,16 +278,16 @@ function writtenHtml() {
 
 function renderQuestion() {
   const problem = current;
-  answered = false;
+  attempts = 0;
+  finished = false;
   const isChoice = Array.isArray(problem.choices);
-  const isDone = solved.has(problem.id);
 
+  // Only the source is shown: no year, question number or topic.
   stage.innerHTML = `
     <article class="practice-card">
       <div class="q-head">
         <span class="q-no">ข้อที่ ${history.length + 1}</span>
-        <span class="q-src">${escapeHtml(sourceName(problem.source))} ${problem.year} · ข้อ ${problem.number} · ${escapeHtml(problem.topics.map(topicName).join(', '))}</span>
-        ${isDone ? '<span class="badge badge-ok">เคยทำถูกแล้ว</span>' : ''}
+        <span class="q-src">${escapeHtml(sourceName(problem.source))}</span>
       </div>
       <div class="q-text practice-question">${richText(problem.question)}</div>
       ${problem.image ? `<figure class="q-figure"><img src="${problem.image}" alt="ภาพประกอบโจทย์"></figure>` : ''}
@@ -286,9 +295,9 @@ function renderQuestion() {
       <div class="feedback" id="feedback" hidden></div>
     </article>
     <div class="practice-actions">
-      <span class="muted practice-hint">${isChoice ? `กด 1–${problem.choices.length} เพื่อเลือก · ` : ''}Enter เพื่อตรวจ / ไปข้อถัดไป</span>
-      <button type="button" class="btn btn-ghost-dark" id="skip-btn">ข้าม</button>
-      <button type="button" class="btn btn-primary" id="action-btn" disabled>ตรวจคำตอบ</button>
+      <span class="muted practice-hint">${isChoice ? `กด 1–${problem.choices.length} เพื่อเลือก · ` : ''}Enter เพื่อส่งคำตอบ</span>
+      <button type="button" class="btn btn-ghost-dark" id="giveup-btn" hidden>ยอมแพ้</button>
+      <button type="button" class="btn btn-primary" id="action-btn" disabled>ส่งคำตอบ</button>
     </div>`;
 
   renderMath(stage);
@@ -302,44 +311,84 @@ function renderQuestion() {
   } else {
     const input = document.getElementById('written-input');
     input.addEventListener('input', () => {
+      input.classList.remove('is-wrong');
       actionBtn.disabled = input.value.trim() === '';
     });
     input.focus({ preventScroll: true });
   }
-  actionBtn.addEventListener('click', () => (answered ? nextQuestion() : check()));
-  document.getElementById('skip-btn').addEventListener('click', nextQuestion);
+  actionBtn.addEventListener('click', () => (finished ? nextQuestion() : submitAnswer()));
+  document.getElementById('giveup-btn').addEventListener('click', giveUp);
 }
 
-function check() {
+function submitAnswer() {
   const problem = current;
   const isChoice = Array.isArray(problem.choices);
+  const actionBtn = document.getElementById('action-btn');
   let correct;
 
   if (isChoice) {
     const selected = stage.querySelector('input[name="option"]:checked');
     if (!selected) return;
     correct = selected.value === String(problem.answer);
-    stage.querySelectorAll('.option').forEach((option) => {
-      const input = option.querySelector('input');
-      input.disabled = true;
-      if (input.value === String(problem.answer)) option.classList.add('is-correct');
-      else if (input.checked) option.classList.add('is-wrong');
-    });
+    if (!correct) {
+      // Wrong choice is crossed out so another one can be tried. The right one is NOT revealed.
+      selected.checked = false;
+      selected.disabled = true;
+      selected.closest('.option').classList.add('is-wrong');
+      actionBtn.disabled = true;
+    }
   } else {
     const input = document.getElementById('written-input');
     const given = input.value.trim();
     if (!given) return;
     correct = isWrittenCorrect(problem, given);
-    input.disabled = true;
-    input.classList.add(correct ? 'is-correct' : 'is-wrong');
+    if (!correct) {
+      input.classList.add('is-wrong');
+      input.focus();
+      input.select();
+    }
   }
 
-  answered = true;
-  history.push({ problem, correct });
+  attempts += 1;
+  const feedback = document.getElementById('feedback');
+
+  if (!correct) {
+    feedback.className = 'feedback is-wrong';
+    feedback.innerHTML = `
+      <p class="feedback-title">${icon('close', 'icon-sm')} ยังไม่ถูก</p>
+      <p>ลองตอบใหม่ได้เรื่อย ๆ หรือกด “ยอมแพ้” เพื่อดูเฉลย (ลองแล้ว ${attempts} ครั้ง)</p>`;
+    feedback.hidden = false;
+    document.getElementById('giveup-btn').hidden = false;
+    return;
+  }
+
+  finish(true);
+}
+
+function finish(correct) {
+  const problem = current;
+  const isChoice = Array.isArray(problem.choices);
+  finished = true;
+  history.push({ problem, correct, attempts, gaveUp: !correct });
   streak = correct ? streak + 1 : 0;
   if (correct && !solved.has(problem.id)) {
     solved.add(problem.id);
     saveSolved();
+  }
+
+  stage.querySelectorAll('input').forEach((input) => {
+    input.disabled = true;
+  });
+  const input = document.getElementById('written-input');
+  if (input) input.classList.toggle('is-wrong', false);
+
+  if (isChoice) {
+    stage.querySelectorAll('.option').forEach((option) => {
+      option.classList.remove('is-wrong');
+      if (option.querySelector('input').value === String(problem.answer)) option.classList.add('is-correct');
+    });
+  } else if (input) {
+    input.classList.toggle('is-correct', correct);
   }
 
   const answerLabel = isChoice
@@ -348,19 +397,26 @@ function check() {
 
   const feedback = document.getElementById('feedback');
   feedback.className = `feedback ${correct ? 'is-correct' : 'is-wrong'}`;
-  feedback.innerHTML = `
-    <p class="feedback-title">${icon(correct ? 'check' : 'close', 'icon-sm')} ${correct ? 'ถูกต้อง!' : 'ยังไม่ถูก'}</p>
-    ${correct ? '' : `<p>คำตอบที่ถูกคือ <strong>${answerLabel}</strong></p>`}
-    ${problem.explanation ? `<p class="feedback-explain">${richText(problem.explanation)}</p>` : ''}`;
+  feedback.innerHTML = correct
+    ? `<p class="feedback-title">${icon('check', 'icon-sm')} ถูกต้อง!${attempts > 1 ? ` (ใช้ ${attempts} ครั้ง)` : ''}</p>
+       ${problem.explanation ? `<p class="feedback-explain">${richText(problem.explanation)}</p>` : ''}`
+    : `<p class="feedback-title">${icon('close', 'icon-sm')} เฉลย</p>
+       <p>คำตอบที่ถูกคือ <strong>${answerLabel}</strong></p>
+       ${problem.explanation ? `<p class="feedback-explain">${richText(problem.explanation)}</p>` : ''}`;
   feedback.hidden = false;
   renderMath(feedback);
 
-  document.getElementById('skip-btn').hidden = true;
+  document.getElementById('giveup-btn').hidden = true;
   const actionBtn = document.getElementById('action-btn');
   actionBtn.textContent = 'ข้อถัดไป';
   actionBtn.disabled = false;
   actionBtn.focus({ preventScroll: true });
   renderStats();
+}
+
+function giveUp() {
+  if (!current || finished) return;
+  finish(false);
 }
 
 function renderSummary() {
@@ -374,7 +430,7 @@ function renderSummary() {
         <span class="review-mark">${icon(h.correct ? 'check' : 'close', 'icon-sm')}</span>
         <span class="review-text">
           <strong>ข้อที่ ${i + 1}</strong>
-          <span class="muted">${escapeHtml(h.problem.topics.map(topicName).join(', '))} · ${escapeHtml(sourceName(h.problem.source))} ${h.problem.year} ข้อ ${h.problem.number}</span>
+          <span class="muted">${escapeHtml(sourceName(h.problem.source))} · ${h.gaveUp ? 'ยอมแพ้' : h.attempts === 1 ? 'ถูกในครั้งแรก' : `ถูกในครั้งที่ ${h.attempts}`}</span>
         </span>
       </li>`
     )
@@ -393,30 +449,28 @@ function renderSummary() {
     </article>`;
   document.getElementById('continue-btn').addEventListener('click', () => {
     showingSummary = false;
-    if (current) {
-      renderQuestion();
-    } else {
-      nextQuestion();
-    }
+    if (current && !finished) renderQuestion();
+    else nextQuestion();
   });
   document.getElementById('reset-btn').addEventListener('click', () => {
     history = [];
     streak = 0;
-    nextQuestion();
+    if (current && !finished) renderQuestion();
+    else nextQuestion();
   });
 }
 
 document.addEventListener('keydown', (event) => {
-  if (!current || showingSummary || event.target.closest('#filter-form')) return;
+  if (solveView.hidden || !current || showingSummary) return;
   const actionBtn = document.getElementById('action-btn');
   if (event.key === 'Enter' && actionBtn && !actionBtn.disabled) {
     event.preventDefault();
     actionBtn.click();
     return;
   }
-  if (answered || event.target.matches('input[type="text"]')) return;
+  if (finished || event.target.matches('input[type="text"]')) return;
   const option = stage.querySelectorAll('input[name="option"]')[Number(event.key) - 1];
-  if (option) {
+  if (option && !option.disabled) {
     option.checked = true;
     option.dispatchEvent(new Event('change', { bubbles: true }));
   }
@@ -428,6 +482,7 @@ function bindFilters() {
   els.yearFrom.addEventListener('change', onFilterChange);
   els.yearTo.addEventListener('change', onFilterChange);
   els.hideSolved.addEventListener('change', onFilterChange);
+  els.start.addEventListener('click', startPractice);
   els.topicAll.addEventListener('click', () => {
     const allChecked = subject.topics.every((t) => state.topics.includes(t.id));
     els.topics.querySelectorAll('input').forEach((input) => {
@@ -443,7 +498,7 @@ function bindFilters() {
   subject = subjects.find((s) => s.id === id);
 
   if (!subject) {
-    stage.innerHTML = '<div class="empty-state"><p>ไม่พบวิชาที่เลือก</p><a class="btn btn-soft" href="index.html">กลับหน้าแรก</a></div>';
+    setupView.innerHTML = '<div class="empty-state"><p>ไม่พบวิชาที่เลือก</p><a class="btn btn-soft" href="index.html">กลับหน้าแรก</a></div>';
     return;
   }
 
@@ -456,12 +511,13 @@ function bindFilters() {
   try {
     [allProblems, sources] = await Promise.all([DataStore.getProblems(subject.id), DataStore.getSources()]);
   } catch (error) {
-    showError(stage, error.message);
+    setupView.innerHTML = '';
+    showError(setupView, error.message);
     return;
   }
 
   if (!allProblems.length) {
-    stage.innerHTML = '<div class="empty-state"><p>ยังไม่มีข้อสอบให้ฝึกในวิชานี้</p></div>';
+    setupView.innerHTML = '<div class="empty-state"><p>ยังไม่มีข้อสอบให้ฝึกในวิชานี้</p></div>';
     return;
   }
 
@@ -469,5 +525,4 @@ function bindFilters() {
   state = loadState();
   renderFilters();
   bindFilters();
-  restartPool();
 })();

@@ -1442,12 +1442,34 @@ body.is-exporting {
   height: 360px;
 }
 
-.practice-layout {
-  grid-template-columns: 340px minmax(0, 1fr);
+.practice-setup {
+  position: static;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
-.practice-main {
-  min-width: 0;
+.setup-title {
+  margin: 0;
+  font-size: 1.35rem;
+  color: var(--plum-800);
+}
+
+.setup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 4px;
+}
+
+.setup-footer p {
+  margin: 0;
+}
+
+.stats-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
 }
 
 .practice-stats {
@@ -1475,10 +1497,6 @@ body.is-exporting {
 .practice-stats .stat span {
   font-size: 0.82rem;
   color: var(--muted);
-}
-
-.practice-stats .btn {
-  margin-left: auto;
 }
 
 .practice-actions {

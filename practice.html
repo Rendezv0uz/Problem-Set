@@ -26,12 +26,13 @@
           <span>ฝึกทำออนไลน์</span>
         </nav>
         <h1 id="practice-title">ฝึกทำข้อสอบ</h1>
-        <p class="lead">เลือกหัวข้อและช่วงปีที่ต้องการ แล้วทำได้ไม่จำกัดข้อ ตรวจคำตอบได้ทันที</p>
+        <p class="lead">เลือกหัวข้อที่ต้องการก่อน แล้วทำโจทย์ได้ไม่จำกัดข้อ ตอบผิดก็ลองใหม่ได้เรื่อย ๆ</p>
       </div>
     </section>
 
-    <section class="section container builder practice-layout">
-      <form class="builder-panel" id="filter-form" onsubmit="return false">
+    <section class="section container" id="setup-view">
+      <form class="builder-panel practice-setup" id="filter-form" onsubmit="return false">
+        <h2 class="setup-title">เลือกหัวข้อที่อยากฝึก</h2>
         <div class="field">
           <span class="field-label">แหล่งข้อสอบ</span>
           <div class="chip-group" id="source-group"></div>
@@ -62,10 +63,15 @@
           </label>
         </div>
 
-        <p class="muted" id="match-count" aria-live="polite">กำลังโหลด…</p>
+        <div class="setup-footer">
+          <p class="muted" id="match-count" aria-live="polite">กำลังโหลด…</p>
+          <button type="button" class="btn btn-primary" id="start-btn" disabled>เริ่มทำโจทย์</button>
+        </div>
       </form>
+    </section>
 
-      <div class="practice-main">
+    <section class="section container" id="solve-view" hidden>
+      <div class="practice-shell">
         <div class="practice-stats" id="practice-stats" aria-live="polite"></div>
         <div id="practice-stage">
           <div class="skeleton-card practice-skeleton"></div>
