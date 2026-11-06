@@ -607,6 +607,608 @@
     "answer": "40"
   },
   {
+    "id": "alevel-math1-2567-01",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "logic"
+    ],
+    "year": 2567,
+    "number": 1,
+    "type": "choice",
+    "question": "ข้อใดเป็นนิเสธของข้อความ “ถ้านักเรียนทุกคนสอบผ่าน แล้วมีนักเรียนบางคนได้รับรางวัล”",
+    "image": null,
+    "choices": [
+      "นักเรียนทุกคนสอบผ่าน และนักเรียนทุกคนไม่ได้รับรางวัล",
+      "นักเรียนบางคนสอบไม่ผ่าน และนักเรียนทุกคนไม่ได้รับรางวัล",
+      "นักเรียนบางคนสอบไม่ผ่าน และนักเรียนบางคนได้รับรางวัล",
+      "ถ้านักเรียนทุกคนสอบผ่าน แล้วนักเรียนบางคนไม่ได้รับรางวัล",
+      "ถ้านักเรียนบางคนสอบไม่ผ่าน แล้วนักเรียนทุกคนไม่ได้รับรางวัล"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "alevel-math1-2567-02",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "logic"
+    ],
+    "year": 2567,
+    "number": 2,
+    "type": "choice",
+    "question": "ข้อใดเป็นสัจนิรันดร์",
+    "image": null,
+    "choices": [
+      "$(p \\vee q) \\rightarrow (\\sim p \\rightarrow r)$",
+      "$(p \\wedge q) \\rightarrow (\\sim p \\rightarrow r)$",
+      "$(p \\vee q) \\rightarrow (\\sim p \\vee r)$",
+      "$(p \\wedge q) \\rightarrow (\\sim p \\vee r)$",
+      "$(p \\rightarrow q) \\rightarrow (\\sim p \\vee r)$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-math1-2567-03",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "complex"
+    ],
+    "year": 2567,
+    "number": 3,
+    "type": "choice",
+    "question": "กำหนดให้ $z$ เป็นจำนวนเชิงซ้อน, $\\text{Re}(z) > 0$ และ $\\text{Im}(z) > 0$\nถ้า $z^6 + 1 = 0$ แล้วค่าของ $z^4 + z^2 + 1$ เท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$1 + \\sqrt{3}i$",
+      "$1 - \\sqrt{3}i$",
+      "$\\sqrt{3} - i$",
+      "$\\sqrt{3} + i$",
+      "$-\\sqrt{3} - i$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "alevel-math1-2567-04",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "complex"
+    ],
+    "year": 2567,
+    "number": 4,
+    "type": "choice",
+    "question": "ถ้า $z$ เป็นจำนวนเชิงซ้อน แล้วข้อใดสอดคล้องกับเงื่อนไข $|z| = \\sqrt{3}$ และ $|z - i| < 1$",
+    "image": null,
+    "choices": [
+      "$z = \\sqrt{3}(\\cos\\theta + i\\sin\\theta)$ เมื่อ $\\frac{\\pi}{6} < \\theta < \\frac{5\\pi}{6}$",
+      "$z = \\sqrt{3}(\\cos\\theta + i\\sin\\theta)$ เมื่อ $\\frac{\\pi}{4} < \\theta < \\frac{3\\pi}{4}$",
+      "$z = \\sqrt{3}(\\cos\\theta + i\\sin\\theta)$ เมื่อ $\\frac{\\pi}{3} < \\theta < \\frac{2\\pi}{3}$",
+      "$z = \\sqrt{3}(\\cos\\theta + i\\sin\\theta)$ เมื่อ $-\\frac{\\pi}{6} < \\theta < \\frac{\\pi}{6}$",
+      "$z = \\sqrt{3}(\\cos\\theta + i\\sin\\theta)$ เมื่อ $-\\frac{\\pi}{3} < \\theta < \\frac{\\pi}{3}$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "alevel-math1-2567-05",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2567,
+    "number": 5,
+    "type": "choice",
+    "question": "นักเรียน 5 คน มีอายุดังนี้ $5,\\ 6,\\ 10,\\ 3,\\ 6$ (หน่วยเป็นปี)\nความแปรปรวนของอายุนักเรียนกลุ่มนี้ มีค่าเท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$4.3$ ปี$^2$",
+      "$5.2$ ปี$^2$",
+      "$6.2$ ปี$^2$",
+      "$6.5$ ปี$^2$",
+      "$7.8$ ปี$^2$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-math1-2567-06",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "set"
+    ],
+    "year": 2567,
+    "number": 6,
+    "type": "choice",
+    "question": "กำหนดให้ $A, B, C$ เป็นเซต ซึ่ง $C \\subset (A - B)$ , $n(A) = 2 \\cdot n(B \\cup C)$ , $n[(A \\cap B) \\cup C] = 7$ และ $n(A \\cup B) = 20$ จำนวนสมาชิกของเซต $B - A$ มีค่าเท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$2$",
+      "$3$",
+      "$5$",
+      "$6$",
+      "$11$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "alevel-math1-2567-07",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "logarithm"
+    ],
+    "year": 2567,
+    "number": 7,
+    "type": "choice",
+    "question": "เซตคำตอบของอสมการ $\\log_{0.01}(x - 1) < \\log_{0.0001}(x - 1)$ เป็นสับเซตของเซตในข้อใด",
+    "image": null,
+    "choices": [
+      "$(-\\infty, -2)$",
+      "$(1, \\infty)$",
+      "$(1, 2)$",
+      "$(10, \\infty)$",
+      "$(100, 10000)$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-math1-2567-08",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "exponent"
+    ],
+    "year": 2567,
+    "number": 8,
+    "type": "choice",
+    "question": "กำหนดให้ $x$ และ $y$ เป็นจำนวนจริง และ $2^x - 8(2^y) = 0$ และ $2x + y = 6$\nค่าของ $2(3^x) + 4(3^{-y})$ เท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$\\frac{163}{3}$",
+      "$54$",
+      "$55$",
+      "$58$",
+      "$\\frac{166}{3}$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "alevel-math1-2567-09",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "derivative"
+    ],
+    "year": 2567,
+    "number": 9,
+    "type": "choice",
+    "question": "กำหนดให้ $f$ เป็นฟังก์ชันที่สามารถหาอนุพันธ์ได้และให้ $g(x) = \\left(f(x)\\right)^2$\nถ้า $f(7) = 3$ และ $g'(7) = 1$ แล้วอนุพันธ์ของ $f(2x^2 + 4x - 9)$ ที่ $x = 2$ มีค่าเท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$1$",
+      "$2$",
+      "$3$",
+      "$4$",
+      "$6$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-math1-2567-10",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "limit"
+    ],
+    "year": 2567,
+    "number": 10,
+    "type": "choice",
+    "question": "ถ้า $f : \\mathbb{R} \\to \\mathbb{R}$ และ $g : \\mathbb{R} \\to \\mathbb{R}$ เป็นฟังก์ชันต่อเนื่อง\nซึ่ง $g(1) = 2$ และ $g(x) = \\frac{xf(x) + 2x - f(x) - 2}{x^2 + 3x - 4}$ สำหรับทุกเมื่อ $x \\neq -4, 1$\nแล้ว $f(-4) + f(1)$ มีค่าเท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$6$",
+      "$8$",
+      "$10$",
+      "$12$",
+      "$14$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "alevel-math1-2567-11",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "derivative",
+      "integral"
+    ],
+    "year": 2567,
+    "number": 11,
+    "type": "choice",
+    "question": "กำหนดให้ $f$ เป็นฟังก์ชันพหุนามกำลังสองที่มีค่าต่ำสุดเป็น $-18$\nถ้าเส้นตรง $4x + y + 12 = 0$ สัมผัสเส้นโค้ง $y = f(x)$ ที่ $x = 1$\nแล้วพื้นที่ระหว่างเส้นโค้งนี้กับแกน X เมื่อ $0 \\le x \\le 3$ มีค่าเท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$24$ ตารางหน่วย",
+      "$32$ ตารางหน่วย",
+      "$48$ ตารางหน่วย",
+      "$64$ ตารางหน่วย",
+      "$72$ ตารางหน่วย"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "alevel-math1-2567-12",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "sequence"
+    ],
+    "year": 2567,
+    "number": 12,
+    "type": "choice",
+    "question": "กำหนดให้ $a_n$ เป็นพจน์ทั่วไปของลำดับเลขคณิต\nถ้า $(a_{28})^2 - (a_{25})^2 = 96$ แล้ว $(a_{29})^2 - (a_{24})^2$ มีค่าเท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$120$",
+      "$140$",
+      "$160$",
+      "$200$",
+      "$240$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "alevel-math1-2567-13",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "sequence"
+    ],
+    "year": 2567,
+    "number": 13,
+    "type": "choice",
+    "question": "ถ้า $\\sum_{k=1}^{48} \\frac{1}{k} = a$ เมื่อ $a$ เป็นจำนวนจริง\nแล้ว $\\frac{1}{2 \\cdot 48} + \\frac{1}{3 \\cdot 47} + \\frac{1}{4 \\cdot 46} + \\dots + \\frac{1}{48 \\cdot 2}$ มีค่าเท่ากับเท่าใดในเทอมของ $a$",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{50}(a - 1)$",
+      "$\\frac{1}{25}(a - 1)$",
+      "$\\frac{a}{50}$",
+      "$\\frac{a}{48}$",
+      "$\\frac{a}{25}$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-math1-2567-14",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "trigonometry"
+    ],
+    "year": 2567,
+    "number": 14,
+    "type": "choice",
+    "question": "ข้อใดคือรูปอย่างง่ายของ $\\frac{\\sin 2\\theta}{\\cos\\theta} + \\frac{\\cos 2\\theta}{\\sin\\theta}$",
+    "image": null,
+    "choices": [
+      "$\\sin\\theta$",
+      "$\\cos\\theta$",
+      "$\\tan\\theta$",
+      "$\\operatorname{cosec}\\theta$",
+      "$\\sec\\theta$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "alevel-math1-2567-15",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "trigonometry"
+    ],
+    "year": 2567,
+    "number": 15,
+    "type": "choice",
+    "question": "จำนวนคำตอบของสมการ $\\tan(ex) = \\tan(e\\pi)$ สำหรับ $x \\in [0, 2\\pi]$ เมื่อ $e$ มีค่าประมาณ $2.71$ มีจำนวนทั้งหมดเท่าใด",
+    "image": null,
+    "choices": [
+      "$1$",
+      "$2$",
+      "$3$",
+      "$4$",
+      "$5$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "alevel-math1-2567-16",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "polynomial"
+    ],
+    "year": 2567,
+    "number": 16,
+    "type": "choice",
+    "question": "กำหนดให้ $a$ เป็นจำนวนนับ และ $b$ และ $c$ เป็นจำนวนจริง\nถ้า $a$ , $\\frac{1}{a}$ และ $b$ เป็นคำตอบของสมการ $5x^3 - 86x^2 + cx - 60 = 0$ แล้ว $c - a - b$ เท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$291$",
+      "$301$",
+      "$300$",
+      "$310$",
+      "$324$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "alevel-math1-2567-17",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2567,
+    "number": 17,
+    "type": "choice",
+    "question": "จากชุดข้อมูลประชากรใดๆ พิจารณาข้อความต่อไปนี้\n(ก.) ควอไทล์ที่ 3 ย่อมมีค่าเท่ากับเปอร์เซ็นไทล์ที่ $75$\n(ข.) ค่ามัธยฐานย่อมมีค่าน้อยกว่าหรือเท่ากับเปอร์เซ็นไทล์ที่ $60$\n(ค.) ค่ามัธยฐานย่อมมีค่ามากกว่าหรือเท่ากับค่าเฉลี่ยเลขคณิต\nข้อสรุปใดถูกต้อง",
+    "image": null,
+    "choices": [
+      "มีเพียงข้อความ ก. และ ค. กล่าวถูกต้อง",
+      "มีเพียงข้อความ ก. และ ข. กล่าวถูกต้อง",
+      "มีเพียงข้อความ ก. กล่าวถูกต้อง",
+      "มีเพียงข้อความ ข. กล่าวถูกต้อง",
+      "มีเพียงข้อความ ค. กล่าวถูกต้อง"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-math1-2567-18",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "probability"
+    ],
+    "year": 2567,
+    "number": 18,
+    "type": "choice",
+    "question": "โรงงานสบู่ผลิตสบู่โดยใส่กล่องละ 1 ก้อน เกิดข้อผิดพลาด\nโดยจะมีบางกล่องที่ไม่ได้บรรจุสบู่ ความน่าจะเป็นเท่ากับ $0.02$\nถ้าสมคิดสุ่มซื้อสบู่ 10 กล่อง ความน่าจะเป็นที่จะได้กล่องที่ไม่มีสบู่น้อยกว่า 2 กล่อง เท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$(0.98)^{10}$",
+      "$10(0.98)^9(0.02)$",
+      "$(0.98)^{10} + 10(0.98)^9(0.02)$",
+      "$10(0.98)^9(0.02) + 45(0.98)^8(0.02)^2$",
+      "$(0.98)^{10} + 10(0.98)^9(0.02) + 45(0.98)^8(0.02)^2$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "alevel-math1-2567-19",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "function"
+    ],
+    "year": 2567,
+    "number": 19,
+    "type": "choice",
+    "question": "กำหนดให้ $f$ เป็นฟังก์ชันที่มีกราฟดังรูป\nนิยามให้ $g(x) = f(x - 1)$ และ $h(x) = f(x) + 2$ ตามลำดับ\nพิจารณาข้อความต่อไปนี้\nก. $g(x)$ เป็นฟังก์ชันลดบนช่วง $[1, 5]$\nข. กราฟของ $y = g(x)$ มีจุดตัดแกน X ที่จุด $(1, 0)$\nค. กราฟของ $y = h(x)$ มีจุดตัดแกน Y ที่จุด $(0, 7)$\nข้อความดังกล่าวข้างต้น ข้อความใดกล่าวถูกต้อง",
+    "image": "images/alevel/math1-2567-19.png",
+    "choices": [
+      "ข้อความ ก. ถูกต้องข้อความเดียว",
+      "ข้อความ ข. ถูกต้องข้อความเดียว",
+      "ข้อความ ค. ถูกต้องข้อความเดียว",
+      "ข้อความ ก. และ ข. ถูกต้อง",
+      "ข้อความ ก. และ ค. ถูกต้อง"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "alevel-math1-2567-20",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "conic"
+    ],
+    "year": 2567,
+    "number": 20,
+    "type": "choice",
+    "question": "จากสมการ $9x^2 + 18x - 16y^2 + 160y - 247 = 0$ จะได้กราฟตามข้อใด",
+    "image": null,
+    "choices": [
+      "ไฮเพอร์โบลา มีจุดยอด $(-1, -8)$ และ $(-1, -2)$",
+      "ไฮเพอร์โบลา มีจุดยอด $(-1, 2)$ และ $(-1, 8)$",
+      "ไฮเพอร์โบลา มีจุดยอด $(-4, 5)$ และ $(2, 5)$",
+      "ไฮเพอร์โบลา มีจุดยอด $(-5, 5)$ และ $(3, 5)$",
+      "ไฮเพอร์โบลา มีจุดยอด $(-3, -5)$ และ $(5, -5)$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-math1-2567-21",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "matrix"
+    ],
+    "year": 2567,
+    "number": 21,
+    "type": "choice",
+    "question": "จากสมการ $\\begin{bmatrix} 1 & 1 \\\\ 3 & 2 \\end{bmatrix}\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} = \\begin{bmatrix} -2 & 1 \\\\ 3 & 4 \\end{bmatrix}$ ค่าของ $2a + b + c + d$ เท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$-16$",
+      "$-6$",
+      "$0$",
+      "$6$",
+      "$16$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "alevel-math1-2567-22",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "vector"
+    ],
+    "year": 2567,
+    "number": 22,
+    "type": "choice",
+    "question": "กำหนดให้ $\\vec{v} = \\begin{bmatrix} 2 \\\\ 1 \\\\ -3 \\end{bmatrix}$ และ $\\vec{w} = \\begin{bmatrix} 2 \\\\ a \\\\ b \\end{bmatrix}$ ถ้า $\\vec{v} \\times \\vec{w} = \\begin{bmatrix} 4 \\\\ 10 \\\\ 6 \\end{bmatrix}$ แล้วค่าของ $a - 2b$ เท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$4$",
+      "$8$",
+      "$12$",
+      "$16$",
+      "$20$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "alevel-math1-2567-23",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "vector"
+    ],
+    "year": 2567,
+    "number": 23,
+    "type": "choice",
+    "question": "กำหนดให้ $\\vec{u} = \\begin{bmatrix} -1 \\\\ 0 \\\\ 1 \\end{bmatrix}$ , $\\vec{v} = \\begin{bmatrix} 1 \\\\ 1 \\\\ a \\end{bmatrix}$ และ $\\vec{w} = \\begin{bmatrix} b \\\\ 1 \\\\ 1 \\end{bmatrix}$\nถ้ามุมระหว่างเวกเตอร์ $\\vec{u}$ และ $\\vec{v}$ เท่ากับ $\\frac{2\\pi}{3}$ เรเดียน และเวกเตอร์ $\\vec{u}$ ตั้งฉากกับ $\\vec{w}$\nแล้วค่าของ $a + 3b$ เท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$1$",
+      "$3$",
+      "$5$",
+      "$7$",
+      "มีคำตอบที่เป็นไปได้มากกว่าหนึ่งคำตอบ"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "alevel-math1-2567-24",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "counting"
+    ],
+    "year": 2567,
+    "number": 24,
+    "type": "choice",
+    "question": "คุณแม่ซื้อโดนัทมา 6 ชิ้น โดยแต่ละชิ้นมีหน้าตาต่างกัน ต้องการแบ่งโดนัทให้ลูก 3 คน คนละ 2 ชิ้น\nคุณแม่จะสามารถแบ่งได้ทั้งหมดกี่วิธี",
+    "image": null,
+    "choices": [
+      "$15$ วิธี",
+      "$60$ วิธี",
+      "$90$ วิธี",
+      "$120$ วิธี",
+      "$720$ วิธี"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "alevel-math1-2567-25",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "probability"
+    ],
+    "year": 2567,
+    "number": 25,
+    "type": "choice",
+    "question": "สลากกินแบ่งรัฐบาลประกอบด้วยเลขโดด 6 หลักเรียงกัน โดยมีจำนวนที่เป็นไปได้คือ $0, 1, 2, \\dots, 9$\nรางวัลเลขท้าย 2 ตัวจะแจกให้สลากใบที่มี $a$ เป็นจำนวนของหลักรองสุดท้าย และ $b$ เป็นจำนวนของหลักสุดท้าย โดยทั้ง $a$ และ $b$ เป็นจำนวนที่ถูกสุ่มมาจาก $0, 1, 2, \\dots, 9$ ในงวดนั้นๆ โอกาสที่จะถูกรางวัลเมื่อซื้อสลาก 1 ใบ เท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{2}$",
+      "$\\frac{1}{10}$",
+      "$\\frac{1}{100}$",
+      "$\\frac{1}{1{,}000}$",
+      "$\\frac{1}{100{,}000}$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "alevel-math1-2567-26",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "conic"
+    ],
+    "year": 2567,
+    "number": 26,
+    "type": "written",
+    "question": "ช่างไม้คนหนึ่งมีแผ่นไม้เป็นรูปสี่เหลี่ยมผืนผ้า ความกว้าง $24$ เซนติเมตร และความยาว $20\\sqrt{13}$ เซนติเมตร\nถ้าต้องการตัดแผ่นไม้นี้เป็นรูปวงรีให้ใหญ่ที่สุดเท่าที่เป็นไปได้ (โดยมีแกนเอกและแกนโทขนานกับเส้นขอบของแผ่นกระดานไม้) โดยการปักหมุดที่จุดสองจุดบนแผ่นไม้ ผูกปลายเชือกทั้งสองข้างเข้ากับหมุด และใช้ปากกาแกะสลักปัก ดึงเชือกให้ตึงอยู่ตลอดเวลา แล้วค่อยๆ เคลื่อนที่ปากกาไปรอบๆ เพื่อให้เกิดรอยเป็นรูปวงรี จากเหตุการณ์ดังกล่าว ช่างไม้ควรปักหมุดทั้งสองจุดให้ห่างกันกี่เซนติเมตร",
+    "image": null,
+    "choices": null,
+    "answer": "68"
+  },
+  {
+    "id": "alevel-math1-2567-27",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "polynomial"
+    ],
+    "year": 2567,
+    "number": 27,
+    "type": "written",
+    "question": "กำหนดให้ $p(x)$ เป็นพหุนามกำลังสอง ที่มีสัมประสิทธิ์ของ $x^2$ เท่ากับ $1$\nถ้า $p(x)$ หาร $x^3 - 3x^2 + 2x - 5$ เหลือเศษ $1$ และหาร $x^3 + x^2 + 2x - 3$ เหลือเศษ $-5$\nค่าของ $p(3)$ เท่ากับเท่าใด",
+    "image": null,
+    "choices": null,
+    "answer": "11"
+  },
+  {
+    "id": "alevel-math1-2567-28",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "sequence",
+      "limit"
+    ],
+    "year": 2567,
+    "number": 28,
+    "type": "written",
+    "question": "กำหนดให้ $a_n$ เป็นลำดับเรขาคณิตที่มีอัตราส่วนคงที่เป็น $r$ โดย $r > 1$\nถ้า $\\lim\\limits_{n \\to \\infty} \\frac{a_n}{1 - r^n} = -3$ และ $\\lim\\limits_{n \\to \\infty} \\frac{a_1 + a_2 + a_3 + \\dots + a_n}{r^n} = 4$ แล้ว $a_3 - a_2$ เท่ากับเท่าใด",
+    "image": null,
+    "choices": null,
+    "answer": "144"
+  },
+  {
+    "id": "alevel-math1-2567-29",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "counting"
+    ],
+    "year": 2567,
+    "number": 29,
+    "type": "written",
+    "question": "ข้อสอบ A-LEVEL ประกอบไปด้วย ข้อสอบปรนัยจำนวน 25 ข้อ ข้อละ 3 คะแนน และข้อสอบระบายคำตอบตัวเลข จำนวน 5 ข้อ ข้อละ 5 คะแนน คะแนนรวมที่เป็นไปได้จากการทำข้อสอบ A-LEVEL 1 ชุด มีได้ทั้งหมดกี่ค่า",
+    "image": null,
+    "choices": null,
+    "answer": "93"
+  },
+  {
+    "id": "alevel-math1-2567-30",
+    "source": "alevel",
+    "subject": "math1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2567,
+    "number": 30,
+    "type": "written",
+    "question": "ในช่วงฤดูฝนของหมู่บ้านแห่งหนึ่ง ปริมาณน้ำฝนรายวันเป็นไปตามการแจกแจงแบบปกติ ปริมาณน้ำฝนโดยเฉลี่ยเป็น $10.45$ มิลลิเมตร และส่วนเบี่ยงเบนมาตรฐานเป็น $2$ มิลลิเมตร\nถ้าให้กราฟการแจกแจงปกติและตารางค่ามาตรฐานเป็นดังนี้\nถ้าความน่าจะเป็นที่ปริมาณน้ำฝนรายวันวันหนึ่งมีค่าไม่น้อยกว่า $a$ มิลลิเมตร แต่ไม่มากกว่า $11.77$ มิลลิเมตร เท่ากับ $0.09$ แล้วค่าของ $a$ เท่ากับเท่าใด",
+    "image": "images/alevel/math1-2567-30.png",
+    "choices": null,
+    "answer": "11.25"
+  },
+  {
     "id": "alevel-math1-2568-01",
     "source": "alevel",
     "subject": "math1",
