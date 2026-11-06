@@ -1,6 +1,7 @@
 {
   "sources": [
-    { "id": "alevel", "name": "A-Level" }
+    { "id": "alevel", "name": "A-Level" },
+    { "id": "tms", "name": "สมาคมคณิตศาสตร์ ม.ปลาย" }
   ],
   "subjects": [
     {
@@ -82,6 +83,29 @@
         { "id": "vocabulary", "name": "Vocabulary" },
         { "id": "conversation", "name": "Conversation" },
         { "id": "reading", "name": "Reading" }
+      ]
+    },
+    {
+      "id": "tmsmath",
+      "name": "คณิตศาสตร์ (สมาคม)",
+      "description": "ข้อสอบคณิตศาสตร์สมาคมคณิตศาสตร์แห่งประเทศไทย ระดับมัธยมศึกษาตอนปลาย",
+      "icon": "sigma",
+      "topics": [
+        { "id": "set", "name": "เซต" },
+        { "id": "relation", "name": "ความสัมพันธ์" },
+        { "id": "logic", "name": "ตรรกศาสตร์" },
+        { "id": "function", "name": "ฟังก์ชัน" },
+        { "id": "polynomial", "name": "พหุนาม" },
+        { "id": "conic", "name": "ภาคตัดกรวย" },
+        { "id": "sequence", "name": "ลำดับและอนุกรม" },
+        { "id": "logarithm", "name": "ลอการิทึม" },
+        { "id": "complex", "name": "จำนวนเชิงซ้อน" },
+        { "id": "trigonometry", "name": "ตรีโกณมิติ" },
+        { "id": "vector", "name": "เวกเตอร์" },
+        { "id": "matrix", "name": "เมทริกซ์" },
+        { "id": "counting", "name": "การนับ" },
+        { "id": "probability", "name": "ความน่าจะเป็น" },
+        { "id": "statistics", "name": "สถิติ" }
       ]
     }
   ]
