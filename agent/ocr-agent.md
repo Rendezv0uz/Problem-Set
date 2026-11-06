@@ -25,8 +25,8 @@ All paths are relative to the project root (the folder that contains `site/` and
 
 An optional official answer key sits next to it: `alevel-physics-2567-answers.pdf`.
 
-- `source`: `alevel`
-- `subject`: `math1`, `math2`, `physics`, `chemistry`, `biology`, `english`
+- `source`: `alevel`, `tms`, `vsamanya`
+- `subject`: `math1`, `math2`, `physics`, `chemistry`, `biology`, `english`, `tmsmath` (source `tms`), `vsmath1` (source `vsamanya`)
 - `year`: Buddhist year, for example `2567`
 
 If a file does not follow this pattern, stop and ask which source, subject and year it is.
