@@ -37,6 +37,7 @@ function examRow(exam, subject, sourceName) {
     document.getElementById('crumb-name').textContent = 'ไม่พบวิชา';
     list.innerHTML = '<li class="empty-state"><p>ไม่พบวิชาที่เลือก ลองเลือกวิชาจากแถบด้านบน</p></li>';
     document.getElementById('create-link').hidden = true;
+    document.getElementById('practice-link').hidden = true;
     return;
   }
 
@@ -46,6 +47,7 @@ function examRow(exam, subject, sourceName) {
   document.getElementById('crumb-name').textContent = subject.name;
   document.getElementById('subject-icon').innerHTML = icon(subject.icon);
   document.getElementById('create-link').href = `create.html?s=${subject.id}`;
+  document.getElementById('practice-link').href = `practice.html?s=${subject.id}`;
 
   try {
     const [exams, sources] = await Promise.all([DataStore.getExams(subject.id), DataStore.getSources()]);
