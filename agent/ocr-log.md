@@ -15,3 +15,4 @@ Status values:
 | alevel-math1-2569.pdf (source file: ALevel16903.pdf, not copied into agent/resource) | 2026-11-06 | alevel-math1-2569.json | 30 | 4 | Inside PDF (page 12) | awaiting review |
 | vsamanya-vsmath1-2561.pdf (source file: Ctms16103.pdf, not copied into agent/resource) | 2026-11-06 | vsamanya-vsmath1-2561.json | 30 | 0 | Inside PDF (page 11) | awaiting review |
 | vsamanya-vsmath1-2562.pdf (source file: Ctms16203.pdf, not copied into agent/resource) | 2026-11-06 | vsamanya-vsmath1-2562.json | 30 | 1 | Inside PDF (page 11) | awaiting review |
+| vsamanya-vsmath1-2563.pdf (source file: Ctms16303.pdf, not copied into agent/resource) | 2026-11-06 | vsamanya-vsmath1-2563.json | 30 | 1 | Inside PDF (page 11) | awaiting review |

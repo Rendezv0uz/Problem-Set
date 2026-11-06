@@ -1263,5 +1263,637 @@
       "$\\frac{14}{15}$"
     ],
     "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-01",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "polynomial"
+    ],
+    "year": 2563,
+    "number": 1,
+    "type": "choice",
+    "question": "กำหนดให้ $f(x) = x^3 - 3x + c$ เมื่อ $c$ เป็นจำนวนจริง\nถ้ากราฟของเส้นตรง $y = 6 - x$ ตัดกับกราฟของ $y = f(x)$ ที่ $x = 2$\nแล้ว $x + 2$ หาร $f(x)$ เหลือเศษเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$0$",
+      "$1$",
+      "$2$",
+      "$3$",
+      "$4$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-02",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "counting"
+    ],
+    "year": 2563,
+    "number": 2,
+    "type": "choice",
+    "question": "กำหนดให้ $a, b$ เป็นจำนวนเต็มบวก ซึ่งเป็นเลข 3 หลัก ถ้า ห.ร.ม. และ ค.ร.น. ของ $a, b$ คือ $50$ และ $600$ ตามลำดับ แล้ว $a + b$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$250$",
+      "$300$",
+      "$350$",
+      "$400$",
+      "$650$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-03",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "conic"
+    ],
+    "year": 2563,
+    "number": 3,
+    "type": "choice",
+    "question": "จุดบนเส้นตรง $2x - y + 5 = 0$ ซึ่งมีระยะห่างจากจุดกำเนิดสั้นที่สุด คือจุดในข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\left(-\\frac{9}{4}, \\frac{1}{2}\\right)$",
+      "$(-2, 1)$",
+      "$\\left(-\\frac{7}{4}, \\frac{3}{2}\\right)$",
+      "$\\left(-\\frac{3}{2}, 2\\right)$",
+      "$(-1, 3)$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-04",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "vector"
+    ],
+    "year": 2563,
+    "number": 4,
+    "type": "choice",
+    "question": "กำหนดให้ $\\vec{v} = 2\\vec{i} + 3\\vec{j} + \\vec{k}$ ค่าของ $(\\vec{v} \\times \\vec{i}) \\cdot (\\vec{j} + \\vec{k})$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-3$",
+      "$-2$",
+      "$-1$",
+      "$1$",
+      "$2$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-05",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "logarithm"
+    ],
+    "year": 2563,
+    "number": 5,
+    "type": "choice",
+    "question": "ค่าของ $\\log_2 40 - \\log_4 25$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{3}{2}$",
+      "$2$",
+      "$\\frac{5}{2}$",
+      "$3$",
+      "$\\frac{7}{2}$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-06",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "matrix"
+    ],
+    "year": 2563,
+    "number": 6,
+    "type": "choice",
+    "question": "กำหนดให้ $A$ เป็นเมทริกซ์ มิติ $3 \\times 3$ ซึ่ง $\\det(A) = 10$ ถ้า $B$ เป็นเมทริกซ์ ซึ่งได้จากการสลับแถวที่ 1 กับแถวที่ 2 ของ $A$ แล้ว $\\det\\left(\\frac{1}{5}B\\right)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-\\frac{2}{25}$",
+      "$-2$",
+      "$\\frac{2}{25}$",
+      "$2$",
+      "$10$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-07",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "derivative"
+    ],
+    "year": 2563,
+    "number": 7,
+    "type": "choice",
+    "question": "กำหนดให้ $f(x)$ เป็นฟังก์ชันพหุนาม ถ้า $f(\\sqrt{x} - 1) = x$ เมื่อ $x > 0$ แล้ว $f'(1)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$1$",
+      "$2$",
+      "$3$",
+      "$4$",
+      "$5$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-08",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "sequence",
+      "trigonometry"
+    ],
+    "year": 2563,
+    "number": 8,
+    "type": "choice",
+    "question": "$\\sum_{n=0}^{\\infty} \\left(\\sqrt{2}\\sin\\frac{\\pi}{12}\\right)^{2n}$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\sqrt{2}$",
+      "$\\frac{2\\sqrt{3}}{3}$",
+      "$2$",
+      "$2\\sqrt{3}$",
+      "$4$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-09",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2563,
+    "number": 9,
+    "type": "choice",
+    "question": "ตารางต่อไปนี้เป็นตารางแจกแจงความถี่ของความสูงของนักเรียน 40 คน\n$$\\begin{array}{|c|c|} \\hline \\text{ความสูง (เซนติเมตร)} & \\text{จำนวนนักเรียน} \\\\ \\hline 140 - 144 & 2 \\\\ 145 - 149 & 8 \\\\ 150 - 154 & 9 \\\\ 155 - 159 & 10 \\\\ 160 - 164 & 6 \\\\ 165 - 169 & 3 \\\\ 170 - 174 & 2 \\\\ \\hline \\end{array}$$\nเปอร์เซ็นไทล์ที่ 65 ของความสูงของนักเรียน เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$157.00$ เซนติเมตร",
+      "$157.50$ เซนติเมตร",
+      "$157.80$ เซนติเมตร",
+      "$158.00$ เซนติเมตร",
+      "$158.20$ เซนติเมตร"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-10",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "counting"
+    ],
+    "year": 2563,
+    "number": 10,
+    "type": "choice",
+    "question": "จำนวนเต็มที่อยู่ระหว่าง $1{,}000$ และ $6{,}000$ ซึ่งมีเลขโดดแต่ละหลักเป็นเลขคี่ที่แตกต่างกัน มีจำนวนทั้งหมดเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$24$",
+      "$36$",
+      "$64$",
+      "$72$",
+      "$144$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-11",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "polynomial"
+    ],
+    "year": 2563,
+    "number": 11,
+    "type": "choice",
+    "question": "เซตของคำตอบทั้งหมดของอสมการ $x|x| < -|5x - 14|$ คือเซตในข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$(-\\infty, -7) \\cup (2, \\infty)$",
+      "$(-7, 0)$",
+      "$(-14, -5)$",
+      "$(-\\infty, -14)$",
+      "$(-\\infty, -7)$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-12",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "complex"
+    ],
+    "year": 2563,
+    "number": 12,
+    "type": "choice",
+    "question": "จำนวนเชิงซ้อนในข้อใดต่อไปนี้ที่เป็นคำตอบของสมการ $(\\bar{z}|z|)^2 + 2(\\bar{z})^3 + z + 2 = 0$",
+    "image": null,
+    "choices": [
+      "$-\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$",
+      "$-\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i$",
+      "$\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i$",
+      "$1 - \\sqrt{3}i$",
+      "$1 + \\sqrt{3}i$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-13",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "counting"
+    ],
+    "year": 2563,
+    "number": 13,
+    "type": "choice",
+    "question": "กำหนดให้ $a, b$ เป็นจำนวนเต็มบวก $(a, b)$ และ $[a, b]$ คือ ห.ร.ม. และ ค.ร.น. ของ $a$ และ $b$ ตามลำดับ\nถ้า $ab = 3 \\times 2^7$ และ $[a, b] - (a, b) = 5 \\times 2^3$ แล้ว $[a, b]$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$48$",
+      "$56$",
+      "$60$",
+      "$72$",
+      "$76$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-14",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "trigonometry"
+    ],
+    "year": 2563,
+    "number": 14,
+    "type": "choice",
+    "question": "กำหนดให้ $\\theta \\in \\left(0, \\frac{\\pi}{2}\\right)$ ถ้า $\\frac{\\sin^2 3\\theta}{\\sin^2\\theta} - \\frac{\\cos^2 3\\theta}{\\cos^2\\theta} = 1$ แล้ว $\\cos\\theta$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{8}$",
+      "$\\frac{2}{5}$",
+      "$\\frac{3}{7}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{3}{4}$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-15",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "conic"
+    ],
+    "year": 2563,
+    "number": 15,
+    "type": "choice",
+    "question": "กำหนดให้ วงรี E และไฮเพอร์โบลา H มีโฟกัสร่วมกัน คือ $(0, 0)$ และ $(6, 0)$\nและระยะทางระหว่าง จุดตัดใดๆ ของ E และ H กับจุดโฟกัสทั้งสอง คือ 6 หน่วย และ 2 หน่วย\nสมการของวงรี และสมการของไฮเพอร์โบลา ตามลำดับ คือข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{(x-3)^2}{16} + \\frac{y^2}{7} = 1$ และ $\\frac{(x-3)^2}{5} - \\frac{y^2}{4} = 1$",
+      "$\\frac{(x-3)^2}{16} + \\frac{y^2}{7} = 1$ และ $\\frac{(x-3)^2}{4} - \\frac{y^2}{5} = 1$",
+      "$\\frac{(x-3)^2}{7} + \\frac{y^2}{16} = 1$ และ $\\frac{(x-3)^2}{4} - \\frac{y^2}{5} = 1$",
+      "$\\frac{(x-3)^2}{5} + \\frac{y^2}{4} = 1$ และ $\\frac{(x-3)^2}{7} - \\frac{y^2}{16} = 1$",
+      "$\\frac{(x-3)^2}{4} + \\frac{y^2}{5} = 1$ และ $\\frac{(x-3)^2}{7} - \\frac{y^2}{16} = 1$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-16",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "vector"
+    ],
+    "year": 2563,
+    "number": 16,
+    "type": "choice",
+    "question": "กำหนดให้ เวกเตอร์ $\\vec{u} = \\begin{bmatrix} 1 \\\\ \\cos 75^\\circ \\\\ \\cos 15^\\circ \\end{bmatrix}$ และ $\\vec{v} = \\begin{bmatrix} 1 \\\\ \\sin 75^\\circ \\\\ \\sin 15^\\circ \\end{bmatrix}$\nถ้าสามเหลี่ยมมุมฉากรูปหนึ่ง มีด้านตรงข้ามมุมฉากยาว $|\\vec{u}||\\vec{v}|$ หน่วย และมีด้านอีกด้านหนึ่งยาว $|\\vec{u} \\times \\vec{v}|$ หน่วย แล้ว ความยาวของด้านที่เหลือของสามเหลี่ยมรูปนี้ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$1$ หน่วย",
+      "$\\frac{5}{4}$ หน่วย",
+      "$\\frac{\\sqrt{7}}{2}$ หน่วย",
+      "$\\frac{3}{2}$ หน่วย",
+      "$\\frac{7}{4}$ หน่วย"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-17",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "exponent"
+    ],
+    "year": 2563,
+    "number": 17,
+    "type": "choice",
+    "question": "ผลบวกของคำตอบทั้งหมดของสมการ $12(4^x) + 18(9^x) = 35(6^x)$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-1$",
+      "$-\\frac{1}{2}$",
+      "$0$",
+      "$\\frac{1}{2}$",
+      "$1$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-18",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "logarithm"
+    ],
+    "year": 2563,
+    "number": 18,
+    "type": "choice",
+    "question": "กำหนดให้ $x > 0$ และ $x \\neq 1$ ผลคูณของคำตอบทั้งหมดของสมการ $x^{\\log_5 x^2} = \\frac{25}{x^3}$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{\\sqrt{5}}{25}$",
+      "$\\frac{\\sqrt{5}}{5}$",
+      "$\\sqrt{5}$",
+      "$5$",
+      "$5\\sqrt{5}$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-19",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "matrix"
+    ],
+    "year": 2563,
+    "number": 19,
+    "type": "choice",
+    "question": "จากระบบสมการเชิงเส้น $AX = B$ ที่มี 3 สมการ และ 3 ตัวแปร $x, y, z$\nถ้าหา $x$ และ $y$ โดยใช้กฎของคราเมอร์ ได้ดังนี้ $x = \\frac{\\begin{vmatrix} 0 & -1 & 3 \\\\ 1 & 1 & -1 \\\\ 2 & 1 & 1 \\end{vmatrix}}{\\det(A)}$ และ $y = \\frac{\\begin{vmatrix} 1 & 0 & 3 \\\\ 2 & 1 & -1 \\\\ 1 & 2 & 1 \\end{vmatrix}}{\\det(A)}$\nแล้ว $z$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-1$",
+      "$-\\frac{1}{2}$",
+      "$\\frac{1}{2}$",
+      "$1$",
+      "$2$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-20",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "sequence"
+    ],
+    "year": 2563,
+    "number": 20,
+    "type": "choice",
+    "question": "กำหนดให้ $S = \\{100, 101, 102, \\dots, 998, 999\\}$ และ\n$A = \\{n \\in S \\mid n \\text{ หารด้วย } 5 \\text{ แล้วเหลือเศษ } 4\\}$\nผลบวกของสมาชิกทุกตัวของ $A$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$99{,}250$",
+      "$99{,}255$",
+      "$99{,}260$",
+      "$99{,}265$",
+      "$99{,}270$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-21",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "derivative"
+    ],
+    "year": 2563,
+    "number": 21,
+    "type": "choice",
+    "question": "กำหนดให้ $f(x) = x^3 + ax^2 + bx + c$ เมื่อ $a, b, c$ เป็นจำนวนจริง\nถ้า $f$ มีค่าวิกฤตที่ $x = -1$ และ $x = 2$ แล้ว พิจารณาข้อความต่อไปนี้\nก. $f$ มีค่าสูงสุดสัมพัทธ์ที่ $x = -1$\nข. $f$ มีค่าต่ำสุดสัมพัทธ์ที่ $x = 2$\nค. บนช่วง $(-1, 2)$ $f$ เป็นฟังก์ชันเพิ่ม\nง. บนช่วง $(-\\infty, -1)$ $f$ เป็นฟังก์ชันลด\nจำนวนข้อความที่ถูกต้องเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "0 (ไม่มีข้อความใดถูกต้อง)",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-22",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "integral"
+    ],
+    "year": 2563,
+    "number": 22,
+    "type": "choice",
+    "question": "ถ้าพื้นที่ที่ปิดล้อมด้วยกราฟของพาราโบลาซึ่งมีจุดยอดอยู่ที่ $(0, -9)$ และแกน $X$ มีค่าเท่ากับ 9 ตารางหน่วย แล้ว สมการพาราโบลาคือข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$y = x^2 - 9$",
+      "$y = 2x^2 - 9$",
+      "$y = 4x^2 - 9$",
+      "$y = 8x^2 - 9$",
+      "$y = 16x^2 - 9$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-23",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "probability"
+    ],
+    "year": 2563,
+    "number": 23,
+    "type": "choice",
+    "question": "กำหนดให้ $S = \\{1, 2, 3, \\dots, 9, 10\\}$ ถ้าสุ่มหยิบสมาชิก 5 ตัวพร้อมกันจาก $S$ แล้ว ความน่าจะเป็นที่จะได้เลข 8 เป็นจำนวนที่มีค่ามากเป็นอันดับที่ 2 ของสมาชิก 5 ตัวนั้นเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{2}{9}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{5}{18}$",
+      "$\\frac{8}{21}$",
+      "$\\frac{10}{21}$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-24",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2563,
+    "number": 24,
+    "type": "choice",
+    "question": "ถ้าคะแนนสอบวิชาคณิตศาสตร์ของนักเรียนชั้น ม.3 ของโรงเรียนแห่งหนึ่ง\nมีการแจกแจงปกติ มีค่าเฉลี่ยเลขคณิตเท่ากับ 55 คะแนน\nมีส่วนเบี่ยงเบนมาตรฐานเท่ากับ 10 คะแนน\nและทราบพื้นที่ใต้เส้นโค้งดังรูป\nแล้ว จำนวนเปอร์เซ็นต์ของนักเรียนที่ได้คะแนนระหว่าง 45 และ 70 คะแนน เท่ากับข้อใดต่อไปนี้",
+    "image": "images/vsamanya/vsmath1-2563-24.png",
+    "choices": [
+      "$75.00$",
+      "$76.75$",
+      "$77.45$",
+      "$78.50$",
+      "$79.00$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-25",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2563,
+    "number": 25,
+    "type": "choice",
+    "question": "กำหนดให้ ข้อมูลกลุ่มตัวอย่างชุด $X$ คือ $x_1 < x_2 < x_3 < \\dots < x_{10}$ มีค่าเฉลี่ยเลขคณิตเท่ากับ $8$\nและ ข้อมูลกลุ่มตัวอย่างชุด $Y$ คือ $y_1 < y_2 < y_3 < \\dots < y_{10}$ โดยที่ $y_i = \\frac{1}{2}x_i + 4$ เมื่อ $i = 1, 2, 3, \\dots, 10$\nพิจารณาข้อความต่อไปนี้\nก. ค่าเฉลี่ยเลขคณิตของข้อมูลชุด $Y = 8$\nข. มัธยฐานของข้อมูลชุด $Y = \\frac{1}{2}$ (มัธยฐานของข้อมูลชุด $X$) $+ 4$\nค. ส่วนเบี่ยงเบนมาตรฐานของข้อมูลชุด $Y = \\frac{1}{2}$ (ส่วนเบี่ยงเบนมาตรฐานของข้อมูลชุด $X$)\nง. ค่ามาตรฐานของ $y_i = \\frac{1}{2}$ (ค่ามาตรฐานของ $x_i$) เมื่อ $i = 1, 2, 3, \\dots, 10$\nจำนวนข้อความที่ถูกต้องเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "0 (ไม่มีข้อความใดถูกต้อง)",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-26",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "polynomial"
+    ],
+    "year": 2563,
+    "number": 26,
+    "type": "choice",
+    "question": "กำหนดให้ $P(x) = x^4 + ax^3 + bx^2 + cx - 5$ เมื่อ $a, b$ และ $c$ เป็นจำนวนเต็ม\nถ้าสมการ $P(x) = 0$ มีคำตอบเป็นจำนวนตรรกยะอย่างน้อยหนึ่งตัว และมี $1 + 2i$ เป็นคำตอบของสมการ\nแล้ว $P(2)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-15$",
+      "$-10$",
+      "$1$",
+      "$10$",
+      "$15$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-27",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2563,
+    "number": 27,
+    "type": "choice",
+    "question": "กำหนดให้ $a, b$ เป็นจำนวนเต็มบวก ถ้าข้อมูลต่อไปนี้ $a,\\ b,\\ 4,\\ 4,\\ 3,\\ 3,\\ 6,\\ 5,\\ 5,\\ 8,\\ 7,\\ 7$\nมีค่า พิสัย = มัธยฐาน = ค่าเฉลี่ยเลขคณิต แล้ว $a \\cdot b$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$12$",
+      "$15$",
+      "$18$",
+      "$20$",
+      "$21$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-28",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "statistics",
+      "sequence"
+    ],
+    "year": 2563,
+    "number": 28,
+    "type": "choice",
+    "question": "กำหนดให้ $a_1, a_2, a_3, \\dots, a_m$ เป็นข้อมูลซึ่งเรียงจากมากไปน้อย\nโดยที่ $a_n = \\frac{1}{n(n+1)}$ เมื่อ $n = 1, 2, 3, \\dots, m$ ถ้าข้อมูลนี้มีมัธยฐานเท่ากับ $\\frac{1}{120}$\nแล้ว ค่าเฉลี่ยเลขคณิตของข้อมูลชุดนี้ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{20}$",
+      "$\\frac{1}{21}$",
+      "$\\frac{1}{22}$",
+      "$\\frac{1}{23}$",
+      "$\\frac{1}{24}$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-29",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "sequence"
+    ],
+    "year": 2563,
+    "number": 29,
+    "type": "choice",
+    "question": "กำหนดให้ $a_1, a_2, a_3, \\dots, a_n, \\dots$ เป็นลำดับเรขาคณิต ซึ่งมีอัตราส่วนร่วม $r$ โดยที่ $|r| < 1$\nถ้า $a_1 + a_2 + a_3 + a_4 + a_5 = 4$\n$a_6 + a_7 + \\dots + a_{14} + a_{15} = 3$\nแล้ว $\\sum_{n=1}^{\\infty} a_n$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$8$",
+      "$9$",
+      "$10$",
+      "$11$",
+      "$12$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2563-30",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "matrix"
+    ],
+    "year": 2563,
+    "number": 30,
+    "type": "choice",
+    "question": "กำหนดให้ $S = \\{-2, -1, 0, 1, 2\\}$ และ $\\Omega = \\left\\{ \\begin{bmatrix} a & b \\\\ 0 & c \\end{bmatrix} \\,\\middle|\\, a, b, c \\in S \\right\\}$\nจำนวนเมทริกซ์ $A \\in \\Omega$ ซึ่ง $A^{-1} = A$ มีทั้งหมดเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$8$",
+      "$9$",
+      "$10$",
+      "$11$",
+      "$12$"
+    ],
+    "answer": "5"
   }
 ]
