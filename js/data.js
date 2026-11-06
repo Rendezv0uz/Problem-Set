@@ -2,12 +2,27 @@ const DataStore = (() => {
   const BASE = 'data/';
   const cache = new Map();
 
+  // A subject entry is a "test" (e.g. A-Level Math 1). Tests with a `group` share that
+  // group's topic list (e.g. all math tests use the "math" topics), so topics are
+  // categorized once per subject, not once per test.
+  function normalizeSubjects(data) {
+    const groups = data.groups || [];
+    data.subjects.forEach((s) => {
+      const group = groups.find((g) => g.id === s.group);
+      if (group) {
+        s.topics = group.topics;
+        s.groupName = group.name;
+      }
+    });
+    return data;
+  }
+
   function load(path) {
     if (!cache.has(path)) {
       const request = fetch(BASE + path).then((res) => {
         if (!res.ok) throw new Error(`โหลดข้อมูล ${path} ไม่สำเร็จ (${res.status})`);
         return res.json();
-      });
+      }).then((data) => (path === 'subjects.json' ? normalizeSubjects(data) : data));
       request.catch(() => cache.delete(path));
       cache.set(path, request);
     }
@@ -20,6 +35,20 @@ const DataStore = (() => {
 
   async function getSubjects() {
     return (await load('subjects.json')).subjects;
+  }
+
+  // Subjects as the user thinks of them: each has one topic list and one or more tests.
+  // A test without an explicit group is its own subject with a single test.
+  async function getGroups() {
+    const data = await load('subjects.json');
+    const explicit = (data.groups || []).map((g) => ({
+      ...g,
+      tests: data.subjects.filter((s) => s.group === g.id),
+    }));
+    const single = data.subjects
+      .filter((s) => !s.group)
+      .map((s) => ({ id: s.id, name: s.name, description: s.description, icon: s.icon, topics: s.topics, tests: [s] }));
+    return [...explicit, ...single];
   }
 
   async function getSubject(id) {
@@ -54,6 +83,7 @@ const DataStore = (() => {
   return {
     getSources,
     getSubjects,
+    getGroups,
     getSubject,
     getUniversityData,
     getExams,

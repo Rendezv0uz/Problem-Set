@@ -1,5 +1,5 @@
 const SOLVED_KEY = 'problemweb.solved';
-const STATE_KEY = 'problemweb.online';
+const STATE_KEY = 'problemweb.online.v2';
 
 const setupView = document.getElementById('setup-view');
 const solveView = document.getElementById('solve-view');
@@ -9,8 +9,8 @@ const els = {
   subjects: document.getElementById('subject-group'),
   topicsField: document.getElementById('topics-field'),
   topicBlocks: document.getElementById('topic-blocks'),
-  sourceField: document.getElementById('source-field'),
-  sources: document.getElementById('source-group'),
+  testField: document.getElementById('test-field'),
+  tests: document.getElementById('test-group'),
   yearField: document.getElementById('year-field'),
   yearFrom: document.getElementById('year-from'),
   yearTo: document.getElementById('year-to'),
@@ -19,10 +19,11 @@ const els = {
   start: document.getElementById('start-btn'),
 };
 
-let subjects = [];
+let groups = []; // subjects (e.g. Math), each with shared topics and one or more tests
 let sources = [];
-const loaded = new Map(); // subject id -> problems
-let state = { subjects: [], topics: [], excludedSources: [], yearFrom: null, yearTo: null, hideSolved: false };
+const loaded = new Map(); // test id -> problems
+const testGroup = new Map(); // test id -> group id
+let state = { groups: [], topics: [], excludedTests: [], yearFrom: null, yearTo: null, hideSolved: false };
 let solved = new Set();
 
 let queue = [];
@@ -33,7 +34,7 @@ let showingSummary = false;
 let history = [];
 let streak = 0;
 
-const topicKey = (subjectId, topicId) => `${subjectId}:${topicId}`;
+const topicKey = (groupId, topicId) => `${groupId}:${topicId}`;
 
 function shuffle(list) {
   const copy = [...list];
@@ -71,19 +72,20 @@ function isWrittenCorrect(problem, input) {
   return [problem.answer, ...(problem.accept || [])].some((a) => normalize(a) === target);
 }
 
-/* ---------- step 1: choose subjects and topics ---------- */
+/* ---------- step 1: choose subjects, tests and topics ---------- */
+
+function selectedGroups() {
+  return groups.filter((g) => state.groups.includes(g.id));
+}
 
 function selectedProblems() {
-  return state.subjects.flatMap((id) => loaded.get(id) || []);
+  return selectedGroups()
+    .flatMap((g) => g.tests)
+    .flatMap((t) => loaded.get(t.id) || []);
 }
 
 function availableYears() {
   return [...new Set(selectedProblems().map((p) => p.year))].sort((a, b) => a - b);
-}
-
-function availableSources() {
-  const ids = new Set(selectedProblems().map((p) => p.source));
-  return sources.filter((s) => ids.has(s.id));
 }
 
 function yearRange() {
@@ -98,16 +100,18 @@ function yearRange() {
 function inScope() {
   const { from, to } = yearRange();
   return selectedProblems().filter(
-    (p) => !state.excludedSources.includes(p.source) && p.year >= from && p.year <= to
+    (p) => !state.excludedTests.includes(p.subject) && p.year >= from && p.year <= to
   );
 }
 
 function pool() {
-  return inScope().filter(
-    (p) =>
-      p.topics.some((t) => state.topics.includes(topicKey(p.subject, t))) &&
+  return inScope().filter((p) => {
+    const groupId = testGroup.get(p.subject);
+    return (
+      p.topics.some((t) => state.topics.includes(topicKey(groupId, t))) &&
       !(state.hideSolved && solved.has(p.id))
-  );
+    );
+  });
 }
 
 function saveState() {
@@ -127,35 +131,37 @@ function chip(name, value, label, checked, count) {
 }
 
 function renderSubjects() {
-  els.subjects.innerHTML = subjects
-    .map((s) => chip('subject', s.id, s.name, state.subjects.includes(s.id), loaded.has(s.id) ? loaded.get(s.id).length : undefined))
+  els.subjects.innerHTML = groups
+    .map((g) => {
+      const ready = g.tests.every((t) => loaded.has(t.id));
+      const count = ready ? g.tests.reduce((n, t) => n + loaded.get(t.id).length, 0) : undefined;
+      return chip('subject', g.id, g.name, state.groups.includes(g.id), count);
+    })
     .join('');
 }
 
 function renderTopics() {
-  const hasSubjects = state.subjects.length > 0;
-  els.topicsField.hidden = !hasSubjects;
-  els.sourceField.hidden = !hasSubjects;
-  els.yearField.hidden = !hasSubjects;
-  if (!hasSubjects) return;
+  const hasGroups = state.groups.length > 0;
+  els.topicsField.hidden = !hasGroups;
+  els.yearField.hidden = !hasGroups;
+  if (!hasGroups) return;
 
   const scope = inScope();
-  els.topicBlocks.innerHTML = subjects
-    .filter((s) => state.subjects.includes(s.id))
-    .map((s) => {
-      const keys = s.topics.map((t) => topicKey(s.id, t.id));
+  els.topicBlocks.innerHTML = selectedGroups()
+    .map((g) => {
+      const keys = g.topics.map((t) => topicKey(g.id, t.id));
       const allChecked = keys.every((k) => state.topics.includes(k));
-      const chips = s.topics
+      const chips = g.topics
         .map((t) => {
-          const count = scope.filter((p) => p.subject === s.id && p.topics.includes(t.id)).length;
-          return chip('topic', topicKey(s.id, t.id), t.name, state.topics.includes(topicKey(s.id, t.id)), count);
+          const count = scope.filter((p) => testGroup.get(p.subject) === g.id && p.topics.includes(t.id)).length;
+          return chip('topic', topicKey(g.id, t.id), t.name, state.topics.includes(topicKey(g.id, t.id)), count);
         })
         .join('');
       return `
         <div class="topic-block">
           <div class="field-label-row">
-            <strong class="topic-block-title">${escapeHtml(s.name)}</strong>
-            <button type="button" class="link-btn" data-toggle-subject="${s.id}">${allChecked ? 'ล้างทั้งหมด' : 'เลือกทั้งหมด'}</button>
+            <strong class="topic-block-title">${escapeHtml(g.name)}</strong>
+            <button type="button" class="link-btn" data-toggle-group="${g.id}">${allChecked ? 'ล้างทั้งหมด' : 'เลือกทั้งหมด'}</button>
           </div>
           <div class="chip-group">${chips}</div>
         </div>`;
@@ -163,9 +169,18 @@ function renderTopics() {
     .join('');
 }
 
-function renderSources() {
-  els.sources.innerHTML = availableSources()
-    .map((s) => chip('source', s.id, s.name, !state.excludedSources.includes(s.id)))
+// Tests are only worth choosing when a subject has more than one (e.g. Math 1 / Math 2 / Association).
+function choosableTests() {
+  return selectedGroups()
+    .filter((g) => g.tests.length > 1)
+    .flatMap((g) => g.tests);
+}
+
+function renderTests() {
+  const tests = choosableTests();
+  els.testField.hidden = tests.length === 0;
+  els.tests.innerHTML = tests
+    .map((t) => chip('test', t.id, t.name, !state.excludedTests.includes(t.id), loaded.get(t.id)?.length))
     .join('');
 }
 
@@ -179,8 +194,9 @@ function renderYears() {
 
 function renderMatchCount() {
   const n = pool().length;
-  if (!state.subjects.length) els.count.textContent = 'เลือกวิชาอย่างน้อย 1 วิชา';
-  else if (!state.topics.some((k) => state.subjects.includes(k.split(':')[0]))) els.count.textContent = 'เลือกหัวข้ออย่างน้อย 1 หัวข้อ';
+  const groupIds = state.groups;
+  if (!groupIds.length) els.count.textContent = 'เลือกวิชาอย่างน้อย 1 วิชา';
+  else if (!state.topics.some((k) => groupIds.includes(k.split(':')[0]))) els.count.textContent = 'เลือกหัวข้ออย่างน้อย 1 หัวข้อ';
   else els.count.textContent = `มี ${n} ข้อที่ตรงเงื่อนไข`;
   els.start.disabled = n === 0;
 }
@@ -188,7 +204,7 @@ function renderMatchCount() {
 function renderAll() {
   renderSubjects();
   renderTopics();
-  renderSources();
+  renderTests();
   renderYears();
   els.hideSolved.checked = state.hideSolved;
   renderMatchCount();
@@ -198,20 +214,22 @@ function checkedValues(container) {
   return [...container.querySelectorAll('input:checked')].map((input) => input.value);
 }
 
-async function ensureLoaded(ids) {
+async function ensureLoaded(groupIds) {
+  const tests = groups.filter((g) => groupIds.includes(g.id)).flatMap((g) => g.tests);
   await Promise.all(
-    ids
-      .filter((id) => !loaded.has(id))
-      .map(async (id) => {
-        loaded.set(id, await DataStore.getProblems(id));
+    tests
+      .filter((t) => !loaded.has(t.id))
+      .map(async (t) => {
+        loaded.set(t.id, await DataStore.getProblems(t.id));
       })
   );
 }
 
 async function onSubjectChange() {
-  const next = subjects.map((s) => s.id).filter((id) => checkedValues(els.subjects).includes(id));
-  const added = next.filter((id) => !state.subjects.includes(id));
-  const removed = state.subjects.filter((id) => !next.includes(id));
+  const checked = checkedValues(els.subjects);
+  const next = groups.map((g) => g.id).filter((id) => checked.includes(id));
+  const added = next.filter((id) => !state.groups.includes(id));
+  const removed = state.groups.filter((id) => !next.includes(id));
 
   els.count.textContent = 'กำลังโหลด…';
   els.start.disabled = true;
@@ -223,11 +241,10 @@ async function onSubjectChange() {
     return;
   }
 
-  state.subjects = next;
+  state.groups = next;
   state.topics = state.topics.filter((k) => !removed.includes(k.split(':')[0]));
   added.forEach((id) => {
-    const subject = subjects.find((s) => s.id === id);
-    subject.topics.forEach((t) => state.topics.push(topicKey(id, t.id)));
+    groups.find((g) => g.id === id).topics.forEach((t) => state.topics.push(topicKey(id, t.id)));
   });
   saveState();
   renderAll();
@@ -235,9 +252,12 @@ async function onSubjectChange() {
 
 function onFilterChange() {
   state.topics = checkedValues(els.topicBlocks);
-  state.excludedSources = availableSources()
-    .map((s) => s.id)
-    .filter((id) => !checkedValues(els.sources).includes(id));
+
+  const shown = choosableTests().map((t) => t.id);
+  const checked = checkedValues(els.tests);
+  state.excludedTests = state.excludedTests
+    .filter((id) => !shown.includes(id))
+    .concat(shown.filter((id) => !checked.includes(id)));
 
   let from = Number(els.yearFrom.value);
   let to = Number(els.yearTo.value);
@@ -552,17 +572,16 @@ document.addEventListener('keydown', (event) => {
 function bindFilters() {
   els.subjects.addEventListener('change', onSubjectChange);
   els.topicBlocks.addEventListener('change', onFilterChange);
-  els.sources.addEventListener('change', onFilterChange);
+  els.tests.addEventListener('change', onFilterChange);
   els.yearFrom.addEventListener('change', onFilterChange);
   els.yearTo.addEventListener('change', onFilterChange);
   els.hideSolved.addEventListener('change', onFilterChange);
   els.start.addEventListener('click', startPractice);
   els.topicBlocks.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-toggle-subject]');
+    const button = event.target.closest('[data-toggle-group]');
     if (!button) return;
-    const id = button.dataset.toggleSubject;
-    const subject = subjects.find((s) => s.id === id);
-    const keys = subject.topics.map((t) => topicKey(id, t.id));
+    const group = groups.find((g) => g.id === button.dataset.toggleGroup);
+    const keys = group.topics.map((t) => topicKey(group.id, t.id));
     const allChecked = keys.every((k) => state.topics.includes(k));
     state.topics = state.topics.filter((k) => !keys.includes(k));
     if (!allChecked) state.topics.push(...keys);
@@ -573,20 +592,27 @@ function bindFilters() {
 
 function restoreState() {
   const saved = Store.get('localStorage', STATE_KEY);
-  const params = new URLSearchParams(location.search);
-  const preselect = subjects.find((s) => s.id === params.get('s'));
-  const validIds = subjects.map((s) => s.id);
-  const validKeys = new Set(subjects.flatMap((s) => s.topics.map((t) => topicKey(s.id, t.id))));
+  const param = new URLSearchParams(location.search).get('s');
+  const preselect = groups.find((g) => g.id === param || g.tests.some((t) => t.id === param));
+  const validIds = groups.map((g) => g.id);
+  const validKeys = new Set(groups.flatMap((g) => g.topics.map((t) => topicKey(g.id, t.id))));
 
   if (preselect) {
-    state.subjects = [preselect.id];
+    // Coming from a test page (e.g. ?s=math1): preselect its subject and only that test.
+    state.groups = [preselect.id];
     state.topics = preselect.topics.map((t) => topicKey(preselect.id, t.id));
+    state.excludedTests =
+      preselect.tests.length > 1 && preselect.tests.some((t) => t.id === param)
+        ? preselect.tests.filter((t) => t.id !== param).map((t) => t.id)
+        : [];
   } else if (saved) {
-    state.subjects = Array.isArray(saved.subjects) ? saved.subjects.filter((id) => validIds.includes(id)) : [];
-    state.topics = Array.isArray(saved.topics) ? saved.topics.filter((k) => validKeys.has(k) && state.subjects.includes(k.split(':')[0])) : [];
+    state.groups = Array.isArray(saved.groups) ? saved.groups.filter((id) => validIds.includes(id)) : [];
+    state.topics = Array.isArray(saved.topics)
+      ? saved.topics.filter((k) => validKeys.has(k) && state.groups.includes(k.split(':')[0]))
+      : [];
+    state.excludedTests = Array.isArray(saved.excludedTests) ? saved.excludedTests : [];
   }
   if (saved) {
-    state.excludedSources = Array.isArray(saved.excludedSources) ? saved.excludedSources : [];
     state.yearFrom = Number.isFinite(saved.yearFrom) ? saved.yearFrom : null;
     state.yearTo = Number.isFinite(saved.yearTo) ? saved.yearTo : null;
     state.hideSolved = Boolean(saved.hideSolved);
@@ -594,16 +620,24 @@ function restoreState() {
 }
 
 (async () => {
-  subjects = await Layout.init('online');
-  if (!subjects.length) {
+  try {
+    [groups, sources] = await Promise.all([DataStore.getGroups(), DataStore.getSources()]);
+  } catch (error) {
+    await Layout.init('online');
+    setupView.innerHTML = '';
+    showError(setupView, error.message);
+    return;
+  }
+  await Layout.init('online');
+  if (!groups.length) {
     setupView.innerHTML = '<div class="empty-state"><p>โหลดรายชื่อวิชาไม่สำเร็จ</p></div>';
     return;
   }
 
+  groups.forEach((g) => g.tests.forEach((t) => testGroup.set(t.id, g.id)));
+  restoreState();
   try {
-    sources = await DataStore.getSources();
-    restoreState();
-    await ensureLoaded(state.subjects);
+    await ensureLoaded(state.groups);
   } catch (error) {
     setupView.innerHTML = '';
     showError(setupView, error.message);

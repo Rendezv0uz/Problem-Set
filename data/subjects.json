@@ -3,35 +3,49 @@
     { "id": "alevel", "name": "A-Level" },
     { "id": "tms", "name": "สมาคมคณิตศาสตร์ ม.ปลาย" }
   ],
+  "groups": [
+    {
+      "id": "math",
+      "name": "คณิตศาสตร์",
+      "description": "ข้อสอบคณิตศาสตร์ทุกสนาม ใช้หัวข้อชุดเดียวกัน",
+      "icon": "calculator",
+      "topics": [
+        { "id": "set", "name": "เซต" },
+        { "id": "relation", "name": "ความสัมพันธ์" },
+        { "id": "logic", "name": "ตรรกศาสตร์" },
+        { "id": "function", "name": "ฟังก์ชัน" },
+        { "id": "exponent", "name": "เลขยกกำลัง" },
+        { "id": "logarithm", "name": "ลอการิทึม" },
+        { "id": "polynomial", "name": "พหุนาม" },
+        { "id": "complex", "name": "จำนวนเชิงซ้อน" },
+        { "id": "sequence", "name": "ลำดับและอนุกรม" },
+        { "id": "trigonometry", "name": "ตรีโกณมิติ" },
+        { "id": "vector", "name": "เวกเตอร์" },
+        { "id": "matrix", "name": "เมทริกซ์" },
+        { "id": "conic", "name": "ภาคตัดกรวย" },
+        { "id": "limit", "name": "ลิมิต" },
+        { "id": "derivative", "name": "อนุพันธ์" },
+        { "id": "integral", "name": "ปริพันธ์" },
+        { "id": "counting", "name": "การนับ" },
+        { "id": "probability", "name": "ความน่าจะเป็น" },
+        { "id": "statistics", "name": "สถิติ" }
+      ]
+    }
+  ],
   "subjects": [
     {
       "id": "math1",
       "name": "คณิตศาสตร์ประยุกต์ 1",
       "description": "ข้อสอบคณิตศาสตร์ประยุกต์ 1 (คณิตศาสตร์พื้นฐาน + เพิ่มเติม)",
       "icon": "calculator",
-      "topics": [
-        { "id": "set", "name": "เซต" },
-        { "id": "logic", "name": "ตรรกศาสตร์" },
-        { "id": "function", "name": "ฟังก์ชัน" },
-        { "id": "exponent", "name": "เลขยกกำลัง" },
-        { "id": "sequence", "name": "ลำดับและอนุกรม" },
-        { "id": "probability", "name": "ความน่าจะเป็น" },
-        { "id": "statistics", "name": "สถิติ" }
-      ]
+      "group": "math"
     },
     {
       "id": "math2",
       "name": "คณิตศาสตร์ประยุกต์ 2",
       "description": "ข้อสอบคณิตศาสตร์ประยุกต์ 2 (คณิตศาสตร์พื้นฐาน)",
       "icon": "sigma",
-      "topics": [
-        { "id": "matrix", "name": "เมทริกซ์" },
-        { "id": "limit", "name": "ลิมิต" },
-        { "id": "derivative", "name": "อนุพันธ์" },
-        { "id": "integral", "name": "ปริพันธ์" },
-        { "id": "vector", "name": "เวกเตอร์" },
-        { "id": "complex", "name": "จำนวนเชิงซ้อน" }
-      ]
+      "group": "math"
     },
     {
       "id": "physics",
@@ -90,23 +104,7 @@
       "name": "คณิตศาสตร์ (สมาคม)",
       "description": "ข้อสอบคณิตศาสตร์สมาคมคณิตศาสตร์แห่งประเทศไทย ระดับมัธยมศึกษาตอนปลาย",
       "icon": "sigma",
-      "topics": [
-        { "id": "set", "name": "เซต" },
-        { "id": "relation", "name": "ความสัมพันธ์" },
-        { "id": "logic", "name": "ตรรกศาสตร์" },
-        { "id": "function", "name": "ฟังก์ชัน" },
-        { "id": "polynomial", "name": "พหุนาม" },
-        { "id": "conic", "name": "ภาคตัดกรวย" },
-        { "id": "sequence", "name": "ลำดับและอนุกรม" },
-        { "id": "logarithm", "name": "ลอการิทึม" },
-        { "id": "complex", "name": "จำนวนเชิงซ้อน" },
-        { "id": "trigonometry", "name": "ตรีโกณมิติ" },
-        { "id": "vector", "name": "เวกเตอร์" },
-        { "id": "matrix", "name": "เมทริกซ์" },
-        { "id": "counting", "name": "การนับ" },
-        { "id": "probability", "name": "ความน่าจะเป็น" },
-        { "id": "statistics", "name": "สถิติ" }
-      ]
+      "group": "math"
     }
   ]
 }
