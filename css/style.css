@@ -1466,6 +1466,36 @@ body.is-exporting {
   margin: 0;
 }
 
+.exam-group-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 18px;
+  padding: 0 4px;
+  list-style: none;
+}
+
+.exam-group-title:first-child {
+  margin-top: 0;
+}
+
+.exam-group-title h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--plum-800);
+}
+
+.exam-group-title .muted {
+  font-size: 0.9rem;
+}
+
+.subject-tests {
+  margin-top: 4px;
+  color: var(--violet-700);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 .topic-blocks {
   display: flex;
   flex-direction: column;

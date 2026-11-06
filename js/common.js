@@ -171,7 +171,8 @@ const Layout = (() => {
     const footer = document.getElementById('site-footer');
     let subjects = [];
     try {
-      subjects = await DataStore.getSubjects();
+      // "subjects" here are subject groups (e.g. Math), each containing its tests.
+      subjects = await DataStore.getGroups();
     } catch (error) {
       console.error(error);
     }

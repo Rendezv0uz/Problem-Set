@@ -1,7 +1,8 @@
-const BUILDER_KEY = 'problemweb.builder';
+const BUILDER_KEY = 'problemweb.builder.v2';
 
 const els = {
-  sources: document.getElementById('source-group'),
+  testField: document.getElementById('test-field'),
+  tests: document.getElementById('test-group'),
   subject: document.getElementById('subject-select'),
   topics: document.getElementById('topic-group'),
   topicAll: document.getElementById('topic-all'),
@@ -18,9 +19,10 @@ const els = {
   download: document.getElementById('download-btn'),
 };
 
+// "subjects" are subject groups (e.g. Math); each has shared topics and one or more tests.
 let subjects = [];
 let sources = [];
-let problems = [];
+let problems = []; // problems of every test in the current subject
 let currentSubject = null;
 let selection = [];
 let state = {};
@@ -58,6 +60,15 @@ function sourceName(id) {
   return sources.find((s) => s.id === id)?.name || id;
 }
 
+function testName(id) {
+  return currentSubject?.tests.find((t) => t.id === id)?.name || id;
+}
+
+// Subjects with several tests label a question by its test; otherwise by its source.
+function originName(problem) {
+  return currentSubject.tests.length > 1 ? testName(problem.subject) : sourceName(problem.source);
+}
+
 function topicName(id) {
   return currentSubject?.topics.find((t) => t.id === id)?.name || id;
 }
@@ -78,8 +89,12 @@ function chip(name, value, label, checked, count) {
     </label>`;
 }
 
-function renderSources() {
-  els.sources.innerHTML = sources.map((s) => chip('source', s.id, s.name, state.sources.includes(s.id))).join('');
+function renderTests() {
+  const tests = currentSubject.tests;
+  els.testField.hidden = tests.length < 2;
+  els.tests.innerHTML = tests
+    .map((t) => chip('test', t.id, t.name, state.tests.includes(t.id), problems.filter((p) => p.subject === t.id).length))
+    .join('');
 }
 
 function renderSubjectSelect() {
@@ -97,7 +112,7 @@ function renderYears() {
 
 function renderTopics() {
   const inScope = problems.filter(
-    (p) => state.sources.includes(p.source) && p.year >= state.yearFrom && p.year <= state.yearTo
+    (p) => state.tests.includes(p.subject) && p.year >= state.yearFrom && p.year <= state.yearTo
   );
   els.topics.innerHTML = currentSubject.topics
     .map((t) => chip('topic', t.id, t.name, state.topics.includes(t.id), inScope.filter((p) => p.topics.includes(t.id)).length))
@@ -121,7 +136,7 @@ function problemHtml(problem, index) {
     <article class="q-item">
       <div class="q-head">
         <span class="q-no">${index}.</span>
-        <span class="q-src">${escapeHtml(sourceName(problem.source))} ${problem.year} · ข้อ ${problem.number} · ${escapeHtml(topics)}</span>
+        <span class="q-src">${escapeHtml(originName(problem))} ${problem.year} · ข้อ ${problem.number} · ${escapeHtml(topics)}</span>
       </div>
       <div class="q-text">${richText(problem.question)}</div>
       ${figure}
@@ -135,8 +150,8 @@ function answerText(problem) {
 
 function renderPreview(matchCount) {
   const n = selection.length;
-  if (!state.sources.length || !state.topics.length) {
-    els.count.textContent = !state.sources.length ? 'เลือกแหล่งข้อสอบอย่างน้อย 1 แหล่ง' : 'เลือกหัวข้ออย่างน้อย 1 หัวข้อ';
+  if (!state.tests.length || !state.topics.length) {
+    els.count.textContent = !state.tests.length ? 'เลือกข้อสอบอย่างน้อย 1 สนาม' : 'เลือกหัวข้ออย่างน้อย 1 หัวข้อ';
   } else if (state.limitOn && matchCount > 0) {
     els.count.textContent = `สุ่มเลือก ${n} ข้อ จากทั้งหมด ${matchCount} ข้อที่ตรงเงื่อนไข`;
   } else {
@@ -161,15 +176,14 @@ function renderPreview(matchCount) {
 async function update() {
   if (state.yearFrom > state.yearTo) [state.yearFrom, state.yearTo] = [state.yearTo, state.yearFrom];
   renderYears();
+  renderTests();
   renderTopics();
 
-  const matches = await DataStore.queryProblems({
-    subject: state.subject,
-    sources: state.sources,
-    topics: state.topics,
-    yearFrom: state.yearFrom,
-    yearTo: state.yearTo,
-  });
+  const matches = problems
+    .filter((p) => state.tests.includes(p.subject))
+    .filter((p) => p.topics.some((t) => state.topics.includes(t)))
+    .filter((p) => p.year >= state.yearFrom && p.year <= state.yearTo)
+    .sort(byYearAndNumber);
 
   els.limitRow.hidden = !state.limitOn;
   els.limitToggle.checked = state.limitOn;
@@ -188,11 +202,12 @@ async function update() {
   saveState();
 }
 
-async function loadSubject(subjectId, keepFilters) {
+async function loadSubject(subjectId, keepFilters, presetTests) {
   currentSubject = subjects.find((s) => s.id === subjectId) || subjects[0];
   state.subject = currentSubject.id;
+  const testIds = currentSubject.tests.map((t) => t.id);
   try {
-    problems = await DataStore.getProblems(currentSubject.id);
+    problems = (await Promise.all(testIds.map((id) => DataStore.getProblems(id)))).flat();
   } catch (error) {
     problems = [];
     showError(els.preview, error.message);
@@ -202,6 +217,12 @@ async function loadSubject(subjectId, keepFilters) {
   const minYear = years[0] ?? 0;
   const maxYear = years[years.length - 1] ?? 0;
   const topicIds = currentSubject.topics.map((t) => t.id);
+
+  if (!keepFilters || !Array.isArray(state.tests) || !state.tests.length) {
+    state.tests = presetTests && presetTests.length ? presetTests : [...testIds];
+  } else {
+    state.tests = state.tests.filter((id) => testIds.includes(id));
+  }
 
   if (!keepFilters) {
     state.topics = [...topicIds];
@@ -220,7 +241,10 @@ function buildSheet() {
   const title = state.title.trim() || `ชุดข้อสอบ ${currentSubject.name}`;
   const allTopics = currentSubject.topics.every((t) => state.topics.includes(t.id));
   const topicLabel = allTopics ? 'ทุกหัวข้อ' : state.topics.map(topicName).join(', ');
-  const sourceLabel = state.sources.map(sourceName).join(', ');
+  const sourceLabel =
+    currentSubject.tests.length > 1
+      ? state.tests.map(testName).join(', ')
+      : [...new Set(selection.map((p) => sourceName(p.source)))].join(', ');
 
   const answers = selection
     .map((p, i) => `<div class="pdf-answer"><b>${i + 1}.</b> <span>${answerText(p)}</span></div>`)
@@ -327,8 +351,8 @@ function checkedValues(container) {
 }
 
 function bindEvents() {
-  els.sources.addEventListener('change', () => {
-    state.sources = checkedValues(els.sources);
+  els.tests.addEventListener('change', () => {
+    state.tests = checkedValues(els.tests);
     update();
   });
 
@@ -404,13 +428,16 @@ function bindEvents() {
   }
 
   const saved = Store.get('sessionStorage', BUILDER_KEY) || {};
-  const urlSubject = new URLSearchParams(location.search).get('s');
-  const subjectId = subjects.some((s) => s.id === urlSubject) ? urlSubject : saved.subject;
-  const keepFilters = Boolean(saved.subject) && saved.subject === subjectId;
+  const urlParam = new URLSearchParams(location.search).get('s');
+  // ?s= can be a subject (math) or one of its tests (math1).
+  const urlGroup = subjects.find((s) => s.id === urlParam) || subjects.find((s) => s.tests.some((t) => t.id === urlParam));
+  const subjectId = urlGroup ? urlGroup.id : saved.subject;
+  const keepFilters = Boolean(saved.subject) && saved.subject === subjectId && !urlGroup;
+  const presetTests = urlGroup && urlGroup.id !== urlParam && urlGroup.tests.length > 1 ? [urlParam] : null;
 
   state = {
     subject: subjectId,
-    sources: Array.isArray(saved.sources) ? saved.sources.filter((id) => sources.some((s) => s.id === id)) : sources.map((s) => s.id),
+    tests: Array.isArray(saved.tests) ? saved.tests : [],
     topics: saved.topics || [],
     yearFrom: saved.yearFrom,
     yearTo: saved.yearTo,
@@ -420,8 +447,7 @@ function bindEvents() {
     title: saved.title || '',
   };
 
-  await loadSubject(subjectId, keepFilters);
-  renderSources();
+  await loadSubject(subjectId, keepFilters, presetTests);
   renderSubjectSelect();
   els.title.value = state.title;
   els.limitInput.value = state.limit;

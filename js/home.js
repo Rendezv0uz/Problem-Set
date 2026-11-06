@@ -11,6 +11,7 @@ function renderSubjects(subjects) {
         <span class="subject-text">
           <strong>${escapeHtml(s.name)}</strong>
           <span>${escapeHtml(s.description)}</span>
+          ${s.tests.length > 1 ? `<span class="subject-tests">${s.tests.map((t) => escapeHtml(t.name)).join(' · ')}</span>` : ''}
         </span>
         <span class="subject-arrow">${icon('chevronRight')}</span>
       </a>`
@@ -81,7 +82,7 @@ async function initDream(subjects) {
   const uniSelect = document.getElementById('uni-select');
   const facultySelect = document.getElementById('faculty-select');
   const result = document.getElementById('dream-result');
-  const subjectIds = subjects.map((s) => s.id);
+  const subjectIds = subjects.flatMap((g) => g.tests).map((t) => t.id);
 
   let data;
   try {

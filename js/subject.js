@@ -1,11 +1,11 @@
-function renderSubjectTabs(subjects, activeId) {
-  document.getElementById('subject-tabs').innerHTML = subjects
-    .map((s) => `<a class="tab ${s.id === activeId ? 'is-active' : ''}" href="subject.html?s=${s.id}" ${s.id === activeId ? 'aria-current="page"' : ''}>${escapeHtml(s.name)}</a>`)
+function renderSubjectTabs(groups, activeId) {
+  document.getElementById('subject-tabs').innerHTML = groups
+    .map((g) => `<a class="tab ${g.id === activeId ? 'is-active' : ''}" href="subject.html?s=${g.id}" ${g.id === activeId ? 'aria-current="page"' : ''}>${escapeHtml(g.name)}</a>`)
     .join('');
 }
 
-function examRow(exam, subject, sourceName) {
-  const title = `${sourceName} ${subject.name} ปี ${exam.year}`;
+function examRow(exam, test, sourceName) {
+  const title = `${sourceName} ${test.name} ปี ${exam.year}`;
   const actions = exam.file
     ? `
       <a class="btn btn-soft btn-sm" href="${exam.file}" target="_blank" rel="noopener">${icon('external', 'icon-sm')} เปิดดู</a>
@@ -25,14 +25,15 @@ function examRow(exam, subject, sourceName) {
 }
 
 (async () => {
-  const subjects = await Layout.init('subject');
+  const groups = await Layout.init('subject');
   const list = document.getElementById('exam-list');
-  const params = new URLSearchParams(location.search);
-  const subject = subjects.find((s) => s.id === params.get('s'));
+  const param = new URLSearchParams(location.search).get('s');
+  // ?s= can be a subject (math) or one of its tests (math1); both open the subject page.
+  const group = groups.find((g) => g.id === param) || groups.find((g) => g.tests.some((t) => t.id === param));
 
-  renderSubjectTabs(subjects, subject?.id);
+  renderSubjectTabs(groups, group?.id);
 
-  if (!subject) {
+  if (!group) {
     document.getElementById('subject-name').textContent = 'ไม่พบวิชานี้';
     document.getElementById('crumb-name').textContent = 'ไม่พบวิชา';
     list.innerHTML = '<li class="empty-state"><p>ไม่พบวิชาที่เลือก ลองเลือกวิชาจากแถบด้านบน</p></li>';
@@ -41,20 +42,35 @@ function examRow(exam, subject, sourceName) {
     return;
   }
 
-  document.title = `${subject.name} | คลังข้อสอบ`;
-  document.getElementById('subject-name').textContent = subject.name;
-  document.getElementById('subject-desc').textContent = subject.description;
-  document.getElementById('crumb-name').textContent = subject.name;
-  document.getElementById('subject-icon').innerHTML = icon(subject.icon);
-  document.getElementById('create-link').href = `create.html?s=${subject.id}`;
-  document.getElementById('practice-link').href = `online.html?s=${subject.id}`;
+  document.title = `${group.name} | คลังข้อสอบ`;
+  document.getElementById('subject-name').textContent = group.name;
+  document.getElementById('subject-desc').textContent = group.description;
+  document.getElementById('crumb-name').textContent = group.name;
+  document.getElementById('subject-icon').innerHTML = icon(group.icon);
+  document.getElementById('create-link').href = `create.html?s=${group.id}`;
+  document.getElementById('practice-link').href = `online.html?s=${group.id}`;
 
   try {
-    const [exams, sources] = await Promise.all([DataStore.getExams(subject.id), DataStore.getSources()]);
+    const [sources, examsPerTest] = await Promise.all([
+      DataStore.getSources(),
+      Promise.all(group.tests.map((t) => DataStore.getExams(t.id))),
+    ]);
     const sourceName = (id) => sources.find((s) => s.id === id)?.name || id;
-    list.innerHTML = exams.length
-      ? exams.map((exam) => examRow(exam, subject, sourceName(exam.source))).join('')
-      : '<li class="empty-state"><p>ยังไม่มีข้อสอบฉบับเต็มสำหรับวิชานี้</p></li>';
+    const showTitles = group.tests.length > 1;
+
+    const html = group.tests
+      .map((test, i) => {
+        const exams = examsPerTest[i];
+        const rows = exams.length
+          ? exams.map((exam) => examRow(exam, test, sourceName(exam.source))).join('')
+          : '<li class="empty-state"><p>ยังไม่มีข้อสอบฉบับเต็มสำหรับข้อสอบนี้</p></li>';
+        const title = showTitles
+          ? `<li class="exam-group-title"><h3>${escapeHtml(test.name)}</h3><span class="muted">${escapeHtml(test.description || '')}</span></li>`
+          : '';
+        return title + rows;
+      })
+      .join('');
+    list.innerHTML = html;
   } catch (error) {
     showError(list, error.message);
   }
