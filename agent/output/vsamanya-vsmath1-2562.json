@@ -1,0 +1,635 @@
+[
+  {
+    "id": "vsamanya-vsmath1-2562-01",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "counting"
+    ],
+    "year": 2562,
+    "number": 1,
+    "type": "choice",
+    "question": "ให้ $a$ เป็นจำนวนเต็มบวก ถ้า ห.ร.ม. และ ค.ร.น. ของ $a$ และ $24$ เท่ากับ $6$ และ $360$ ตามลำดับ แล้ว $a$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$30$",
+      "$36$",
+      "$42$",
+      "$90$",
+      "$150$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-02",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "complex"
+    ],
+    "year": 2562,
+    "number": 2,
+    "type": "choice",
+    "question": "กำหนดให้ $i^2 = -1$ , $\\left(\\frac{1+i}{2} - \\frac{1}{1+i}\\right)^3$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-i$",
+      "$i$",
+      "$-8$",
+      "$-\\frac{1}{8}$",
+      "$1$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-03",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "trigonometry"
+    ],
+    "year": 2562,
+    "number": 3,
+    "type": "choice",
+    "question": "$\\cos^4\\left(\\frac{5\\pi}{12}\\right) - \\sin^4\\left(\\frac{5\\pi}{12}\\right)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-\\frac{\\sqrt{3}}{2}$",
+      "$-\\frac{1}{\\sqrt{2}}$",
+      "$-\\frac{1}{2}$",
+      "$0$",
+      "$\\frac{1}{\\sqrt{2}}$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-04",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "conic"
+    ],
+    "year": 2562,
+    "number": 4,
+    "type": "choice",
+    "question": "ให้ $P$ เป็นจุดบนวงรี ซึ่งมีโฟกัสอยู่ที่ $F_1(0, -2)$ และ $F_2(0, 2)$\nถ้า $PF_1 = 7$ และ $PF_2 = 3$ แล้ว สมการวงรีคือข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{x^2}{21} + \\frac{y^2}{25} = 1$",
+      "$\\frac{x^2}{25} + \\frac{y^2}{21} = 1$",
+      "$\\frac{x^2}{13} + \\frac{y^2}{9} = 1$",
+      "$\\frac{x^2}{5} + \\frac{y^2}{9} = 1$",
+      "$\\frac{x^2}{9} + \\frac{y^2}{5} = 1$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-05",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "matrix"
+    ],
+    "year": 2562,
+    "number": 5,
+    "type": "choice",
+    "question": "ถ้า $A$ เป็นเมทริกซ์ $3 \\times 3$ ซึ่ง $\\det(2A) = 24$ แล้ว $\\det(A^{-1})$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{12}$",
+      "$\\frac{1}{3}$",
+      "$3$",
+      "$6$",
+      "$12$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-06",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "logarithm"
+    ],
+    "year": 2562,
+    "number": 6,
+    "type": "choice",
+    "question": "ถ้า $a$ และ $b$ เป็นจำนวนจริงบวก โดยที่ $a \\neq 1$ ซึ่งสอดคล้องกับสมการ $\\log_a b = 3$ และ $\\log b + \\log a = 2$ แล้ว $a$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\sqrt{3}$",
+      "$2$",
+      "$3$",
+      "$\\sqrt{10}$",
+      "$10$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-07",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "integral"
+    ],
+    "year": 2562,
+    "number": 7,
+    "type": "choice",
+    "question": "ถ้าเส้นโค้งเส้นหนึ่งผ่านจุด $(8, 10)$ และมีความชันของเส้นโค้งที่จุด $(x, y)$ ใดๆ เป็น $\\frac{x^{\\frac{1}{3}}}{3}$\nแล้ว เส้นโค้งนี้ผ่านจุดในข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$(0, 0)$",
+      "$(0, 1)$",
+      "$(0, 2)$",
+      "$(0, 4)$",
+      "$(0, 6)$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-08",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "limit"
+    ],
+    "year": 2562,
+    "number": 8,
+    "type": "choice",
+    "question": "$\\lim\\limits_{x \\to 2^-} \\frac{|x-2|}{x^2 + 5x - 14}$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-\\frac{1}{5}$",
+      "$-\\frac{1}{9}$",
+      "$0$",
+      "$\\frac{1}{9}$",
+      "$\\frac{1}{5}$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-09",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "counting"
+    ],
+    "year": 2562,
+    "number": 9,
+    "type": "choice",
+    "question": "มีหนังสือภาษาไทยต่างกัน 2 เล่ม ภาษาอังกฤษต่างกัน 3 เล่ม และคณิตศาสตร์ต่างกัน 3 เล่ม ถ้าจะวางหนังสือเหล่านี้ซ้อนกันอยู่ในตั้งเดียวกัน แล้วจำนวนวิธีที่จะจัดวางให้หนังสือวิชาเดียวกันอยู่ติดกันทั้งหมด เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$18$ วิธี",
+      "$54$ วิธี",
+      "$72$ วิธี",
+      "$108$ วิธี",
+      "$432$ วิธี"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-10",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2562,
+    "number": 10,
+    "type": "choice",
+    "question": "จำนวนจริง 100 จำนวน มีค่าเฉลี่ยเลขคณิตเท่ากับ $80$ ถ้าสุ่มจำนวนเหล่านี้มา 10 จำนวน พบว่าค่าเฉลี่ยเลขคณิตเท่ากับ $75.5$ แล้วค่าเฉลี่ยเลขคณิตของจำนวนที่เหลือ 90 จำนวน เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$77.75$",
+      "$78.5$",
+      "$80.5$",
+      "$81$",
+      "$81.5$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-11",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "polynomial"
+    ],
+    "year": 2562,
+    "number": 11,
+    "type": "choice",
+    "question": "ผลบวกของคำตอบทั้งหมดของสมการ $|x^2 - 72| = x$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-1$",
+      "$0$",
+      "$8$",
+      "$17$",
+      "$19$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-12",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "counting"
+    ],
+    "year": 2562,
+    "number": 12,
+    "type": "choice",
+    "question": "เศษเหลือจากการหาร $\\left(\\sum_{k=1}^{10} k!\\right)^2$ ด้วย 5 เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$0$",
+      "$1$",
+      "$2$",
+      "$3$",
+      "$4$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-13",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "polynomial"
+    ],
+    "year": 2562,
+    "number": 13,
+    "type": "choice",
+    "question": "กำหนดให้ $P(x) = x^3 + ax^2 + bx + 2$ เมื่อ $a$ และ $b$ เป็นจำนวนเต็มบวก\nถ้า $x + 2$ หาร $P(x)$ เหลือเศษ $2$ และสมการ $P(x) = 0$ มีคำตอบเป็นจำนวนตรรกยะอย่างน้อยหนึ่งตัว\nแล้ว $a + b$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$11$",
+      "$12$",
+      "$13$",
+      "$14$",
+      "$15$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-14",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "trigonometry"
+    ],
+    "year": 2562,
+    "number": 14,
+    "type": "choice",
+    "question": "ในรูปสามเหลี่ยม ABC ถ้า $AC = 2\\sqrt{3}$ , $BC = 5$ และ $\\hat{A} = 120^\\circ$ แล้ว $\\cos C$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{2}$",
+      "$\\frac{1}{\\sqrt{2}}$",
+      "$\\frac{4 + 3\\sqrt{3}}{10}$",
+      "$\\frac{2 + 3\\sqrt{2}}{8}$",
+      "$\\frac{2 + 4\\sqrt{3}}{10}$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-15",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "conic"
+    ],
+    "year": 2562,
+    "number": 15,
+    "type": "choice",
+    "question": "วงกลมที่อยู่เหนือแกน X ซึ่งสัมผัสกับเส้นตรง $4y = 3x$ ที่จุด $(4, 3)$ และสัมผัสกับแกน Y มีรัศมีเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\sqrt{5}$ หน่วย",
+      "$\\frac{5}{2}$ หน่วย",
+      "$\\frac{13}{5}$ หน่วย",
+      "$\\frac{8}{3}$ หน่วย",
+      "$2\\sqrt{2}$ หน่วย"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-16",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "vector"
+    ],
+    "year": 2562,
+    "number": 16,
+    "type": "choice",
+    "question": "กำหนดให้ A, B และ C เป็นจุดในระบบพิกัดฉากสามมิติ และพื้นที่ของรูปสามเหลี่ยม ABC เท่ากับ 1 ตารางหน่วย\nพิจารณาข้อความต่อไปนี้\nก. $\\overrightarrow{AB} \\times \\overrightarrow{AC}$ ตั้งฉากกับ $\\overrightarrow{AB} + \\overrightarrow{AC}$\nข. $|\\overrightarrow{AB} \\times \\overrightarrow{AC}| = 2$\nค. $|\\overrightarrow{AB}||\\overrightarrow{AC}| < 2$\nง. $\\overrightarrow{AB} + \\overrightarrow{BC} = \\overrightarrow{AC}$\nจำนวนข้อความที่ถูกต้องเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "0 (ไม่มีข้อความใดถูก)",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-17",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "matrix"
+    ],
+    "year": 2562,
+    "number": 17,
+    "type": "choice",
+    "question": "กำหนดให้ $I$ เป็นเมทริกซ์เอกลักษณ์มิติ $3 \\times 3$ และ $B = \\begin{bmatrix} 2 & 1 & 2 \\\\ 1 & 1 & -1 \\\\ 3 & 2 & -2 \\end{bmatrix}$ ถ้า $A$ เป็นเมทริกซ์มิติ $3 \\times 3$ ซึ่ง $AB^t = 2I$ และ $A\\begin{bmatrix} x \\\\ y \\\\ z \\end{bmatrix} = \\begin{bmatrix} -1 \\\\ 5 \\\\ 3 \\end{bmatrix}$ แล้ว $x$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{3}{2}$",
+      "$4$",
+      "$\\frac{9}{2}$",
+      "$6$",
+      "$8$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-18",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "exponent"
+    ],
+    "year": 2562,
+    "number": 18,
+    "type": "choice",
+    "question": "ผลบวกของคำตอบทั้งหมดของสมการ $4^{|3x-1|} - 2^4 = 6\\left(2^{|3x-1|}\\right)$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{3}$",
+      "$\\frac{2}{3}$",
+      "$1$",
+      "$\\frac{4}{3}$",
+      "$\\frac{5}{3}$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-19",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "logarithm"
+    ],
+    "year": 2562,
+    "number": 19,
+    "type": "choice",
+    "question": "เซตคำตอบของสมการ $\\log(\\log x) + \\log(\\log x^8 - 16) = 1$ คือเซตในข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\{10,\\ 100\\sqrt{10}\\}$",
+      "$\\{100,\\ 10\\sqrt{10}\\}$",
+      "$\\{100,\\ 100\\sqrt{10}\\}$",
+      "$\\{100\\sqrt{10}\\}$",
+      "$\\{10\\sqrt{10}\\}$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-20",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "sequence"
+    ],
+    "year": 2562,
+    "number": 20,
+    "type": "choice",
+    "question": "กำหนดให้ $a_1, a_2, a_3, \\dots, a_n, \\dots$ เป็นลำดับเรขาคณิต ถ้า $\\sum_{n=1}^{\\infty} a_n = 1$ และ $\\sum_{n=1}^{\\infty} (-1)^n a_n = -\\frac{2}{3}$\nแล้ว $\\sum_{n=1}^{\\infty} {a_n}^2$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{3}$",
+      "$\\frac{4}{9}$",
+      "$\\frac{2}{3}$",
+      "$1$",
+      "$\\frac{4}{3}$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-21",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "derivative"
+    ],
+    "year": 2562,
+    "number": 21,
+    "type": "choice",
+    "question": "กำหนดให้ $f(x) = x^3 + 2x + 3$ และ $g(x) = f^{-1}(x)$ เป็นฟังก์ชันผกผันของ $f(x)$\nค่าของ $g'(6)$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{5}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{1}{2}$",
+      "$1$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-22",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "integral"
+    ],
+    "year": 2562,
+    "number": 22,
+    "type": "choice",
+    "question": "กำหนดให้ $y = f(x)$ เป็นพาราโบลามีจุดยอดอยู่ที่ $(0, 0)$\nและ $y = g(x)$ เป็นพาราโบลามีจุดยอดอยู่ที่ $(1, 4)$ ซึ่งมีกราฟดังรูป\nพื้นที่ของบริเวณที่แรเงา มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": "images/vsamanya/vsmath1-2562-22.png",
+    "choices": [
+      "$1$ ตารางหน่วย",
+      "$\\frac{4}{3}$ ตารางหน่วย",
+      "$\\frac{3}{2}$ ตารางหน่วย",
+      "$\\frac{5}{3}$ ตารางหน่วย",
+      "$2$ ตารางหน่วย"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-23",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "probability"
+    ],
+    "year": 2562,
+    "number": 23,
+    "type": "choice",
+    "question": "กล่องใบหนึ่งมีสลาก 9 ใบ ซึ่งเขียนหมายเลข $1, 2, 3, \\dots, 9$ ถ้าสุ่มหยิบสลาก 3 ใบ พร้อมกันจากกล่องใบนี้ แล้วความน่าจะเป็นที่ผลคูณของหมายเลขทั้ง 3 เป็นจำนวนคู่ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{2}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{16}{21}$",
+      "$\\frac{33}{42}$",
+      "$\\frac{37}{42}$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-24",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2562,
+    "number": 24,
+    "type": "choice",
+    "question": "น้ำหนักของเด็กกลุ่มหนึ่ง มีการแจกแจงปกติ ถ้าเด็กที่มีน้ำหนักน้อยกว่า 30 กิโลกรัม มีอยู่ $15.87\\%$ และเด็กที่มีน้ำหนักมากกว่า 41 กิโลกรัม มีอยู่ $11.51\\%$\nแล้วค่าเฉลี่ยเลขคณิตของน้ำหนักของเด็กกลุ่มนี้ เท่ากับข้อใดต่อไปนี้\nกำหนดตารางแสดงพื้นที่ใต้เส้นโค้งปกติดังนี้\n$$\\begin{array}{|c|c|c|c|c|} \\hline z & 0.29 & 0.41 & 1 & 1.2 \\\\ \\hline \\text{พื้นที่} & 0.1141 & 0.1591 & 0.3413 & 0.3849 \\\\ \\hline \\end{array}$$",
+    "image": null,
+    "choices": [
+      "34 กิโลกรัม",
+      "34.5 กิโลกรัม",
+      "35 กิโลกรัม",
+      "35.5 กิโลกรัม",
+      "36 กิโลกรัม"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-25",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2562,
+    "number": 25,
+    "type": "choice",
+    "question": "ให้ $x_1, x_2, x_3, \\dots, x_{100}$ เป็นข้อมูลชุดหนึ่ง ซึ่งมี $a, m, \\bar{x}$ เป็นฐานนิยม มัธยฐาน และค่าเฉลี่ยเลขคณิต ตามลำดับ พิจารณาข้อความต่อไปนี้\nก. ถ้าเพิ่มข้อมูลอีก 1 ค่า คือ $a$ ลงในข้อมูลชุดนี้ แล้วฐานนิยมของข้อมูลชุดใหม่ เท่ากับฐานนิยมของข้อมูลชุดเก่า\nข. ถ้าเพิ่มข้อมูลอีก 1 ค่า คือ $m$ ลงในข้อมูลชุดนี้ แล้วมัธยฐานของข้อมูลชุดใหม่ เท่ากับมัธยฐานของข้อมูลชุดเก่า\nค. ถ้าเพิ่มข้อมูลอีก 1 ค่า คือ $\\bar{x}$ ลงในข้อมูลชุดนี้ แล้วค่าเฉลี่ยเลขคณิตของข้อมูลชุดใหม่ เท่ากับค่าเฉลี่ยเลขคณิตของข้อมูลชุดเก่า\nง. ถ้าเพิ่มข้อมูลอีก 3 ค่า คือ $a, m$ และ $\\bar{x}$ ลงในข้อมูลชุดนี้ แล้วพิสัยของข้อมูลชุดใหม่ เท่ากับพิสัยของข้อมูลชุดเก่า\nจำนวนข้อความที่ถูกต้องเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "0 (ไม่มีข้อความใดถูก)",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-26",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "function"
+    ],
+    "year": 2562,
+    "number": 26,
+    "type": "choice",
+    "question": "ให้ $x$ เป็นจำนวนจริงใดๆ\nค่าต่ำสุดของ $|2 - x| + 2|3 - x| + 2|5 - \\sqrt{2} - x| + 2|3 + \\sqrt{2} - x| + 2|5 - x| + |6 - x|$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$3 + 4\\sqrt{2}$",
+      "$4 + 3\\sqrt{2}$",
+      "$4 + 4\\sqrt{2}$",
+      "$5 + 4\\sqrt{2}$",
+      "$5 + 5\\sqrt{2}$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-27",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "complex",
+      "counting"
+    ],
+    "year": 2562,
+    "number": 27,
+    "type": "choice",
+    "question": "กำหนดให้ $i^2 = -1$ และ $A = \\{1, 2, 3, 4\\}$ ถ้า $S = \\{(a, b, c) \\mid i^a + i^b + i^c = 1 \\text{ และ } a, b, c \\in A\\}$\nแล้ว $S$ มีจำนวนสมาชิกเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$3$",
+      "$4$",
+      "$5$",
+      "$7$",
+      "$9$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-28",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "sequence",
+      "logarithm"
+    ],
+    "year": 2562,
+    "number": 28,
+    "type": "choice",
+    "question": "ถ้า $a_1, a_2, \\dots, a_n, \\dots$ เป็นลำดับของจำนวนจริงบวก ซึ่ง $a_1 = 2$ และ $\\log_{\\frac{1}{3}} a_1,\\ \\log_{\\frac{1}{3}} a_2,\\ \\dots,\\ \\log_{\\frac{1}{3}} a_n,\\ \\dots$ เป็นลำดับเลขคณิต ซึ่งมีผลต่างร่วมเท่ากับ $\\frac{1}{2}$ แล้ว $\\sum_{i=1}^{\\infty} a_i$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$3 + \\sqrt{3}$",
+      "$3 + 2\\sqrt{3}$",
+      "$3 + 3\\sqrt{3}$",
+      "$9$",
+      "$6\\sqrt{3}$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-29",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "complex"
+    ],
+    "year": 2562,
+    "number": 29,
+    "type": "choice",
+    "question": "ถ้า $z_1 = \\sqrt{2}\\left(\\cos\\frac{\\pi}{8} + i\\sin\\frac{\\pi}{8}\\right)$ และ $z_2 = 3\\left(\\cos\\frac{3\\pi}{8} + i\\sin\\frac{3\\pi}{8}\\right)$ แล้ว $|z_1 - z_2|$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\sqrt{5}$",
+      "$\\sqrt{6}$",
+      "$3$",
+      "$2\\sqrt{3}$",
+      "$3\\sqrt{2}$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2562-30",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "matrix",
+      "probability"
+    ],
+    "year": 2562,
+    "number": 30,
+    "type": "choice",
+    "question": "กำหนดให้ $S = \\{-2, -1, 0, 1, 2\\}$ ถ้าสุ่มหยิบสมาชิก 4 ตัวพร้อมกันจาก $S$ เพื่อนำมาสร้างเมทริกซ์มิติ $2 \\times 2$ แล้วความน่าจะเป็นที่เมทริกซ์นั้นเป็นเมทริกซ์ไม่เอกฐานเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{2}{3}$",
+      "$\\frac{11}{15}$",
+      "$\\frac{4}{5}$",
+      "$\\frac{13}{15}$",
+      "$\\frac{14}{15}$"
+    ],
+    "answer": "4"
+  }
+]
