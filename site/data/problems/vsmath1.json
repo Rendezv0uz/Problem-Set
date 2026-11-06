@@ -1,0 +1,634 @@
+[
+  {
+    "id": "vsamanya-vsmath1-2561-01",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "polynomial"
+    ],
+    "year": 2561,
+    "number": 1,
+    "type": "choice",
+    "question": "ให้ $f(x) = x^3 + ax^2 + bx + c$ เมื่อ $a, b$ และ $c$ เป็นจำนวนจริง\nถ้ากราฟของ $y = f(x)$ ตัดแกน x ที่จุด $(-3, 0)$ , $(0, 0)$ และ $(2, 0)$ แล้ว $f(-1)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-6$",
+      "$-1$",
+      "$1$",
+      "$4$",
+      "$6$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-02",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "complex"
+    ],
+    "year": 2561,
+    "number": 2,
+    "type": "choice",
+    "question": "ให้ $i^2 = -1$ ค่าของ $i^{101} + i^{101!}$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-2$",
+      "$2$",
+      "$1 + i$",
+      "$1 - i$",
+      "$2i$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-03",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "vector"
+    ],
+    "year": 2561,
+    "number": 3,
+    "type": "choice",
+    "question": "ให้ $\\vec{u} = \\vec{i} + \\vec{j} + \\vec{k}$ เวกเตอร์ $\\vec{v}$ ในข้อใดต่อไปนี้สอดคล้องกับสมการ $\\vec{u} \\times \\vec{v} = \\vec{0}$",
+    "image": null,
+    "choices": [
+      "$\\vec{v} = \\vec{i} + \\vec{j} - \\vec{k}$",
+      "$\\vec{v} = \\vec{i} - \\vec{j} + \\vec{k}$",
+      "$\\vec{v} = -\\vec{i} - \\vec{j} - \\vec{k}$",
+      "$\\vec{v} = -\\vec{i} + \\vec{j} - \\vec{k}$",
+      "$\\vec{v} = -\\vec{i} - \\vec{j} + \\vec{k}$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-04",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "trigonometry"
+    ],
+    "year": 2561,
+    "number": 4,
+    "type": "choice",
+    "question": "ถ้า $\\arccos(9x^2) + \\arcsin(6x - 1) = \\frac{\\pi}{2}$ แล้ว $x$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$0$",
+      "$\\frac{1}{12}$",
+      "$\\frac{1}{8}$",
+      "$\\frac{1}{4}$",
+      "$\\frac{1}{3}$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-05",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "matrix"
+    ],
+    "year": 2561,
+    "number": 5,
+    "type": "choice",
+    "question": "ถ้า $A = \\begin{bmatrix} 2 & 1 \\\\ 3 & 5 \\end{bmatrix}$ และ $B = \\begin{bmatrix} 4 & 3 \\\\ -2 & 2 \\end{bmatrix}$ แล้ว $\\det(AB^{-1})$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-98$",
+      "$\\frac{1}{2}$",
+      "$1$",
+      "$2$",
+      "$98$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-06",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "logarithm"
+    ],
+    "year": 2561,
+    "number": 6,
+    "type": "choice",
+    "question": "$\\frac{1}{\\log_2 100} + \\frac{1}{\\log_5 100}$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{100}$",
+      "$\\frac{1}{10}$",
+      "$\\frac{1}{5}$",
+      "$\\frac{1}{4}$",
+      "$\\frac{1}{2}$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-07",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "probability"
+    ],
+    "year": 2561,
+    "number": 7,
+    "type": "choice",
+    "question": "ในกลุ่มคน 10 คน มีอยู่ $60\\%$ ที่มีเลือดกรุ๊ป A ถ้าสุ่มมา 2 คน พร้อมกันจากกลุ่ม แล้วความน่าจะเป็นที่ทั้งสองคนนี้ไม่มีเลือดกรุ๊ป A ตรงกับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{2}{15}$",
+      "$\\frac{3}{15}$",
+      "$\\frac{5}{15}$",
+      "$\\frac{8}{15}$",
+      "$\\frac{10}{15}$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-08",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2561,
+    "number": 8,
+    "type": "choice",
+    "question": "กำหนดแผนภาพต้นใบ ของข้อมูลชุดหนึ่ง ดังนี้\n$$\\begin{array}{r|lllllll} 4 & 2 & 4 & 5 & 6 \\\\ 5 & 1 & 1 & 2 & 3 & 5 & 8 \\\\ 6 & 0 & 0 & 0 & 2 & 3 & 4 & x \\\\ 7 & 0 & 1 & 1 & 2 \\\\ 8 & 1 & 2 & 3 \\end{array}$$\nถ้าเปอร์เซ็นไทล์ที่ 70 มีค่าเท่ากับ $69$ แล้ว $x$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$5$",
+      "$6$",
+      "$7$",
+      "$8$",
+      "$9$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-09",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "derivative"
+    ],
+    "year": 2561,
+    "number": 9,
+    "type": "choice",
+    "question": "สมการของเส้นสัมผัสเส้นโค้ง $y = \\frac{6}{x+1}$ ที่จุด $(1, 3)$ ตรงกับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$x + y = 4$",
+      "$3x - 2y = -3$",
+      "$3x + 2y = 9$",
+      "$2x - 3y = -7$",
+      "$2x + 3y = 11$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-10",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "sequence"
+    ],
+    "year": 2561,
+    "number": 10,
+    "type": "choice",
+    "question": "$\\sum_{n=0}^{\\infty} \\cos^n\\left(\\frac{\\pi}{3} + n\\pi\\right)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{2}$",
+      "$\\frac{2}{3}$",
+      "$2$",
+      "$1 + \\sqrt{3}$",
+      "$\\frac{2 + \\sqrt{3}}{2}$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-11",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "polynomial"
+    ],
+    "year": 2561,
+    "number": 11,
+    "type": "choice",
+    "question": "จำนวนเต็ม $x$ ที่สอดคล้องกับอสมการ $|2x^2 + 1| - |-x^2 + 2x - 1| \\le 15$ มีทั้งหมดกี่จำนวน",
+    "image": null,
+    "choices": [
+      "$7$",
+      "$9$",
+      "$11$",
+      "$13$",
+      "$15$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-12",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "counting"
+    ],
+    "year": 2561,
+    "number": 12,
+    "type": "choice",
+    "question": "ให้ $S$ เป็นเซตจำนวนเต็มบวก $n$ โดยที่ $n < 100$ และ $n$ มีตัวหารเป็นจำนวนเต็มบวก 12 จำนวน\nถ้า $n_1$ คือจำนวนเต็มที่น้อยที่สุดใน $S$ ถ้า $n_2$ คือจำนวนเต็มที่มากที่สุดใน $S$\nแล้ว $n_2 - n_1$ มีค่าเท่ากับข้อใด",
+    "image": null,
+    "choices": [
+      "$12$",
+      "$20$",
+      "$36$",
+      "$38$",
+      "$40$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-13",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "complex"
+    ],
+    "year": 2561,
+    "number": 13,
+    "type": "choice",
+    "question": "ผลบวกของจำนวนเชิงซ้อน $z$ ทั้งหมด ที่สอดคล้องกับสมการ $|z^2 - 1| = iz + 3$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$2$",
+      "$3 - i$",
+      "$-i$",
+      "$i$",
+      "$3 + i$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-14",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "conic"
+    ],
+    "year": 2561,
+    "number": 14,
+    "type": "choice",
+    "question": "ให้ $r$ และ $s$ เป็นจำนวนจริงบวก ถ้า $P(2, 2)$ เป็นจุดบนวงรีที่มีสมการเป็น $\\frac{(x+2)^2}{r^2} + \\frac{(y-2)^2}{s^2} = 1$\nซึ่งมีจุด $F_1$ และ $F_2$ เป็นโฟกัสของวงรี และ $PF_1 + PF_2 = 12$ แล้วระยะห่างระหว่าง $F_1$ และ $F_2$ ตรงกับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$4$ หน่วย",
+      "$5$ หน่วย",
+      "$2\\sqrt{5}$ หน่วย",
+      "$5\\sqrt{2}$ หน่วย",
+      "$4\\sqrt{5}$ หน่วย"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-15",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "vector"
+    ],
+    "year": 2561,
+    "number": 15,
+    "type": "choice",
+    "question": "กำหนดให้ $\\vec{u}$ และ $\\vec{v}$ เป็นเวกเตอร์ในสามมิติ ซึ่งมีสมบัติต่อไปนี้\nก. $\\vec{u}$ ไม่ขนานกับ $\\vec{v}$\nข. $|\\vec{u}| = |\\vec{v}| = 1$\nและ ค. $|\\vec{u} + \\vec{v}|^2 = 3|\\vec{u} \\times \\vec{v}|^2$\nถ้า $\\theta$ เป็นมุมระหว่างเวกเตอร์ $\\vec{u}$ และ $\\vec{v}$ แล้ว $\\cos\\theta$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{3}$",
+      "$\\frac{1}{\\sqrt{2}}$",
+      "$\\frac{\\sqrt{3}}{2}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{2}{3}$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-16",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "trigonometry"
+    ],
+    "year": 2561,
+    "number": 16,
+    "type": "choice",
+    "question": "เซตของจำนวนเต็มสามจำนวนในข้อใดต่อไปนี้ ที่เป็นความยาวด้านของด้านทั้งสามของรูปสามเหลี่ยมมุมป้านได้",
+    "image": null,
+    "choices": [
+      "$\\{1, 2, 3\\}$",
+      "$\\{2, 3, 4\\}$",
+      "$\\{3, 4, 5\\}$",
+      "$\\{4, 5, 6\\}$",
+      "$\\{5, 6, 7\\}$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-17",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "matrix"
+    ],
+    "year": 2561,
+    "number": 17,
+    "type": "choice",
+    "question": "ให้ $A$ และ $B$ เป็นเมทริกซ์มิติ $3 \\times 3$ และ $I$ เป็นเมทริกซ์เอกลักษณ์การคูณมิติ $3 \\times 3$\nถ้า $AB^t = I$ แล้ว พิจารณาข้อความต่อไปนี้\nก. $AB^t = B^tA$   ข. $A^{-1} = B^t$\nค. $B^{-1} = A^t$   ง. $(AB)^{-1} = (BA)^t$\nจำนวนข้อความที่ถูกเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$0$ (ไม่มีข้อความใดถูก)",
+      "$1$",
+      "$2$",
+      "$3$",
+      "$4$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-18",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "exponent"
+    ],
+    "year": 2561,
+    "number": 18,
+    "type": "choice",
+    "question": "ให้ $x$ และ $y$ เป็นจำนวนเต็มบวก ที่สอดคล้องกับสมการ $6^{\\frac{1}{x}} = (12 \\cdot 3^y)^{\\frac{1}{x+2}}$\nแล้ว $x + y$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$2$",
+      "$3$",
+      "$5$",
+      "$6$",
+      "$8$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-19",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "logarithm"
+    ],
+    "year": 2561,
+    "number": 19,
+    "type": "choice",
+    "question": "ผลบวกของคำตอบของสมการ $\\log_2(\\log_2(7x - 10) \\cdot \\log_x 16) = 3$ ตรงกับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$7$",
+      "$9$",
+      "$10$",
+      "$12$",
+      "$16$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-20",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "sequence"
+    ],
+    "year": 2561,
+    "number": 20,
+    "type": "choice",
+    "question": "ให้ $a_1, a_2, a_3, \\dots, a_{50}$ เป็นลำดับเลขคณิต ถ้า $a_1 = 5$ และ $a_{50} = 103$\nแล้ว ${a_1}^2 - {a_2}^2 + {a_3}^2 - {a_4}^2 + \\dots + {a_{49}}^2 - {a_{50}}^2$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-5{,}400$",
+      "$-5{,}000$",
+      "$108$",
+      "$5{,}000$",
+      "$5{,}400$"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-21",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "derivative"
+    ],
+    "year": 2561,
+    "number": 21,
+    "type": "choice",
+    "question": "ให้ $f(x) = \\begin{cases} 4x - 8 & \\text{เมื่อ } x < 2 \\\\ x^2 - 4 & \\text{เมื่อ } x \\ge 2 \\end{cases}$ และ $g(x) = [f(x)]^2$\nถ้า $g'(c) = -8$ แล้ว $c$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-2$",
+      "$-\\frac{5}{4}$",
+      "$1$",
+      "$\\frac{7}{4}$",
+      "$2$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-22",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "integral"
+    ],
+    "year": 2561,
+    "number": 22,
+    "type": "choice",
+    "question": "ให้ $f(x)$ เป็นฟังก์ชันกำลังสอง โดยที่กราฟของ $y = f(x)$ มีจุดต่ำสุดที่ $(0, -9)$ และตัดแกน $x$ ที่จุด $(x_1, 0)$ และ $(x_2, 0)$ ถ้าพื้นที่ซึ่งปิดล้อมด้วยกราฟของ $y = f(x)$ และแกน $x$ จาก $x_1$ ถึง $x_2$ เท่ากับ 18 ตารางหน่วย\nแล้ว $f(2)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-5$",
+      "$-3$",
+      "$0$",
+      "$3$",
+      "$7$"
+    ],
+    "answer": "5"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-23",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2561,
+    "number": 23,
+    "type": "choice",
+    "question": "คะแนนสอบคณิตศาสตร์และวิทยาศาสตร์ มีการแจกแจงปกติ\nโดยที่ คะแนนสอบวิชาคณิตศาสตร์ มีค่าเฉลี่ยเลขคณิต เท่ากับ 60 คะแนน\nและส่วนเบี่ยงเบนมาตรฐานเท่ากับ 8 คะแนน\nคะแนนสอบวิชาวิทยาศาสตร์ มีค่าเฉลี่ยเลขคณิต เท่ากับ 65 คะแนน\nและส่วนเบี่ยงเบนมาตรฐานเท่ากับ 6 คะแนน\nถ้านายมนัส มีคะแนนมาตรฐานของคะแนนสอบของทั้งสองวิชาเท่ากัน แต่คะแนนสอบวิชาวิทยาศาสตร์มากกว่าคะแนนสอบวิชาคณิตศาสตร์อยู่ 2 คะแนน แล้วนายมนัสสอบได้คะแนนวิชาคณิตศาสตร์เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "72 คะแนน",
+      "74 คะแนน",
+      "76 คะแนน",
+      "83 คะแนน",
+      "86 คะแนน"
+    ],
+    "answer": "1"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-24",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2561,
+    "number": 24,
+    "type": "choice",
+    "question": "เมื่อสร้างตารางแจกแจงความถี่ของคะแนนสอบของนักเรียนจำนวน 48 คน โดยให้ความกว้างของแต่ละอันตรภาคชั้นเป็น 10 แล้วพบว่ามัธยฐานอยู่ในช่วง 50 – 59 ถ้ามีนักเรียนได้คะแนนต่ำกว่า 50 คะแนน อยู่ 20 คน และมีนักเรียนได้คะแนนตั้งแต่ 60 คะแนนขึ้นไปอยู่ 20 คน แล้วมัธยฐานเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "53 คะแนน",
+      "53.5 คะแนน",
+      "54 คะแนน",
+      "54.5 คะแนน",
+      "55 คะแนน"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-25",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "probability"
+    ],
+    "year": 2561,
+    "number": 25,
+    "type": "choice",
+    "question": "ให้ $S = \\{-10, -9, -8, \\dots, -1, 0, 1, \\dots, 8, 9, 10\\}$ สุ่มหยิบคู่อันดับ $(a, b) \\in S \\times S$ มา 1 คู่อันดับ ความน่าจะเป็นที่ $|a| + b = 0$ ตรงกับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{10}{441}$",
+      "$\\frac{20}{441}$",
+      "$\\frac{1}{21}$",
+      "$\\frac{1}{20}$",
+      "$\\frac{1}{10}$"
+    ],
+    "answer": "3"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-26",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2561,
+    "number": 26,
+    "type": "choice",
+    "question": "ข้อมูล 20 จำนวน เรียงจากน้อยไปมากได้เป็น $x_1, x_2, x_3, \\dots, x_{20}$\nโดยมีฐานนิยมมีค่าไม่เท่ากับ $x_1$ , ค่าเฉลี่ยเลขคณิตเท่ากับ $\\bar{x}$ , มัธยฐานเท่ากับ $m$ และพิสัยเท่ากับ $R$\nถ้าตัด $x_1$ ออกจะได้ข้อมูลชุดใหม่คือ $x_2, x_3, \\dots, x_{20}$ จงพิจารณาข้อความต่อไปนี้\nก. ฐานนิยมของข้อมูลชุดใหม่ เท่ากับ ฐานนิยมของข้อมูลชุดเก่า\nข. ค่าเฉลี่ยเลขคณิตของข้อมูลชุดใหม่ มากกว่าหรือเท่ากับ $\\bar{x}$\nค. มัธยฐานของข้อมูลชุดใหม่ มากกว่าหรือเท่ากับ $m$\nง. พิสัยของข้อมูลชุดใหม่ มากกว่า $R$\nจำนวนข้อความที่ถูกเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$0$ (ไม่มีข้อความใดถูก)",
+      "$1$",
+      "$2$",
+      "$3$",
+      "$4$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-27",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "sequence"
+    ],
+    "year": 2561,
+    "number": 27,
+    "type": "choice",
+    "question": "ให้ $a_1, a_2, a_3, \\dots, a_{51}$ เป็นข้อมูลในลำดับเรขาคณิต โดยมี $a_1 = 1$ และอัตราส่วนร่วมของลำดับเท่ากับ $-\\frac{5}{4}$ แล้วมัธยฐานเท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\left(-\\frac{5}{4}\\right)^{25}$",
+      "$\\left(-\\frac{5}{4}\\right)^{23}$",
+      "$-\\frac{5}{4}$",
+      "$1$",
+      "$\\left(\\frac{5}{4}\\right)^{26}$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-28",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "function"
+    ],
+    "year": 2561,
+    "number": 28,
+    "type": "choice",
+    "question": "ถ้าสมการ $y = f(x)$ มีกราฟเป็นพาราโบลาซึ่งผ่านจุด $\\left(0, \\frac{1}{2}\\right)$ และ $-(x - 1)^2 + 1 \\le f(x) \\le 1$ สำหรับทุกๆ จำนวนจริง $x$ แล้วพาราโบลา $y = f(x)$ ผ่านจุดในข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$(-1, 0)$",
+      "$(-1, -1)$",
+      "$(-2, 0)$",
+      "$(-2, -2)$",
+      "$(3, -2)$"
+    ],
+    "answer": "2"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-29",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "matrix",
+      "probability"
+    ],
+    "year": 2561,
+    "number": 29,
+    "type": "choice",
+    "question": "ให้ $S = \\{-5, -4, -3, -2, -1, 1, 2, 3, 4, 5\\}$\n$A = \\begin{bmatrix} 0 & 1 \\\\ -1 & 0 \\end{bmatrix}$ และ $M = \\left\\{ \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} \\,\\middle|\\, a, b, c, d \\in S \\right\\}$\nถ้าสุ่มหยิบ 1 เมทริกซ์จากเซต $M$ แล้วความน่าจะเป็นที่จะได้เมทริกซ์ $B$ ซึ่ง $\\det(A + B) = \\det A + \\det B$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$\\frac{1}{100}$",
+      "$\\frac{3}{100}$",
+      "$\\frac{1}{20}$",
+      "$\\frac{1}{10}$",
+      "$\\frac{11}{100}$"
+    ],
+    "answer": "4"
+  },
+  {
+    "id": "vsamanya-vsmath1-2561-30",
+    "source": "vsamanya",
+    "subject": "vsmath1",
+    "topics": [
+      "sequence",
+      "trigonometry"
+    ],
+    "year": 2561,
+    "number": 30,
+    "type": "choice",
+    "question": "ถ้า $a_1, a_2, a_3, \\dots, a_n$ เป็นลำดับเลขคณิต ซึ่งมี $a_1 = \\frac{\\pi}{12}$ และ $d = \\frac{\\pi}{3}$\nแล้ว $\\sum_{n=1}^{65} \\sin(a_n)$ เท่ากับข้อใดต่อไปนี้",
+    "image": null,
+    "choices": [
+      "$-\\sqrt{2}$",
+      "$-\\frac{1}{\\sqrt{2}}$",
+      "$0$",
+      "$\\frac{1}{\\sqrt{2}}$",
+      "$\\sqrt{2}$"
+    ],
+    "answer": "4"
+  }
+]
