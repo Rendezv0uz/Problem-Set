@@ -177,7 +177,7 @@ const Layout = (() => {
       console.error(error);
     }
     header.innerHTML = headerHtml(active, subjects);
-    footer.innerHTML = footerHtml();
+    if (footer) footer.innerHTML = footerHtml();
     bindHeader(header);
     return subjects;
   }
