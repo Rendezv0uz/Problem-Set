@@ -26,13 +26,47 @@
           <span>ฝึกทำออนไลน์</span>
         </nav>
         <h1 id="practice-title">ฝึกทำข้อสอบ</h1>
-        <p class="lead">ตอบทีละข้อ กดตรวจคำตอบแล้วดูคำอธิบายได้ทันที</p>
+        <p class="lead">เลือกหัวข้อและช่วงปีที่ต้องการ แล้วทำได้ไม่จำกัดข้อ ตรวจคำตอบได้ทันที</p>
       </div>
     </section>
 
-    <section class="section container">
-      <div class="practice-shell">
-        <div class="practice-progress" id="practice-progress" aria-live="polite"></div>
+    <section class="section container builder practice-layout">
+      <form class="builder-panel" id="filter-form" onsubmit="return false">
+        <div class="field">
+          <span class="field-label">แหล่งข้อสอบ</span>
+          <div class="chip-group" id="source-group"></div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <span class="field-label">หัวข้อ</span>
+            <button type="button" class="link-btn" id="topic-all">เลือกทั้งหมด</button>
+          </div>
+          <div class="chip-group" id="topic-group"></div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">ช่วงปี</span>
+          <div class="range-row">
+            <select id="year-from" aria-label="ตั้งแต่ปี"></select>
+            <span>ถึง</span>
+            <select id="year-to" aria-label="ถึงปี"></select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="switch">
+            <input type="checkbox" id="hide-solved">
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span>ซ่อนข้อที่ทำถูกแล้ว</span>
+          </label>
+        </div>
+
+        <p class="muted" id="match-count" aria-live="polite">กำลังโหลด…</p>
+      </form>
+
+      <div class="practice-main">
+        <div class="practice-stats" id="practice-stats" aria-live="polite"></div>
         <div id="practice-stage">
           <div class="skeleton-card practice-skeleton"></div>
         </div>

@@ -1,15 +1,30 @@
-const DEFAULT_COUNT = 5;
+const SOLVED_KEY = 'problemweb.solved';
+const FILTER_KEY = 'problemweb.practice.';
 
 const stage = document.getElementById('practice-stage');
-const progress = document.getElementById('practice-progress');
+const statsBar = document.getElementById('practice-stats');
+const els = {
+  sources: document.getElementById('source-group'),
+  topics: document.getElementById('topic-group'),
+  topicAll: document.getElementById('topic-all'),
+  yearFrom: document.getElementById('year-from'),
+  yearTo: document.getElementById('year-to'),
+  hideSolved: document.getElementById('hide-solved'),
+  count: document.getElementById('match-count'),
+};
 
 let subject = null;
 let sources = [];
 let allProblems = [];
-let questions = [];
-let results = [];
-let current = 0;
+let state = {};
+let solved = new Set();
+
+let queue = [];
+let current = null;
 let answered = false;
+let showingSummary = false;
+let history = [];
+let streak = 0;
 
 function shuffle(list) {
   const copy = [...list];
@@ -51,15 +66,181 @@ function isWrittenCorrect(problem, input) {
   return [problem.answer, ...(problem.accept || [])].some((a) => normalize(a) === target);
 }
 
-function renderProgress() {
-  const dots = questions
-    .map((_, i) => {
-      const state = results[i] === true ? 'is-correct' : results[i] === false ? 'is-wrong' : i === current ? 'is-current' : '';
-      return `<span class="progress-dot ${state}"></span>`;
-    })
+/* ---------- filters ---------- */
+
+function availableYears() {
+  return [...new Set(allProblems.map((p) => p.year))].sort((a, b) => a - b);
+}
+
+function availableSources() {
+  const ids = new Set(allProblems.map((p) => p.source));
+  return sources.filter((s) => ids.has(s.id));
+}
+
+function defaultState() {
+  const years = availableYears();
+  return {
+    sources: availableSources().map((s) => s.id),
+    topics: subject.topics.map((t) => t.id),
+    yearFrom: years[0],
+    yearTo: years[years.length - 1],
+    hideSolved: false,
+  };
+}
+
+function loadState() {
+  const base = defaultState();
+  const saved = Store.get('localStorage', FILTER_KEY + subject.id);
+  if (!saved) return base;
+  const years = availableYears();
+  const validSources = availableSources().map((s) => s.id);
+  const validTopics = subject.topics.map((t) => t.id);
+  return {
+    sources: Array.isArray(saved.sources) ? saved.sources.filter((s) => validSources.includes(s)) : base.sources,
+    topics: Array.isArray(saved.topics) ? saved.topics.filter((t) => validTopics.includes(t)) : base.topics,
+    yearFrom: years.includes(saved.yearFrom) ? saved.yearFrom : base.yearFrom,
+    yearTo: years.includes(saved.yearTo) ? saved.yearTo : base.yearTo,
+    hideSolved: Boolean(saved.hideSolved),
+  };
+}
+
+function saveState() {
+  Store.set('localStorage', FILTER_KEY + subject.id, state);
+}
+
+function saveSolved() {
+  Store.set('localStorage', SOLVED_KEY, [...solved]);
+}
+
+function pool() {
+  return allProblems.filter(
+    (p) =>
+      state.sources.includes(p.source) &&
+      p.topics.some((t) => state.topics.includes(t)) &&
+      p.year >= state.yearFrom &&
+      p.year <= state.yearTo &&
+      !(state.hideSolved && solved.has(p.id))
+  );
+}
+
+function chip(name, value, label, checked, count) {
+  return `
+    <label class="chip ${count === 0 ? 'is-empty' : ''}">
+      <input type="checkbox" name="${name}" value="${value}" ${checked ? 'checked' : ''}>
+      <span>${escapeHtml(label)}${count === undefined ? '' : `<small>${count}</small>`}</span>
+    </label>`;
+}
+
+function renderFilters() {
+  els.sources.innerHTML = availableSources()
+    .map((s) => chip('source', s.id, s.name, state.sources.includes(s.id)))
     .join('');
-  const label = current < questions.length ? `ข้อ ${current + 1} จาก ${questions.length}` : 'สรุปผล';
-  progress.innerHTML = `<div class="progress-dots">${dots}</div><span class="progress-label">${label}</span>`;
+
+  const years = availableYears();
+  const options = (selected) => years.map((y) => `<option value="${y}" ${y === selected ? 'selected' : ''}>${y}</option>`).join('');
+  els.yearFrom.innerHTML = options(state.yearFrom);
+  els.yearTo.innerHTML = options(state.yearTo);
+
+  els.hideSolved.checked = state.hideSolved;
+  renderTopics();
+}
+
+function renderTopics() {
+  const inScope = allProblems.filter(
+    (p) => state.sources.includes(p.source) && p.year >= state.yearFrom && p.year <= state.yearTo
+  );
+  els.topics.innerHTML = subject.topics
+    .map((t) => chip('topic', t.id, t.name, state.topics.includes(t.id), inScope.filter((p) => p.topics.includes(t.id)).length))
+    .join('');
+  const allChecked = subject.topics.every((t) => state.topics.includes(t.id));
+  els.topicAll.textContent = allChecked ? 'ล้างทั้งหมด' : 'เลือกทั้งหมด';
+}
+
+function renderMatchCount() {
+  const n = pool().length;
+  if (!state.sources.length) els.count.textContent = 'เลือกแหล่งข้อสอบอย่างน้อย 1 แหล่ง';
+  else if (!state.topics.length) els.count.textContent = 'เลือกหัวข้ออย่างน้อย 1 หัวข้อ';
+  else els.count.textContent = `มี ${n} ข้อที่ตรงเงื่อนไข`;
+}
+
+function checkedValues(container) {
+  return [...container.querySelectorAll('input:checked')].map((input) => input.value);
+}
+
+function onFilterChange() {
+  state.sources = checkedValues(els.sources);
+  state.topics = checkedValues(els.topics);
+  state.yearFrom = Number(els.yearFrom.value);
+  state.yearTo = Number(els.yearTo.value);
+  if (state.yearFrom > state.yearTo) {
+    if (document.activeElement === els.yearFrom) state.yearTo = state.yearFrom;
+    else state.yearFrom = state.yearTo;
+    els.yearFrom.value = state.yearFrom;
+    els.yearTo.value = state.yearTo;
+  }
+  state.hideSolved = els.hideSolved.checked;
+  saveState();
+  renderTopics();
+  restartPool();
+}
+
+/* ---------- practice flow ---------- */
+
+function renderStats() {
+  const done = history.length;
+  const correct = history.filter((h) => h.correct).length;
+  const pct = done ? Math.round((correct / done) * 100) : 0;
+  statsBar.innerHTML = `
+    <div class="stat"><strong>${done}</strong><span>ทำแล้ว</span></div>
+    <div class="stat"><strong>${correct}</strong><span>ถูก${done ? ` (${pct}%)` : ''}</span></div>
+    <div class="stat"><strong>${streak}</strong><span>ถูกติดกัน</span></div>
+    ${done ? '<button type="button" class="btn btn-soft btn-sm" id="summary-btn">ดูสรุป</button>' : ''}`;
+  const summaryBtn = document.getElementById('summary-btn');
+  if (summaryBtn) summaryBtn.addEventListener('click', renderSummary);
+}
+
+function restartPool() {
+  renderMatchCount();
+  queue = shuffle(pool());
+  nextQuestion();
+}
+
+function nextQuestion() {
+  showingSummary = false;
+  const total = pool().length;
+
+  if (!state.sources.length || !state.topics.length || total === 0) {
+    current = null;
+    const reason = !state.sources.length
+      ? 'เลือกแหล่งข้อสอบอย่างน้อย 1 แหล่ง'
+      : !state.topics.length
+        ? 'เลือกหัวข้ออย่างน้อย 1 หัวข้อ'
+        : state.hideSolved
+          ? 'คุณทำถูกครบทุกข้อที่ตรงเงื่อนไขแล้ว ลองปิดตัวเลือก "ซ่อนข้อที่ทำถูกแล้ว" หรือเปลี่ยนตัวกรอง'
+          : 'ไม่พบข้อสอบที่ตรงเงื่อนไข ลองเปลี่ยนตัวกรองทางซ้าย';
+    stage.innerHTML = `<div class="empty-state"><p>${reason}</p></div>`;
+    renderStats();
+    return;
+  }
+
+  if (!queue.length) {
+    current = null;
+    stage.innerHTML = `
+      <div class="empty-state">
+        <p><strong>ทำครบทุกข้อที่ตรงเงื่อนไขแล้ว (${total} ข้อ)</strong></p>
+        <p class="muted">เปลี่ยนตัวกรองเพื่อฝึกเรื่องอื่น หรือสุ่มวนทำใหม่อีกรอบ</p>
+        <button type="button" class="btn btn-primary" id="again-btn">${icon('shuffle', 'icon-sm')} สุ่มวนใหม่</button>
+      </div>`;
+    document.getElementById('again-btn').addEventListener('click', () => {
+      queue = shuffle(pool());
+      nextQuestion();
+    });
+    renderStats();
+    return;
+  }
+
+  current = queue.shift();
+  renderQuestion();
 }
 
 function choiceListHtml(problem) {
@@ -87,29 +268,31 @@ function writtenHtml() {
 }
 
 function renderQuestion() {
-  const problem = questions[current];
+  const problem = current;
   answered = false;
   const isChoice = Array.isArray(problem.choices);
-  const isLast = current === questions.length - 1;
+  const isDone = solved.has(problem.id);
 
   stage.innerHTML = `
     <article class="practice-card">
       <div class="q-head">
-        <span class="q-no">ข้อ ${current + 1}</span>
+        <span class="q-no">ข้อที่ ${history.length + 1}</span>
         <span class="q-src">${escapeHtml(sourceName(problem.source))} ${problem.year} · ข้อ ${problem.number} · ${escapeHtml(problem.topics.map(topicName).join(', '))}</span>
+        ${isDone ? '<span class="badge badge-ok">เคยทำถูกแล้ว</span>' : ''}
       </div>
       <div class="q-text practice-question">${richText(problem.question)}</div>
-      ${problem.image ? `<figure class="q-figure"><img src="${problem.image}" alt="ภาพประกอบข้อ ${current + 1}"></figure>` : ''}
+      ${problem.image ? `<figure class="q-figure"><img src="${problem.image}" alt="ภาพประกอบโจทย์"></figure>` : ''}
       ${isChoice ? choiceListHtml(problem) : writtenHtml()}
       <div class="feedback" id="feedback" hidden></div>
     </article>
     <div class="practice-actions">
-      <span class="muted practice-hint">${isChoice ? `กด 1–${problem.choices.length} เพื่อเลือก · ` : ''}Enter เพื่อ${isLast ? 'ตรวจ / ดูผล' : 'ตรวจ / ไปข้อถัดไป'}</span>
+      <span class="muted practice-hint">${isChoice ? `กด 1–${problem.choices.length} เพื่อเลือก · ` : ''}Enter เพื่อตรวจ / ไปข้อถัดไป</span>
+      <button type="button" class="btn btn-ghost-dark" id="skip-btn">ข้าม</button>
       <button type="button" class="btn btn-primary" id="action-btn" disabled>ตรวจคำตอบ</button>
     </div>`;
 
   renderMath(stage);
-  renderProgress();
+  renderStats();
 
   const actionBtn = document.getElementById('action-btn');
   if (isChoice) {
@@ -123,20 +306,19 @@ function renderQuestion() {
     });
     input.focus({ preventScroll: true });
   }
-  actionBtn.addEventListener('click', () => (answered ? next() : check()));
+  actionBtn.addEventListener('click', () => (answered ? nextQuestion() : check()));
+  document.getElementById('skip-btn').addEventListener('click', nextQuestion);
 }
 
 function check() {
-  const problem = questions[current];
+  const problem = current;
   const isChoice = Array.isArray(problem.choices);
   let correct;
-  let given;
 
   if (isChoice) {
     const selected = stage.querySelector('input[name="option"]:checked');
     if (!selected) return;
-    given = selected.value;
-    correct = given === String(problem.answer);
+    correct = selected.value === String(problem.answer);
     stage.querySelectorAll('.option').forEach((option) => {
       const input = option.querySelector('input');
       input.disabled = true;
@@ -145,7 +327,7 @@ function check() {
     });
   } else {
     const input = document.getElementById('written-input');
-    given = input.value.trim();
+    const given = input.value.trim();
     if (!given) return;
     correct = isWrittenCorrect(problem, given);
     input.disabled = true;
@@ -153,7 +335,12 @@ function check() {
   }
 
   answered = true;
-  results[current] = correct;
+  history.push({ problem, correct });
+  streak = correct ? streak + 1 : 0;
+  if (correct && !solved.has(problem.id)) {
+    solved.add(problem.id);
+    saveSolved();
+  }
 
   const answerLabel = isChoice
     ? `(${escapeHtml(problem.answer)}) ${richText(problem.choices[Number(problem.answer) - 1])}`
@@ -168,34 +355,26 @@ function check() {
   feedback.hidden = false;
   renderMath(feedback);
 
+  document.getElementById('skip-btn').hidden = true;
   const actionBtn = document.getElementById('action-btn');
-  actionBtn.textContent = current === questions.length - 1 ? 'ดูผลลัพธ์' : 'ข้อถัดไป';
+  actionBtn.textContent = 'ข้อถัดไป';
   actionBtn.disabled = false;
   actionBtn.focus({ preventScroll: true });
-  renderProgress();
+  renderStats();
 }
 
-function next() {
-  current += 1;
-  if (current >= questions.length) renderResult();
-  else renderQuestion();
-  progress.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-function renderResult() {
-  const score = results.filter(Boolean).length;
-  const total = questions.length;
-  const pct = Math.round((score / total) * 100);
-  const message = pct === 100 ? 'ยอดเยี่ยม! ถูกทุกข้อ' : pct >= 60 ? 'ทำได้ดี! ทบทวนข้อที่พลาดอีกนิด' : 'สู้ต่อ! ลองทบทวนแล้วทำใหม่อีกครั้ง';
-
-  const review = questions
+function renderSummary() {
+  showingSummary = true;
+  const done = history.length;
+  const correct = history.filter((h) => h.correct).length;
+  const rows = history
     .map(
-      (p, i) => `
-      <li class="review-row ${results[i] ? 'is-correct' : 'is-wrong'}">
-        <span class="review-mark">${icon(results[i] ? 'check' : 'close', 'icon-sm')}</span>
+      (h, i) => `
+      <li class="review-row ${h.correct ? 'is-correct' : 'is-wrong'}">
+        <span class="review-mark">${icon(h.correct ? 'check' : 'close', 'icon-sm')}</span>
         <span class="review-text">
-          <strong>ข้อ ${i + 1}</strong>
-          <span class="muted">${escapeHtml(p.topics.map(topicName).join(', '))} · ${escapeHtml(sourceName(p.source))} ${p.year} ข้อ ${p.number}</span>
+          <strong>ข้อที่ ${i + 1}</strong>
+          <span class="muted">${escapeHtml(h.problem.topics.map(topicName).join(', '))} · ${escapeHtml(sourceName(h.problem.source))} ${h.problem.year} ข้อ ${h.problem.number}</span>
         </span>
       </li>`
     )
@@ -203,33 +382,32 @@ function renderResult() {
 
   stage.innerHTML = `
     <article class="practice-card result-card">
-      <div class="score-ring" style="--pct:${pct}">
-        <span><strong>${score}</strong>/${total}</span>
-      </div>
-      <h2>${message}</h2>
-      <p class="muted">ตอบถูก ${score} จาก ${total} ข้อ (${pct}%)</p>
-      <ul class="review-list">${review}</ul>
+      <h2>สรุปการฝึกครั้งนี้</h2>
+      <p class="muted">ตอบถูก ${correct} จาก ${done} ข้อ (${Math.round((correct / done) * 100)}%)</p>
+      <ul class="review-list">${rows}</ul>
       <div class="result-actions">
-        <button type="button" class="btn btn-primary" id="restart-btn">${icon('shuffle', 'icon-sm')} ทำชุดใหม่</button>
-        <a class="btn btn-soft" href="subject.html?s=${subject.id}">กลับไปหน้าวิชา</a>
+        <button type="button" class="btn btn-primary" id="continue-btn">ทำต่อ</button>
+        <button type="button" class="btn btn-soft" id="reset-btn">เริ่มนับใหม่</button>
         <a class="btn btn-ghost-dark" href="create.html?s=${subject.id}">สร้างชุดข้อสอบ PDF</a>
       </div>
     </article>`;
-
-  renderProgress();
-  document.getElementById('restart-btn').addEventListener('click', start);
-}
-
-function start() {
-  const count = Math.max(1, parseInt(new URLSearchParams(location.search).get('n'), 10) || DEFAULT_COUNT);
-  questions = shuffle(allProblems).slice(0, count);
-  results = new Array(questions.length).fill(null);
-  current = 0;
-  renderQuestion();
+  document.getElementById('continue-btn').addEventListener('click', () => {
+    showingSummary = false;
+    if (current) {
+      renderQuestion();
+    } else {
+      nextQuestion();
+    }
+  });
+  document.getElementById('reset-btn').addEventListener('click', () => {
+    history = [];
+    streak = 0;
+    nextQuestion();
+  });
 }
 
 document.addEventListener('keydown', (event) => {
-  if (!questions.length || current >= questions.length) return;
+  if (!current || showingSummary || event.target.closest('#filter-form')) return;
   const actionBtn = document.getElementById('action-btn');
   if (event.key === 'Enter' && actionBtn && !actionBtn.disabled) {
     event.preventDefault();
@@ -243,6 +421,21 @@ document.addEventListener('keydown', (event) => {
     option.dispatchEvent(new Event('change', { bubbles: true }));
   }
 });
+
+function bindFilters() {
+  els.sources.addEventListener('change', onFilterChange);
+  els.topics.addEventListener('change', onFilterChange);
+  els.yearFrom.addEventListener('change', onFilterChange);
+  els.yearTo.addEventListener('change', onFilterChange);
+  els.hideSolved.addEventListener('change', onFilterChange);
+  els.topicAll.addEventListener('click', () => {
+    const allChecked = subject.topics.every((t) => state.topics.includes(t.id));
+    els.topics.querySelectorAll('input').forEach((input) => {
+      input.checked = !allChecked;
+    });
+    onFilterChange();
+  });
+}
 
 (async () => {
   const subjects = await Layout.init('subject');
@@ -272,5 +465,9 @@ document.addEventListener('keydown', (event) => {
     return;
   }
 
-  start();
+  solved = new Set(Store.get('localStorage', SOLVED_KEY) || []);
+  state = loadState();
+  renderFilters();
+  bindFilters();
+  restartPool();
 })();

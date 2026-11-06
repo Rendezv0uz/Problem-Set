@@ -1442,6 +1442,53 @@ body.is-exporting {
   height: 360px;
 }
 
+.practice-layout {
+  grid-template-columns: 340px minmax(0, 1fr);
+}
+
+.practice-main {
+  min-width: 0;
+}
+
+.practice-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+  padding: 12px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.practice-stats .stat {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.practice-stats .stat strong {
+  font-size: 1.25rem;
+  color: var(--plum-800);
+}
+
+.practice-stats .stat span {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.practice-stats .btn {
+  margin-left: auto;
+}
+
+.practice-actions {
+  gap: 10px;
+}
+
+.practice-actions .practice-hint {
+  margin-right: auto;
+}
+
 .practice-progress {
   display: flex;
   align-items: center;
