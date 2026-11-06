@@ -1,0 +1,398 @@
+[
+  {
+    "id": "tms-tmsmath-2568-01",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "set"
+    ],
+    "year": 2568,
+    "number": 1,
+    "type": "written",
+    "question": "ให้ $A, B, C$ และ $D$ เป็นเซตที่สอดคล้องกับเงื่อนไข $C \\subset A - B$ , $D \\subset B - A$ , $n(A \\cup D) = 45$ , $n(B \\cup C) = 67$ , $n(A \\cup B) = 100$ และ $n(C \\cup D) = 3$ จงหาค่าของ $n(A \\cap B)$",
+    "image": null,
+    "choices": null,
+    "answer": "9"
+  },
+  {
+    "id": "tms-tmsmath-2568-02",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "set",
+      "relation"
+    ],
+    "year": 2568,
+    "number": 2,
+    "type": "written",
+    "question": "ให้ $A = \\{1, 2, 4, 5, 6, 10\\}$ และ $B = \\{2, 5, 7\\}$ นิยามความสัมพันธ์ $r = \\{ (x, y) \\in A \\times B \\mid x + y \\in A - B \\}$ จงหาผลรวมของสมาชิกในโดเมนของ $r$",
+    "image": null,
+    "choices": null,
+    "answer": "12"
+  },
+  {
+    "id": "tms-tmsmath-2568-03",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "conic"
+    ],
+    "year": 2568,
+    "number": 3,
+    "type": "written",
+    "question": "ให้ $H$ เป็นไฮเพอร์โบลาที่เส้นกำกับทั้งสองเส้นตั้งฉากกัน ถ้าจุดยอดของ $H$ อยู่ห่างกัน $20\\sqrt{2}$ หน่วย แล้วโฟกัสของ $H$ อยู่ห่างกันกี่หน่วย",
+    "image": null,
+    "choices": null,
+    "answer": "40"
+  },
+  {
+    "id": "tms-tmsmath-2568-04",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "polynomial"
+    ],
+    "year": 2568,
+    "number": 4,
+    "type": "written",
+    "question": "ให้ $a$ เป็นจำนวนจริง สมมติว่าพหุนาม $x^3 - 7x^2 - 42x + a$ มีรากเป็นจำนวนจริง 3 ราก ซึ่งรากทั้งสามเรียงตัวกันเป็นลำดับเรขาคณิต จงหาค่าของ $a$",
+    "image": null,
+    "choices": null,
+    "answer": "216"
+  },
+  {
+    "id": "tms-tmsmath-2568-05",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "probability"
+    ],
+    "year": 2568,
+    "number": 5,
+    "type": "written",
+    "question": "พิจารณาการทดลองทอดลูกเต๋าที่เที่ยงตรง 2 ลูก จำนวน 1 ครั้ง ถ้าแต้มบนหน้าลูกเต๋าเป็นจำนวนคี่ทั้ง 2 หน้า จะได้คะแนนเป็นผลคูณของแต้มทั้งสอง และถ้าแต้มบนหน้าลูกเต๋าเป็นจำนวนคู่อย่างน้อย 1 หน้า จะได้คะแนนเป็นผลบวกของแต้มทั้งสอง ให้ $E$ เป็นค่าคาดหมายของคะแนนที่ได้จากการทอดลูกเต๋า 2 ลูกดังกล่าวจำนวน 1 ครั้ง จงหาค่าของ $100E$",
+    "image": null,
+    "choices": null,
+    "answer": "775"
+  },
+  {
+    "id": "tms-tmsmath-2568-06",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "statistics"
+    ],
+    "year": 2568,
+    "number": 6,
+    "type": "written",
+    "question": "ข้อมูลชุดหนึ่งประกอบด้วยจำนวนเต็ม 25 จำนวนที่แตกต่างกันทั้งหมด สมมติว่าข้อมูลชุดนี้มีค่าเฉลี่ยเป็นจำนวนเต็ม จงหาค่าต่ำสุดที่เป็นไปได้ของความแปรปรวนของประชากรของข้อมูลชุดนี้",
+    "image": null,
+    "choices": null,
+    "answer": "52"
+  },
+  {
+    "id": "tms-tmsmath-2568-07",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "logic"
+    ],
+    "year": 2568,
+    "number": 7,
+    "type": "written",
+    "question": "ให้ $p_1, p_2, p_3, p_4$ และ $p_5$ เป็นประพจน์ สมมติว่า $\\sim(p_1 \\rightarrow p_2) \\wedge (\\sim p_3 \\vee p_4 \\vee p_5) \\wedge (p_1 \\rightarrow p_5)$ มีค่าความจริงเป็นจริง ให้ $n$ เป็นจำนวนของประพจน์ $p_1, p_2, p_3, p_4$ และ $p_5$ ที่มีค่าความจริงเป็นจริง จงหาผลรวมของค่าสูงสุดและค่าต่ำสุดที่เป็นไปได้ของ $n$",
+    "image": null,
+    "choices": null,
+    "answer": "6"
+  },
+  {
+    "id": "tms-tmsmath-2568-08",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "polynomial",
+      "function"
+    ],
+    "year": 2568,
+    "number": 8,
+    "type": "written",
+    "question": "ให้ $S = \\{ x \\in \\mathbb{R} \\mid |x|^3 - 2x^2 - 11|x| + 12 \\le 0 \\}$ ถ้า $a$ และ $b$ เป็นค่าสูงสุดและค่าต่ำสุดที่เป็นไปได้ของสมาชิกของเซต $S$ ตามลำดับ จงหาค่าของ $100a + b$",
+    "image": null,
+    "choices": null,
+    "answer": "396"
+  },
+  {
+    "id": "tms-tmsmath-2568-09",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "probability"
+    ],
+    "year": 2568,
+    "number": 9,
+    "type": "written",
+    "question": "ให้ $X$ เป็นตัวแปรสุ่มไม่ต่อเนื่องที่มีค่าอยู่ในเซต $\\{1, 2, 3, \\dots, 10\\}$ สมมติว่า $P(X = k+1) = 2 \\cdot P(X = k)$ สำหรับแต่ละ $k \\in \\{1, 2, 3, \\dots, 9\\}$ จงหาค่าของ $\\dfrac{1}{P(X=6) - P(X=1)}$",
+    "image": null,
+    "choices": null,
+    "answer": "33"
+  },
+  {
+    "id": "tms-tmsmath-2568-10",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "probability"
+    ],
+    "year": 2568,
+    "number": 10,
+    "type": "written",
+    "question": "บริษัทของเล่นแห่งหนึ่งเปิดขายกล่องสุ่มที่ประกอบด้วยตุ๊กตา 4 ชนิด ได้แก่ $A$, $A'$, $B$ และ $B'$ โดยเมื่อซื้อกล่องสุ่ม 1 กล่อง จะได้ตุ๊กตา 2 ตัว ตัวหนึ่งจะเป็นชนิด $A$ หรือ $A'$ และอีกตัวจะเป็นชนิด $B$ หรือ $B'$ โดยที่ $A'$ และ $B'$ จะไม่อยู่ในกล่องสุ่มเดียวกัน\nสมมติว่าบริษัทผลิตตุ๊กตา $A$ และ $B$ อย่างละ 500 ตัว ตุ๊กตา $A'$ และ $B'$ อย่างละ 100 ตัว และตุ๊กตาทั้งหมดที่ผลิตจะถูกบรรจุลงกล่องสุ่มตามเงื่อนไขข้างต้นทั้งหมดโดยไม่มีเศษเหลือ\nให้ $\\frac{a}{b}$ เป็นความน่าจะเป็นของการซื้อกล่องสุ่ม 2 กล่องแล้วได้ตุ๊กตาครบทั้ง 4 ชนิด โดยที่ $\\frac{a}{b}$ เป็นเศษส่วนอย่างต่ำ จงหาค่าของ $a + b$",
+    "image": null,
+    "choices": null,
+    "answer": "1897"
+  },
+  {
+    "id": "tms-tmsmath-2568-11",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "probability"
+    ],
+    "year": 2568,
+    "number": 11,
+    "type": "written",
+    "question": "เกม “สมาคม” มีผู้เล่นทั้งหมด $2000$ คน แต่ละคนได้รับลูกเต๋ารูปทรง 20 หน้าคนละ 1 ลูก โดยลูกเต๋าแต่ละลูกมีแต้ม $1, 2, 3, \\dots, 20$ ปรากฏอยู่แต้มละหนึ่งหน้า และสมมติว่าแต่ละแต้มมีโอกาสเกิดขึ้นเท่ากัน ขั้นตอนการเล่นเกมมีดังนี้\n1) ผู้เล่นแต่ละคนทอดลูกเต๋าของตัวเองจำนวน 1 ครั้ง ผู้เล่นที่ได้หน้าลูกเต๋าเป็นเลขสองหลักจะต้องออกจากเกมทันที\n2) ผู้เล่นที่ยังอยู่ในเกมทอดลูกเต๋าของตัวเองอีก 1 ครั้ง ผู้เล่นที่ได้หน้าลูกเต๋าเป็นเลขสองหลักจะต้องออกจากเกมทันที จากนั้นจะถือว่าจบเกม\nจงหาค่าคาดหมายของจำนวนผู้เล่นที่เหลืออยู่หลังจากจบเกม",
+    "image": null,
+    "choices": null,
+    "answer": "405"
+  },
+  {
+    "id": "tms-tmsmath-2568-12",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "sequence"
+    ],
+    "year": 2568,
+    "number": 12,
+    "type": "written",
+    "question": "ให้ $a_1, a_2, a_3, \\dots, a_n, \\dots$ เป็นลำดับเรขาคณิตที่สอดคล้องกับเงื่อนไข $\\sum_{n=1}^{\\infty} a_n = 2$ และ $\\sum_{n=1}^{\\infty} a_n^3 = 4$ จงหาผลรวมของค่าที่เป็นไปได้ทั้งหมดของผลคูณ $(a_1 + 2)(a_1 + 4)$",
+    "image": null,
+    "choices": null,
+    "answer": "20"
+  },
+  {
+    "id": "tms-tmsmath-2568-13",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "statistics",
+      "counting"
+    ],
+    "year": 2568,
+    "number": 13,
+    "type": "written",
+    "question": "ข้อมูลชุดหนึ่งประกอบด้วยจำนวนเต็มบวกทั้งหมดที่สอดคล้องกับเงื่อนไขทั้งสามข้อต่อไปนี้\n• ไม่มีสองจำนวนใดมีค่าเท่ากัน\n• จำนวนหลักไม่เกิน 4 หลัก\n• เลขโดดในแต่ละหลัก (ในฐานสิบ) เป็น 3, 6 หรือ 9 เท่านั้น (เช่น 9, 33, 963 และ 9336)\nจงหาควอร์ไทล์ที่ 3 ของข้อมูลชุดนี้",
+    "image": null,
+    "choices": null,
+    "answer": "6987"
+  },
+  {
+    "id": "tms-tmsmath-2568-14",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "matrix"
+    ],
+    "year": 2568,
+    "number": 14,
+    "type": "written",
+    "question": "ให้ $a$ และ $b$ เป็นจำนวนจริงที่ทำให้ระบบสมการ $\\begin{cases} 2x + y + 3z = b \\\\ -2x + 2y - z = -b \\\\ 4x + 5y + az = 6 \\end{cases}$ มีคำตอบเป็นอนันต์ จงหาค่าของ $100a + b$",
+    "image": null,
+    "choices": null,
+    "answer": "803"
+  },
+  {
+    "id": "tms-tmsmath-2568-15",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "trigonometry"
+    ],
+    "year": 2568,
+    "number": 15,
+    "type": "written",
+    "question": "ถ้าค่าสูงสุดที่เป็นไปได้ของสมาชิกของเซต $\\{ \\theta \\in [0, 2\\pi] \\mid \\cos(7\\theta) = \\sin(2\\theta) \\}$ คือ $\\frac{a\\pi}{b}$ โดยที่ $\\frac{a}{b}$ เป็นเศษส่วนอย่างต่ำ จงหาค่าของ $100a + b$",
+    "image": null,
+    "choices": null,
+    "answer": "1910"
+  },
+  {
+    "id": "tms-tmsmath-2568-16",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "probability"
+    ],
+    "year": 2568,
+    "number": 16,
+    "type": "written",
+    "question": "เพรียงหินชนิดหนึ่งมีเพศเป็นเพศผู้หรือเพศเมียเท่านั้นและไม่สามารถเป็นทั้งสองเพศพร้อมกันได้ นอกจากนี้เพรียงหินแต่ละตัวสามารถเปลี่ยนเพศไปมาระหว่างเพศผู้และเพศเมียได้ เมื่อเพรียงหินชนิดนี้มีอายุ $t$ เดือน (นับตั้งแต่เวลาที่ฟักออกจากไข่) ความน่าจะเป็นที่เพรียงชนิดนี้จะมีเพศเป็นเพศเมียคือ $p(t) = \\frac{2^t - 1}{2^t + 1}$ “อายุเต็มวัย” ของเพรียงหินชนิดนี้หมายถึงอายุที่เพรียงหินมีโอกาสเป็นเพศผู้และเพศเมียเท่ากัน\nสมมติว่าในแต่ละปี เพรียงหินชนิดนี้ออกไข่เพียงครั้งเดียว โดยแต่ละตัวจะออกไข่เป็นจำนวนมาก และลูก ๆ ของเพรียงหินทั้งหมดนี้ฟักออกจากไข่ในเวลาเดียวกัน\nนักวิจัยสัตว์ทะเลชื่อฟิลิปได้ไปศึกษาลูก ๆ ของเพรียงหินชนิดนี้ในเวลาที่พวกมันโตเต็มวัยพอดี เขาได้กลับมาทำการศึกษาอีกครั้งหลังจากผ่านไป 2 เดือนเต็ม และพบว่ากลุ่มของเพรียงหินที่ฟิลิปเคยศึกษามีความน่าจะเป็นที่จะมีเพศเป็นเพศผู้เท่ากับ $\\frac{a}{b}$ โดยที่ $\\frac{a}{b}$ เป็นเศษส่วนอย่างต่ำ จงหาค่าของ $100a + b$",
+    "image": null,
+    "choices": null,
+    "answer": "213"
+  },
+  {
+    "id": "tms-tmsmath-2568-17",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "vector"
+    ],
+    "year": 2568,
+    "number": 17,
+    "type": "written",
+    "question": "ให้ $a$ เป็นจำนวนจริง พิจารณาจุด $A(0,0,a)$ , $B(1,5,3)$ , $C(1,2,0)$ และ $D(2,1,4)$ ในระบบพิกัดฉากสามมิติ สมมติว่าเส้นตรง $AB$ ตัดกับเส้นตรง $CD$ จงหาค่าของ $a^2$",
+    "image": null,
+    "choices": null,
+    "answer": "49"
+  },
+  {
+    "id": "tms-tmsmath-2568-18",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "polynomial"
+    ],
+    "year": 2568,
+    "number": 18,
+    "type": "written",
+    "question": "ให้ $P(x)$ เป็นพหุนามที่มีสัมประสิทธิ์เป็นจำนวนจริงและสอดคล้องกับสมการ $P(P(x) - P(0)) = x^2 P(x)$ สำหรับทุกจำนวนจริง $x$ จงหาผลรวมของค่าสัมบูรณ์ของค่าที่เป็นไปได้ทั้งหมดของ $P(10)$",
+    "image": null,
+    "choices": null,
+    "answer": "200"
+  },
+  {
+    "id": "tms-tmsmath-2568-19",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "function"
+    ],
+    "year": 2568,
+    "number": 19,
+    "type": "written",
+    "question": "ให้ $f: [0, \\infty) \\to \\mathbb{R}$ และ $g: \\mathbb{R} \\to \\mathbb{R}$ นิยามโดย $f(x) = \\sqrt{x}$ และ $g(x) = (x-3)(x+2)$ ตามลำดับ จงหาจำนวนเต็มที่เล็กที่สุดที่อยู่ในโดเมนของฟังก์ชัน $f \\circ (g \\circ (f \\circ (g \\circ f)))$",
+    "image": null,
+    "choices": null,
+    "answer": "20"
+  },
+  {
+    "id": "tms-tmsmath-2568-20",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "function",
+      "counting"
+    ],
+    "year": 2568,
+    "number": 20,
+    "type": "written",
+    "question": "ให้ $\\mathcal{F}$ เป็นเซตของฟังก์ชันหนึ่งต่อหนึ่งทั้งหมดจาก $\\{1, 2, 3, 4, 5\\}$ ไป $\\{1, 2, 3, 4, 5\\}$ สำหรับแต่ละ $f \\in \\mathcal{F}$ นิยาม $E(f) = \\sum_{i=1}^{5} 2^i \\delta_i(f)$ โดยที่ $\\delta_i(f) = \\begin{cases} 1 & \\text{เมื่อ } f(i) = i \\\\ 0 & \\text{เมื่อ } f(i) \\neq i \\end{cases}$ สมมติว่า $f_1, f_2, \\dots, f_n$ เป็นสมาชิกทั้งหมดที่แตกต่างกันของ $\\mathcal{F}$ จงหาค่าของ $\\sum_{k=1}^{n} E(f_k)$",
+    "image": null,
+    "choices": null,
+    "answer": "1488"
+  },
+  {
+    "id": "tms-tmsmath-2568-21",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "logarithm"
+    ],
+    "year": 2568,
+    "number": 21,
+    "type": "written",
+    "question": "ให้ $n$ เป็นจำนวนจริงบวกที่สอดคล้องกับสมการ $\\log_{5n}(4n) = \\log_{75}(24\\sqrt{5})$ จงหาค่าของ $n^3$",
+    "image": null,
+    "choices": null,
+    "answer": "45"
+  },
+  {
+    "id": "tms-tmsmath-2568-22",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "complex"
+    ],
+    "year": 2568,
+    "number": 22,
+    "type": "written",
+    "question": "ให้ $u$ เป็นผลบวกของจำนวนเชิงซ้อนทั้งหมดที่สอดคล้องกับเงื่อนไข $z^2 + iz|z+2| = |z| = 1$ จงหาค่าของ $\\left|u\\sqrt{3} + 4i\\right|^2$",
+    "image": null,
+    "choices": null,
+    "answer": "7"
+  },
+  {
+    "id": "tms-tmsmath-2568-23",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "conic"
+    ],
+    "year": 2568,
+    "number": 23,
+    "type": "written",
+    "question": "พิจารณาพาราโบลา $P$ ที่มีสมการเป็น $y = 2x^2$ ให้ $C_A$ เป็นวงกลมที่มีจุดศูนย์กลางอยู่ที่จุด $A\\left(0, \\frac{5}{4}\\right)$ และสัมผัสกับพาราโบลา $P$ ให้ $C_B$ เป็นวงกลมที่มีจุดศูนย์กลางอยู่ที่จุด $B(0, k)$ นอกจากนี้ วงกลม $C_B$ สัมผัสกับวงกลม $C_A$ และสัมผัสกับพาราโบลา $P$ ดังรูป ถ้า $k = \\frac{a}{b}$ เป็นเศษส่วนอย่างต่ำ จงหาค่าของ $100a + b$",
+    "image": "images/tms/tmsmath-2568-23.png",
+    "choices": null,
+    "answer": "1304"
+  },
+  {
+    "id": "tms-tmsmath-2568-24",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "trigonometry",
+      "function"
+    ],
+    "year": 2568,
+    "number": 24,
+    "type": "written",
+    "question": "จงหาค่าสูงสุดที่เป็นไปได้ของผลคูณ $xyz$ เมื่อ $x, y$ และ $z$ เป็นจำนวนจริงที่อยู่ในช่วงเปิด $(-9, 9)$ และสอดคล้องกับระบบสมการ $\\begin{cases} x + y + z = 0 \\\\ \\sin\\left(\\frac{\\pi x}{2}\\right) + \\sin\\left(\\frac{\\pi y}{2}\\right) + \\sin\\left(\\frac{\\pi z}{2}\\right) = 0 \\\\ \\sin\\left(\\frac{\\pi x}{3}\\right) + \\sin\\left(\\frac{\\pi y}{3}\\right) + \\sin\\left(\\frac{\\pi z}{3}\\right) = 0 \\end{cases}$",
+    "image": null,
+    "choices": null,
+    "answer": "96"
+  },
+  {
+    "id": "tms-tmsmath-2568-25",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "sequence"
+    ],
+    "year": 2568,
+    "number": 25,
+    "type": "written",
+    "question": "ให้ $a_0, a_1, a_2, \\dots, a_n, \\dots$ เป็นลำดับของจำนวนจริงที่นิยามโดย $a_0 = \\frac{1}{10}$ และ $a_n = \\sum_{k=0}^{n-1} a_k^3$ สำหรับแต่ละจำนวนเต็มบวก $n$ หากทราบว่า $\\lim_{n \\to \\infty} \\frac{1}{a_n} = 0$ แล้ว จงหาค่าของ $\\sum_{n=1}^{\\infty} \\frac{a_n}{1 + a_n^2}$",
+    "image": null,
+    "choices": null,
+    "answer": "1000"
+  },
+  {
+    "id": "tms-tmsmath-2568-26",
+    "source": "tms",
+    "subject": "tmsmath",
+    "topics": [
+      "polynomial",
+      "sequence"
+    ],
+    "year": 2568,
+    "number": 26,
+    "type": "written",
+    "question": "สำหรับพหุนาม $p(x)$ ที่มีสัมประสิทธิ์เป็นจำนวนจริงใด ๆ กำหนดสัญลักษณ์\n• $p^{(0)}(x) = p(x)$\n• $p^{(n)}(x) = \\frac{d}{dx}[p^{(n-1)}(x)]$ สำหรับแต่ละจำนวนเต็มบวก $n$\nให้ $P(x) = (x+2)(x^2+2^2)(x^3+2^3) \\dots (x^{100}+2^{100})$ นิยาม $Q(x) = \\sum_{n=0}^{\\infty} \\frac{P^{(2n)}(x)}{(2n)!}$\nจงหาจำนวนตัวประกอบบวกทั้งหมดของ $Q(1) - Q(-1)$",
+    "image": null,
+    "choices": null,
+    "answer": "5150"
+  }
+]
