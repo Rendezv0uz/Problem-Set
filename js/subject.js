@@ -50,28 +50,64 @@ function examRow(exam, test, sourceName) {
   document.getElementById('create-link').href = `create.html?s=${group.id}`;
   document.getElementById('practice-link').href = `online.html?s=${group.id}`;
 
+  // Which test type is picked: ?t=math2, or an old-style ?s=math2 link. null = all.
+  const params = new URLSearchParams(location.search);
+  const findTest = (id) => group.tests.find((t) => t.id === id) || null;
+  // ?s=physics is the whole subject even though its first test is also called "physics".
+  let activeTest = findTest(params.get('t')) || (param !== group.id ? findTest(param) : null);
+
   try {
     const [sources, examsPerTest] = await Promise.all([
       DataStore.getSources(),
       Promise.all(group.tests.map((t) => DataStore.getExams(t.id))),
     ]);
     const sourceName = (id) => sources.find((s) => s.id === id)?.name || id;
-    const showTitles = group.tests.length > 1;
 
-    const html = group.tests
-      .map((test, i) => {
-        const exams = examsPerTest[i];
-        const rows = exams.length
-          ? exams.map((exam) => examRow(exam, test, sourceName(exam.source))).join('')
-          : '<li class="empty-state"><p>ยังไม่มีข้อสอบฉบับเต็มสำหรับข้อสอบนี้</p></li>';
-        const title = showTitles
-          ? `<li class="exam-group-title"><h3>${escapeHtml(test.name)}</h3><span class="muted">${escapeHtml(test.description || '')}</span></li>`
-          : '';
-        return title + rows;
-      })
-      .join('');
-    list.innerHTML = html;
+    const render = () => {
+      renderTestTabs(group, activeTest);
+      const shown = activeTest ? [activeTest] : group.tests;
+      const showTitles = shown.length > 1;
+      list.innerHTML = shown
+        .map((test) => {
+          const exams = examsPerTest[group.tests.indexOf(test)];
+          const rows = exams.length
+            ? exams.map((exam) => examRow(exam, test, sourceName(exam.source))).join('')
+            : '<li class="empty-state"><p>ยังไม่มีข้อสอบฉบับเต็มสำหรับข้อสอบนี้</p></li>';
+          const title = showTitles
+            ? `<li class="exam-group-title"><h3>${escapeHtml(test.name)}</h3><span class="muted">${escapeHtml(test.description || '')}</span></li>`
+            : '';
+          return title + rows;
+        })
+        .join('');
+    };
+
+    // Switch test type without reloading the page; the link still works on its own.
+    document.getElementById('test-tabs').addEventListener('click', (event) => {
+      const link = event.target.closest('a[data-test]');
+      if (!link) return;
+      event.preventDefault();
+      activeTest = findTest(link.dataset.test);
+      history.replaceState(null, '', link.href);
+      render();
+    });
+
+    render();
   } catch (error) {
     showError(list, error.message);
   }
 })();
+
+function renderTestTabs(group, activeTest) {
+  const bar = document.getElementById('test-tabs');
+  bar.hidden = group.tests.length < 2;
+  if (bar.hidden) return;
+
+  const tab = (id, name) => {
+    const active = (activeTest?.id || '') === id;
+    const href = id ? `subject.html?s=${group.id}&t=${id}` : `subject.html?s=${group.id}`;
+    return `<a class="tab ${active ? 'is-active' : ''}" href="${href}" data-test="${id}" ${active ? 'aria-current="true"' : ''}>${escapeHtml(name)}</a>`;
+  };
+  bar.innerHTML = tab('', 'ทั้งหมด') + group.tests.map((t) => tab(t.id, t.name)).join('');
+  // With many tests the bar scrolls sideways; keep the picked one in view.
+  bar.querySelector('.is-active')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+}
