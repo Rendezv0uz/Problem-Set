@@ -1,14 +1,17 @@
 const SOLVED_KEY = 'problemweb.solved';
-const FILTER_KEY = 'problemweb.practice.';
+const STATE_KEY = 'problemweb.online';
 
 const setupView = document.getElementById('setup-view');
 const solveView = document.getElementById('solve-view');
 const stage = document.getElementById('practice-stage');
 const statsBar = document.getElementById('practice-stats');
 const els = {
+  subjects: document.getElementById('subject-group'),
+  topicsField: document.getElementById('topics-field'),
+  topicBlocks: document.getElementById('topic-blocks'),
+  sourceField: document.getElementById('source-field'),
   sources: document.getElementById('source-group'),
-  topics: document.getElementById('topic-group'),
-  topicAll: document.getElementById('topic-all'),
+  yearField: document.getElementById('year-field'),
   yearFrom: document.getElementById('year-from'),
   yearTo: document.getElementById('year-to'),
   hideSolved: document.getElementById('hide-solved'),
@@ -16,19 +19,21 @@ const els = {
   start: document.getElementById('start-btn'),
 };
 
-let subject = null;
+let subjects = [];
 let sources = [];
-let allProblems = [];
-let state = {};
+const loaded = new Map(); // subject id -> problems
+let state = { subjects: [], topics: [], excludedSources: [], yearFrom: null, yearTo: null, hideSolved: false };
 let solved = new Set();
 
 let queue = [];
 let current = null;
 let attempts = 0;
-let finished = false; // current problem solved or given up
+let finished = false;
 let showingSummary = false;
 let history = [];
 let streak = 0;
+
+const topicKey = (subjectId, topicId) => `${subjectId}:${topicId}`;
 
 function shuffle(list) {
   const copy = [...list];
@@ -66,131 +71,192 @@ function isWrittenCorrect(problem, input) {
   return [problem.answer, ...(problem.accept || [])].some((a) => normalize(a) === target);
 }
 
-/* ---------- step 1: choose topics ---------- */
+/* ---------- step 1: choose subjects and topics ---------- */
+
+function selectedProblems() {
+  return state.subjects.flatMap((id) => loaded.get(id) || []);
+}
 
 function availableYears() {
-  return [...new Set(allProblems.map((p) => p.year))].sort((a, b) => a - b);
+  return [...new Set(selectedProblems().map((p) => p.year))].sort((a, b) => a - b);
 }
 
 function availableSources() {
-  const ids = new Set(allProblems.map((p) => p.source));
+  const ids = new Set(selectedProblems().map((p) => p.source));
   return sources.filter((s) => ids.has(s.id));
 }
 
-function defaultState() {
+function yearRange() {
   const years = availableYears();
+  if (!years.length) return { from: -Infinity, to: Infinity };
   return {
-    sources: availableSources().map((s) => s.id),
-    topics: subject.topics.map((t) => t.id),
-    yearFrom: years[0],
-    yearTo: years[years.length - 1],
-    hideSolved: false,
+    from: years.includes(state.yearFrom) ? state.yearFrom : years[0],
+    to: years.includes(state.yearTo) ? state.yearTo : years[years.length - 1],
   };
 }
 
-function loadState() {
-  const base = defaultState();
-  const saved = Store.get('localStorage', FILTER_KEY + subject.id);
-  if (!saved) return base;
-  const years = availableYears();
-  const validSources = availableSources().map((s) => s.id);
-  const validTopics = subject.topics.map((t) => t.id);
-  return {
-    sources: Array.isArray(saved.sources) ? saved.sources.filter((s) => validSources.includes(s)) : base.sources,
-    topics: Array.isArray(saved.topics) ? saved.topics.filter((t) => validTopics.includes(t)) : base.topics,
-    yearFrom: years.includes(saved.yearFrom) ? saved.yearFrom : base.yearFrom,
-    yearTo: years.includes(saved.yearTo) ? saved.yearTo : base.yearTo,
-    hideSolved: Boolean(saved.hideSolved),
-  };
+function inScope() {
+  const { from, to } = yearRange();
+  return selectedProblems().filter(
+    (p) => !state.excludedSources.includes(p.source) && p.year >= from && p.year <= to
+  );
+}
+
+function pool() {
+  return inScope().filter(
+    (p) =>
+      p.topics.some((t) => state.topics.includes(topicKey(p.subject, t))) &&
+      !(state.hideSolved && solved.has(p.id))
+  );
 }
 
 function saveState() {
-  Store.set('localStorage', FILTER_KEY + subject.id, state);
+  Store.set('localStorage', STATE_KEY, state);
 }
 
 function saveSolved() {
   Store.set('localStorage', SOLVED_KEY, [...solved]);
 }
 
-function pool() {
-  return allProblems.filter(
-    (p) =>
-      state.sources.includes(p.source) &&
-      p.topics.some((t) => state.topics.includes(t)) &&
-      p.year >= state.yearFrom &&
-      p.year <= state.yearTo &&
-      !(state.hideSolved && solved.has(p.id))
-  );
-}
-
 function chip(name, value, label, checked, count) {
   return `
     <label class="chip ${count === 0 ? 'is-empty' : ''}">
-      <input type="checkbox" name="${name}" value="${value}" ${checked ? 'checked' : ''}>
+      <input type="checkbox" name="${name}" value="${escapeHtml(value)}" ${checked ? 'checked' : ''}>
       <span>${escapeHtml(label)}${count === undefined ? '' : `<small>${count}</small>`}</span>
     </label>`;
 }
 
-function renderFilters() {
-  els.sources.innerHTML = availableSources()
-    .map((s) => chip('source', s.id, s.name, state.sources.includes(s.id)))
+function renderSubjects() {
+  els.subjects.innerHTML = subjects
+    .map((s) => chip('subject', s.id, s.name, state.subjects.includes(s.id), loaded.has(s.id) ? loaded.get(s.id).length : undefined))
     .join('');
-
-  const years = availableYears();
-  const options = (selected) => years.map((y) => `<option value="${y}" ${y === selected ? 'selected' : ''}>${y}</option>`).join('');
-  els.yearFrom.innerHTML = options(state.yearFrom);
-  els.yearTo.innerHTML = options(state.yearTo);
-
-  els.hideSolved.checked = state.hideSolved;
-  renderTopics();
-  renderMatchCount();
 }
 
 function renderTopics() {
-  const inScope = allProblems.filter(
-    (p) => state.sources.includes(p.source) && p.year >= state.yearFrom && p.year <= state.yearTo
-  );
-  els.topics.innerHTML = subject.topics
-    .map((t) => chip('topic', t.id, t.name, state.topics.includes(t.id), inScope.filter((p) => p.topics.includes(t.id)).length))
+  const hasSubjects = state.subjects.length > 0;
+  els.topicsField.hidden = !hasSubjects;
+  els.sourceField.hidden = !hasSubjects;
+  els.yearField.hidden = !hasSubjects;
+  if (!hasSubjects) return;
+
+  const scope = inScope();
+  els.topicBlocks.innerHTML = subjects
+    .filter((s) => state.subjects.includes(s.id))
+    .map((s) => {
+      const keys = s.topics.map((t) => topicKey(s.id, t.id));
+      const allChecked = keys.every((k) => state.topics.includes(k));
+      const chips = s.topics
+        .map((t) => {
+          const count = scope.filter((p) => p.subject === s.id && p.topics.includes(t.id)).length;
+          return chip('topic', topicKey(s.id, t.id), t.name, state.topics.includes(topicKey(s.id, t.id)), count);
+        })
+        .join('');
+      return `
+        <div class="topic-block">
+          <div class="field-label-row">
+            <strong class="topic-block-title">${escapeHtml(s.name)}</strong>
+            <button type="button" class="link-btn" data-toggle-subject="${s.id}">${allChecked ? 'ล้างทั้งหมด' : 'เลือกทั้งหมด'}</button>
+          </div>
+          <div class="chip-group">${chips}</div>
+        </div>`;
+    })
     .join('');
-  const allChecked = subject.topics.every((t) => state.topics.includes(t.id));
-  els.topicAll.textContent = allChecked ? 'ล้างทั้งหมด' : 'เลือกทั้งหมด';
+}
+
+function renderSources() {
+  els.sources.innerHTML = availableSources()
+    .map((s) => chip('source', s.id, s.name, !state.excludedSources.includes(s.id)))
+    .join('');
+}
+
+function renderYears() {
+  const years = availableYears();
+  const { from, to } = yearRange();
+  const options = (selected) => years.map((y) => `<option value="${y}" ${y === selected ? 'selected' : ''}>${y}</option>`).join('');
+  els.yearFrom.innerHTML = options(from);
+  els.yearTo.innerHTML = options(to);
 }
 
 function renderMatchCount() {
   const n = pool().length;
-  if (!state.sources.length) els.count.textContent = 'เลือกแหล่งข้อสอบอย่างน้อย 1 แหล่ง';
-  else if (!state.topics.length) els.count.textContent = 'เลือกหัวข้ออย่างน้อย 1 หัวข้อ';
+  if (!state.subjects.length) els.count.textContent = 'เลือกวิชาอย่างน้อย 1 วิชา';
+  else if (!state.topics.some((k) => state.subjects.includes(k.split(':')[0]))) els.count.textContent = 'เลือกหัวข้ออย่างน้อย 1 หัวข้อ';
   else els.count.textContent = `มี ${n} ข้อที่ตรงเงื่อนไข`;
   els.start.disabled = n === 0;
+}
+
+function renderAll() {
+  renderSubjects();
+  renderTopics();
+  renderSources();
+  renderYears();
+  els.hideSolved.checked = state.hideSolved;
+  renderMatchCount();
 }
 
 function checkedValues(container) {
   return [...container.querySelectorAll('input:checked')].map((input) => input.value);
 }
 
-function onFilterChange() {
-  state.sources = checkedValues(els.sources);
-  state.topics = checkedValues(els.topics);
-  state.yearFrom = Number(els.yearFrom.value);
-  state.yearTo = Number(els.yearTo.value);
-  if (state.yearFrom > state.yearTo) {
-    if (document.activeElement === els.yearFrom) state.yearTo = state.yearFrom;
-    else state.yearFrom = state.yearTo;
-    els.yearFrom.value = state.yearFrom;
-    els.yearTo.value = state.yearTo;
+async function ensureLoaded(ids) {
+  await Promise.all(
+    ids
+      .filter((id) => !loaded.has(id))
+      .map(async (id) => {
+        loaded.set(id, await DataStore.getProblems(id));
+      })
+  );
+}
+
+async function onSubjectChange() {
+  const next = subjects.map((s) => s.id).filter((id) => checkedValues(els.subjects).includes(id));
+  const added = next.filter((id) => !state.subjects.includes(id));
+  const removed = state.subjects.filter((id) => !next.includes(id));
+
+  els.count.textContent = 'กำลังโหลด…';
+  els.start.disabled = true;
+  try {
+    await ensureLoaded(added);
+  } catch (error) {
+    renderAll();
+    els.count.textContent = error.message;
+    return;
   }
+
+  state.subjects = next;
+  state.topics = state.topics.filter((k) => !removed.includes(k.split(':')[0]));
+  added.forEach((id) => {
+    const subject = subjects.find((s) => s.id === id);
+    subject.topics.forEach((t) => state.topics.push(topicKey(id, t.id)));
+  });
+  saveState();
+  renderAll();
+}
+
+function onFilterChange() {
+  state.topics = checkedValues(els.topicBlocks);
+  state.excludedSources = availableSources()
+    .map((s) => s.id)
+    .filter((id) => !checkedValues(els.sources).includes(id));
+
+  let from = Number(els.yearFrom.value);
+  let to = Number(els.yearTo.value);
+  if (from > to) {
+    if (document.activeElement === els.yearFrom) to = from;
+    else from = to;
+  }
+  state.yearFrom = from;
+  state.yearTo = to;
   state.hideSolved = els.hideSolved.checked;
   saveState();
-  renderTopics();
-  renderMatchCount();
+  renderAll();
 }
 
 function showSetup() {
   current = null;
   solveView.hidden = true;
   setupView.hidden = false;
-  renderFilters();
+  renderAll();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -231,7 +297,7 @@ function nextQuestion() {
     current = null;
     stage.innerHTML = `
       <div class="empty-state">
-        <p><strong>ทำครบทุกข้อในหัวข้อที่เลือกแล้ว (${total} ข้อ)</strong></p>
+        <p><strong>ทำครบทุกข้อที่เลือกแล้ว (${total} ข้อ)</strong></p>
         <p class="muted">เปลี่ยนหัวข้อเพื่อฝึกเรื่องอื่น หรือสุ่มวนทำใหม่อีกรอบ</p>
         <div class="result-actions">
           <button type="button" class="btn btn-primary" id="again-btn">${icon('shuffle', 'icon-sm')} สุ่มวนใหม่</button>
@@ -276,18 +342,22 @@ function writtenHtml() {
     </label>`;
 }
 
+function originLabel(problem) {
+  return `ข้อ ${problem.number} · ${sourceName(problem.source)} ${problem.year}`;
+}
+
 function renderQuestion() {
   const problem = current;
   attempts = 0;
   finished = false;
   const isChoice = Array.isArray(problem.choices);
 
-  // Only the source is shown: no year, question number or topic.
+  // Before the question is finished only the test name is shown.
   stage.innerHTML = `
     <article class="practice-card">
       <div class="q-head">
         <span class="q-no">ข้อที่ ${history.length + 1}</span>
-        <span class="q-src">${escapeHtml(sourceName(problem.source))}</span>
+        <span class="q-src" id="q-src">${escapeHtml(sourceName(problem.source))}</span>
       </div>
       <div class="q-text practice-question">${richText(problem.question)}</div>
       ${problem.image ? `<figure class="q-figure"><img src="${problem.image}" alt="ภาพประกอบโจทย์"></figure>` : ''}
@@ -331,7 +401,7 @@ function submitAnswer() {
     if (!selected) return;
     correct = selected.value === String(problem.answer);
     if (!correct) {
-      // Wrong choice is crossed out so another one can be tried. The right one is NOT revealed.
+      // The wrong choice is crossed out; the right one is not revealed.
       selected.checked = false;
       selected.disabled = true;
       selected.closest('.option').classList.add('is-wrong');
@@ -350,9 +420,9 @@ function submitAnswer() {
   }
 
   attempts += 1;
-  const feedback = document.getElementById('feedback');
 
   if (!correct) {
+    const feedback = document.getElementById('feedback');
     feedback.className = 'feedback is-wrong';
     feedback.innerHTML = `
       <p class="feedback-title">${icon('close', 'icon-sm')} ยังไม่ถูก</p>
@@ -376,19 +446,22 @@ function finish(correct) {
     saveSolved();
   }
 
+  // Now that the question is finished, reveal problem number, test and year (in that order).
+  document.getElementById('q-src').textContent = originLabel(problem);
+
   stage.querySelectorAll('input').forEach((input) => {
     input.disabled = true;
   });
   const input = document.getElementById('written-input');
-  if (input) input.classList.toggle('is-wrong', false);
-
+  if (input) {
+    input.classList.remove('is-wrong');
+    if (correct) input.classList.add('is-correct');
+  }
   if (isChoice) {
     stage.querySelectorAll('.option').forEach((option) => {
       option.classList.remove('is-wrong');
       if (option.querySelector('input').value === String(problem.answer)) option.classList.add('is-correct');
     });
-  } else if (input) {
-    input.classList.toggle('is-correct', correct);
   }
 
   const answerLabel = isChoice
@@ -429,8 +502,8 @@ function renderSummary() {
       <li class="review-row ${h.correct ? 'is-correct' : 'is-wrong'}">
         <span class="review-mark">${icon(h.correct ? 'check' : 'close', 'icon-sm')}</span>
         <span class="review-text">
-          <strong>ข้อที่ ${i + 1}</strong>
-          <span class="muted">${escapeHtml(sourceName(h.problem.source))} · ${h.gaveUp ? 'ยอมแพ้' : h.attempts === 1 ? 'ถูกในครั้งแรก' : `ถูกในครั้งที่ ${h.attempts}`}</span>
+          <strong>ข้อที่ ${i + 1} · ${escapeHtml(originLabel(h.problem))}</strong>
+          <span class="muted">${h.gaveUp ? 'ยอมแพ้' : h.attempts === 1 ? 'ถูกในครั้งแรก' : `ถูกในครั้งที่ ${h.attempts}`}</span>
         </span>
       </li>`
     )
@@ -444,7 +517,7 @@ function renderSummary() {
       <div class="result-actions">
         <button type="button" class="btn btn-primary" id="continue-btn">ทำต่อ</button>
         <button type="button" class="btn btn-soft" id="reset-btn">เริ่มนับใหม่</button>
-        <a class="btn btn-ghost-dark" href="create.html?s=${subject.id}">สร้างชุดข้อสอบ PDF</a>
+        <a class="btn btn-ghost-dark" href="create.html">สร้างชุดข้อสอบ PDF</a>
       </div>
     </article>`;
   document.getElementById('continue-btn').addEventListener('click', () => {
@@ -477,52 +550,67 @@ document.addEventListener('keydown', (event) => {
 });
 
 function bindFilters() {
+  els.subjects.addEventListener('change', onSubjectChange);
+  els.topicBlocks.addEventListener('change', onFilterChange);
   els.sources.addEventListener('change', onFilterChange);
-  els.topics.addEventListener('change', onFilterChange);
   els.yearFrom.addEventListener('change', onFilterChange);
   els.yearTo.addEventListener('change', onFilterChange);
   els.hideSolved.addEventListener('change', onFilterChange);
   els.start.addEventListener('click', startPractice);
-  els.topicAll.addEventListener('click', () => {
-    const allChecked = subject.topics.every((t) => state.topics.includes(t.id));
-    els.topics.querySelectorAll('input').forEach((input) => {
-      input.checked = !allChecked;
-    });
-    onFilterChange();
+  els.topicBlocks.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-toggle-subject]');
+    if (!button) return;
+    const id = button.dataset.toggleSubject;
+    const subject = subjects.find((s) => s.id === id);
+    const keys = subject.topics.map((t) => topicKey(id, t.id));
+    const allChecked = keys.every((k) => state.topics.includes(k));
+    state.topics = state.topics.filter((k) => !keys.includes(k));
+    if (!allChecked) state.topics.push(...keys);
+    saveState();
+    renderAll();
   });
 }
 
-(async () => {
-  const subjects = await Layout.init('subject');
-  const id = new URLSearchParams(location.search).get('s');
-  subject = subjects.find((s) => s.id === id);
+function restoreState() {
+  const saved = Store.get('localStorage', STATE_KEY);
+  const params = new URLSearchParams(location.search);
+  const preselect = subjects.find((s) => s.id === params.get('s'));
+  const validIds = subjects.map((s) => s.id);
+  const validKeys = new Set(subjects.flatMap((s) => s.topics.map((t) => topicKey(s.id, t.id))));
 
-  if (!subject) {
-    setupView.innerHTML = '<div class="empty-state"><p>ไม่พบวิชาที่เลือก</p><a class="btn btn-soft" href="index.html">กลับหน้าแรก</a></div>';
+  if (preselect) {
+    state.subjects = [preselect.id];
+    state.topics = preselect.topics.map((t) => topicKey(preselect.id, t.id));
+  } else if (saved) {
+    state.subjects = Array.isArray(saved.subjects) ? saved.subjects.filter((id) => validIds.includes(id)) : [];
+    state.topics = Array.isArray(saved.topics) ? saved.topics.filter((k) => validKeys.has(k) && state.subjects.includes(k.split(':')[0])) : [];
+  }
+  if (saved) {
+    state.excludedSources = Array.isArray(saved.excludedSources) ? saved.excludedSources : [];
+    state.yearFrom = Number.isFinite(saved.yearFrom) ? saved.yearFrom : null;
+    state.yearTo = Number.isFinite(saved.yearTo) ? saved.yearTo : null;
+    state.hideSolved = Boolean(saved.hideSolved);
+  }
+}
+
+(async () => {
+  subjects = await Layout.init('online');
+  if (!subjects.length) {
+    setupView.innerHTML = '<div class="empty-state"><p>โหลดรายชื่อวิชาไม่สำเร็จ</p></div>';
     return;
   }
 
-  document.title = `ฝึกทำ ${subject.name} | คลังข้อสอบ`;
-  document.getElementById('practice-title').textContent = `ฝึกทำข้อสอบ ${subject.name}`;
-  const crumb = document.getElementById('crumb-subject');
-  crumb.textContent = subject.name;
-  crumb.href = `subject.html?s=${subject.id}`;
-
   try {
-    [allProblems, sources] = await Promise.all([DataStore.getProblems(subject.id), DataStore.getSources()]);
+    sources = await DataStore.getSources();
+    restoreState();
+    await ensureLoaded(state.subjects);
   } catch (error) {
     setupView.innerHTML = '';
     showError(setupView, error.message);
     return;
   }
 
-  if (!allProblems.length) {
-    setupView.innerHTML = '<div class="empty-state"><p>ยังไม่มีข้อสอบให้ฝึกในวิชานี้</p></div>';
-    return;
-  }
-
   solved = new Set(Store.get('localStorage', SOLVED_KEY) || []);
-  state = loadState();
-  renderFilters();
+  renderAll();
   bindFilters();
 })();

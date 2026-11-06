@@ -47,7 +47,7 @@ function examRow(exam, subject, sourceName) {
   document.getElementById('crumb-name').textContent = subject.name;
   document.getElementById('subject-icon').innerHTML = icon(subject.icon);
   document.getElementById('create-link').href = `create.html?s=${subject.id}`;
-  document.getElementById('practice-link').href = `practice.html?s=${subject.id}`;
+  document.getElementById('practice-link').href = `online.html?s=${subject.id}`;
 
   try {
     const [exams, sources] = await Promise.all([DataStore.getExams(subject.id), DataStore.getSources()]);

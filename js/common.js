@@ -74,6 +74,7 @@ const Layout = (() => {
   const NAV = [
     { id: 'home', href: 'index.html', label: 'หน้าแรก' },
     { id: 'subject', label: 'วิชา', dropdown: true },
+    { id: 'online', href: 'online.html', label: 'ฝึกทำออนไลน์' },
     { id: 'create', href: 'create.html', label: 'สร้างชุดข้อสอบ' },
     { id: 'about', href: 'about.html', label: 'เกี่ยวกับเรา' },
   ];
@@ -119,6 +120,7 @@ const Layout = (() => {
         </div>
         <nav class="footer-links" aria-label="ลิงก์ท้ายเว็บ">
           <a href="index.html">หน้าแรก</a>
+          <a href="online.html">ฝึกทำออนไลน์</a>
           <a href="create.html">สร้างชุดข้อสอบ</a>
           <a href="about.html">เกี่ยวกับเรา</a>
         </nav>

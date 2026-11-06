@@ -1466,6 +1466,26 @@ body.is-exporting {
   margin: 0;
 }
 
+.topic-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.topic-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm, 12px);
+  background: var(--violet-50);
+}
+
+.topic-block-title {
+  color: var(--plum-800);
+}
+
 .stats-actions {
   display: flex;
   gap: 8px;

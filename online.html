@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ฝึกทำโจทย์ออนไลน์ | คลังข้อสอบ</title>
+  <meta name="description" content="เลือกวิชาและหัวข้อได้หลายอย่างพร้อมกัน แล้วฝึกทำโจทย์ออนไลน์ไม่จำกัดข้อ ตอบผิดลองใหม่ได้เรื่อย ๆ">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <section class="page-hero page-hero-compact">
+      <div class="container">
+        <nav class="crumbs" aria-label="เส้นทาง">
+          <a href="index.html">หน้าแรก</a>
+          <span aria-hidden="true">/</span>
+          <span>ฝึกทำโจทย์ออนไลน์</span>
+        </nav>
+        <h1>ฝึกทำโจทย์ออนไลน์</h1>
+        <p class="lead">เลือกวิชาและหัวข้อได้หลายอย่างพร้อมกัน แล้วทำโจทย์ได้ไม่จำกัดข้อ ตอบผิดก็ลองใหม่ได้เรื่อย ๆ</p>
+      </div>
+    </section>
+
+    <section class="section container" id="setup-view">
+      <form class="builder-panel practice-setup" id="filter-form" onsubmit="return false">
+        <h2 class="setup-title">เลือกสิ่งที่อยากฝึก</h2>
+
+        <div class="field">
+          <span class="field-label">วิชา <span class="muted">(เลือกได้หลายวิชา)</span></span>
+          <div class="chip-group" id="subject-group"></div>
+        </div>
+
+        <div class="field" id="topics-field" hidden>
+          <span class="field-label">หัวข้อ</span>
+          <div class="topic-blocks" id="topic-blocks"></div>
+        </div>
+
+        <div class="field" id="source-field" hidden>
+          <span class="field-label">แหล่งข้อสอบ</span>
+          <div class="chip-group" id="source-group"></div>
+        </div>
+
+        <div class="field" id="year-field" hidden>
+          <span class="field-label">ช่วงปี</span>
+          <div class="range-row">
+            <select id="year-from" aria-label="ตั้งแต่ปี"></select>
+            <span>ถึง</span>
+            <select id="year-to" aria-label="ถึงปี"></select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="switch">
+            <input type="checkbox" id="hide-solved">
+            <span class="switch-ui" aria-hidden="true"></span>
+            <span>ซ่อนข้อที่ทำถูกแล้ว</span>
+          </label>
+        </div>
+
+        <div class="setup-footer">
+          <p class="muted" id="match-count" aria-live="polite">กำลังโหลด…</p>
+          <button type="button" class="btn btn-primary" id="start-btn" disabled>เริ่มทำโจทย์</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="section container" id="solve-view" hidden>
+      <div class="practice-shell">
+        <div class="practice-stats" id="practice-stats" aria-live="polite"></div>
+        <div id="practice-stage">
+          <div class="skeleton-card practice-skeleton"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+  <script defer src="js/data.js"></script>
+  <script defer src="js/common.js"></script>
+  <script defer src="js/online.js"></script>
+</body>
+</html>
